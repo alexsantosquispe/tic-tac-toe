@@ -1,7 +1,7 @@
 import { Square } from "./Square";
 
 export const Board = () => {
-  const squares = ["X", "O", "X", "O", "", "O", "X", "O", "X"];
+  const squares = ["X", "O", "X", "", "", "O", "", "", ""];
 
   return (
     <div className="rounded-2xl border border-neutral-200 bg-neutral-100 shadow-lg w-96 h-96 p-3 flex">
