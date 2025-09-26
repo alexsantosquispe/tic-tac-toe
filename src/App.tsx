@@ -8,7 +8,7 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex flex-1">
-          <section className="flex justify-center items-center w-full flex-col gap-10">
+          <section className="flex justify-center items-center w-full flex-col gap-10 px-4">
             <h1 className="text-2xl font-bold text-center">
               Lets play a classic game!
               <br />

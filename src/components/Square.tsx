@@ -9,8 +9,8 @@ interface SquareProps {
 }
 
 const SQUARE_ICONS: { [key: string]: ReactNode } = {
-  X: <XIcon className="size-24 text-rose-600" />,
-  O: <CircleIcon className="size-20 text-slate-600" />
+  X: <XIcon className="size-20 md:size-28 text-rose-600" />,
+  O: <CircleIcon className="size-16 md:size-20 text-slate-600" />
 };
 
 export const Square = ({ value }: SquareProps) => {
