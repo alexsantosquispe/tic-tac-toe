@@ -3,9 +3,10 @@ import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { CircleIcon } from '../icons/CircleIcon';
 import { XIcon } from '../icons/XIcon';
+import type { SquareValueTypes } from '../types';
 
 interface SquareProps {
-  value: string;
+  value: SquareValueTypes;
 }
 
 const SQUARE_ICONS: { [key: string]: ReactNode } = {
