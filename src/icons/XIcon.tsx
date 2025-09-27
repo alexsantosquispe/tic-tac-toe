@@ -1,5 +1,5 @@
-import type { SvgIconProps } from "../types";
-import { twMerge } from "tailwind-merge";
+import type { SvgIconProps } from '../types';
+import { twMerge } from 'tailwind-merge';
 
 export const XIcon = ({ className }: SvgIconProps) => {
   return (
@@ -13,7 +13,7 @@ export const XIcon = ({ className }: SvgIconProps) => {
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={twMerge("size-6", className)}
+      className={twMerge('size-6', className)}
     >
       <path d="M18 6 6 18" />
       <path d="m6 6 12 12" />

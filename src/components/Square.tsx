@@ -1,16 +1,17 @@
-import { CircleIcon } from "../icons/CircleIcon";
-import type { ReactNode } from "react";
-import { XIcon } from "../icons/XIcon";
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
+import clsx from 'clsx';
+import type { ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
+import { CircleIcon } from '../icons/CircleIcon';
+import { XIcon } from '../icons/XIcon';
+import type { SquareValueTypes } from '../types';
 
 interface SquareProps {
-  value: string;
+  value: SquareValueTypes;
 }
 
 const SQUARE_ICONS: { [key: string]: ReactNode } = {
-  X: <XIcon className="size-20 md:size-28 text-rose-600" />,
-  O: <CircleIcon className="size-16 md:size-20 text-slate-600" />
+  X: <XIcon className="size-20 text-rose-600 md:size-28" />,
+  O: <CircleIcon className="size-16 text-slate-600 md:size-20" />
 };
 
 export const Square = ({ value }: SquareProps) => {
@@ -19,8 +20,8 @@ export const Square = ({ value }: SquareProps) => {
   return (
     <button
       className={twMerge(
-        "flex w-1/3 h-1/3 p-1 border border-dashed border-neutral-200 items-center justify-center",
-        clsx({ "hover:cursor-pointer": !value })
+        'flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1',
+        clsx({ 'hover:cursor-pointer': !value })
       )}
     >
       {icon}
