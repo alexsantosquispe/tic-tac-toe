@@ -7,6 +7,9 @@ import type { SquareValueTypes } from '../types';
 
 interface SquareProps {
   value: SquareValueTypes;
+  onClickItem: () => void;
+  highLight?: boolean;
+  isDisabled?: boolean;
 }
 
 const SQUARE_ICONS: { [key: string]: ReactNode } = {
@@ -14,14 +17,26 @@ const SQUARE_ICONS: { [key: string]: ReactNode } = {
   O: <CircleIcon className="size-16 text-slate-600 md:size-20" />
 };
 
-export const Square = ({ value }: SquareProps) => {
+export const Square = ({
+  value,
+  onClickItem,
+  highLight = false,
+  isDisabled = false
+}: SquareProps) => {
   const icon = value ? SQUARE_ICONS[value] : null;
+  const disabled = !!value || isDisabled;
 
   return (
     <button
+      onClick={onClickItem}
+      disabled={disabled}
       className={twMerge(
         'flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1',
-        clsx({ 'hover:cursor-pointer': !value })
+        clsx({
+          'hover:cursor-pointer': !value,
+          'hover:cursor-not-allowed': disabled,
+          'bg-rose-50': highLight
+        })
       )}
     >
       {icon}
