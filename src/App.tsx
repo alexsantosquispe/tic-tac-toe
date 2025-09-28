@@ -1,8 +1,11 @@
 import { Board } from './components/Board';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
+import { ResetButton } from './components/ResetButton';
+import useGame from './hooks/useGame';
 
 function App() {
+  const { winner, resetGame } = useGame();
   return (
     <>
       <div className="flex min-h-screen flex-col">
@@ -16,7 +19,13 @@ function App() {
                 TIC <span className="text-rose-600">TAC</span> TOE
               </span>
             </h1>
-            <Board />
+            <div className="flex flex-col items-center justify-between gap-8">
+              {winner && (
+                <p className="text-3xl font-bold">{`"${winner}"`} wins!!</p>
+              )}
+              <Board />
+              {winner && <ResetButton onClick={resetGame} />}
+            </div>
           </section>
         </main>
         <Footer />

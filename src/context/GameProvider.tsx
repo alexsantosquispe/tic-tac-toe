@@ -38,7 +38,12 @@ const GameProvider = ({ children }: GameProviderProps) => {
     });
   };
 
-  console.log(combHighLight);
+  const resetGame = () => {
+    setData(DEFAULT_DATA);
+    setWinner(null);
+    setCombHighLight([]);
+    setCurrentPlayer('X');
+  };
 
   return (
     <GameContext.Provider
@@ -48,7 +53,8 @@ const GameProvider = ({ children }: GameProviderProps) => {
         winner,
         combHighLight,
         checkSquare,
-        toggleCurrentPlayer
+        toggleCurrentPlayer,
+        resetGame
       }}
     >
       {children}
