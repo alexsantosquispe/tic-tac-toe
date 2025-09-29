@@ -24,7 +24,8 @@ const GameProvider = ({ children }: GameProviderProps) => {
     newData[index] = currentPlayer;
     setData(newData);
     const result = getWinnerResult(newData);
-    if (!result.winner) {
+    const draw = !result.winner && isDraw(newData);
+    if (!result.winner && !draw) {
       toggleCurrentPlayer();
     }
     setWinner(result.winner);
