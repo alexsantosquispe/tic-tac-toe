@@ -1,18 +1,17 @@
 # Tic-Tac-Toe
 
-A clean, modern implementation of the classic Tic-Tac-Toe game built with React, TypeScript, Vite, and Tailwind CSS. This project is set up with ESLint for code quality and pnpm for fast dependency management.
+A clean, modern implementation of the classic Tic-Tac-Toe game built with React.
 
 ## Overview
 
-This app renders a 3x3 game board with responsive, accessible UI components styled using Tailwind CSS. The current version displays a static board as a foundation for adding game logic (turns, win detection, draw state, and reset).
+Play a fully functional 3x3 Tic‑Tac‑Toe with a responsive, accessible UI. The game supports alternating turns, winner detection (with winning line highlight), draw detection, a reset button, and live status updates for screen readers.
 
 ## Features
 
-- **Responsive UI** using Tailwind CSS and utility composition (`clsx`, `tailwind-merge`).
-- **Modern React 19 + TypeScript** with strict typing.
-- **Vite** for lightning-fast dev server and builds.
-- **ESLint** configured for React, hooks, and TypeScript.
-- **pnpm** lockfile for deterministic installs.
+- **Turn-based play**: X starts, then O; only empty squares can be selected.
+- **Win detection**: Rows, columns, diagonals; winning squares are highlighted.
+- **Draw detection**: Disables the board and shows “Draw!” when no moves remain.
+- **Reset**: Start a new game at any time.
 
 ## Tech Stack
 
@@ -22,33 +21,6 @@ This app renders a 3x3 game board with responsive, accessible UI components styl
 - Tailwind CSS 4 with `@tailwindcss/vite` plugin
 - ESLint 9
 
-## Project Structure
-
-```
-.
-├─ public/
-├─ src/
-│  ├─ components/
-│  │  ├─ Board.tsx        # Renders a 3x3 grid of `Square` components
-│  │  ├─ Square.tsx       # Displays X/O icon or empty state
-│  │  ├─ Footer.tsx       # Site footer (imported in App)
-│  │  └─ Navbar.tsx       # Top navigation (imported in App)
-│  ├─ icons/
-│  │  ├─ CircleIcon.tsx   # O icon
-│  │  └─ XIcon.tsx        # X icon
-│  ├─ App.tsx             # App shell, composes Navbar, Board, Footer
-│  ├─ main.tsx            # React root, imports global styles
-│  ├─ index.css           # Global styles & Tailwind entry
-│  └─ types.ts            # Shared types (if any)
-├─ index.html             # Vite HTML entry (mounts #root)
-├─ vite.config.ts         # Vite config with React SWC plugin
-├─ eslint.config.js       # ESLint config
-├─ package.json           # Scripts and dependencies
-├─ pnpm-lock.yaml         # pnpm lockfile
-├─ tsconfig*.json         # TypeScript configs
-└─ README.md
-```
-
 ## Getting Started
 
 ### Prerequisites
@@ -56,7 +28,7 @@ This app renders a 3x3 game board with responsive, accessible UI components styl
 - Node.js 18+ (LTS recommended)
 - pnpm 8+ (preferred). You can also use npm or yarn.
 
-### Install
+### Installation
 
 Using pnpm (recommended):
 
@@ -98,12 +70,13 @@ pnpm preview
 pnpm lint
 ```
 
-## How It Works
+## Game Rules
 
-- `src/components/Board.tsx` renders a 3x3 grid using the `Square` component. Right now, it maps a hard-coded `squares` array to illustrate layout and styling.
-- `src/components/Square.tsx` chooses which icon to render based on `value` ("X" or "O"). It uses `clsx` and `tailwind-merge` to compose classes safely.
-- `src/App.tsx` composes the `Navbar`, `Board`, and `Footer` to form the page.
-- `src/main.tsx` mounts the app with React’s `StrictMode` and imports global styles from `src/index.css`.
+1. **Players**: X goes first, then O. Players alternate turns.
+2. **Making a move**: Click an empty square to place your mark.
+3. **Winning**: First to align three marks in a row, column, or diagonal wins. The winning line is highlighted.
+4. **Draw**: If all 9 squares are filled without a winner, the game ends in a draw.
+5. **End of game**: After a win or a draw, the board is disabled until you click Reset.
 
 ## Tailwind CSS Setup Notes
 
@@ -125,22 +98,12 @@ The following scripts are defined in `package.json`:
 
 ## Roadmap
 
-- Add click handling on `Square` to mark moves.
-- Alternate turns (X starts, then O).
-- Track and display game status (whose turn, winner, draw).
-- Win detection (rows, columns, diagonals).
-- Reset/new game button.
-- Persist recent game state (optional).
-- Simple AI for single-player mode (optional).
+- Optional tab order polish for keyboard users (skip disabled cells)
+- Scoreboard with persistence (X wins, O wins, Draws)
+- Undo/redo (time travel) with move history
+- CPU opponent mode (random; optional Minimax)
+- Unit tests for winner/draw logic
 
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit PRs to improve features, fix bugs, or enhance documentation.
-
-## License
-
-Add your preferred license here (e.g., MIT) and include a `LICENSE` file at the project root.
-
-## Acknowledgements
-
-- Built with [Vite](https://vitejs.dev/), [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/).
