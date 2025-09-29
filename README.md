@@ -29,6 +29,12 @@ Features include alternating turns, winner detection (with highlight), draw dete
 
 ---
 
+## Screenshots
+
+<div align="center">
+  <img src="./screenshots/tic-tac-toe.webp" alt="Tic-Tac-Toe" width="90%"/>
+</div>
+
 ## Features
 
 - **Turn-based play**: X starts, then O; only empty squares can be selected.

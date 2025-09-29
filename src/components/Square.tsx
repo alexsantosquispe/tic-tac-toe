@@ -27,7 +27,7 @@ const ICONS = {
 const COLORS = {
   X: 'text-rose-600',
   O: 'text-slate-600',
-  hover: 'text-neutral-200'
+  hover: 'text-neutral-200/60'
 } as const;
 
 const Square = ({
