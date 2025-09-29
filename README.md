@@ -2,9 +2,32 @@
 
 A clean, modern implementation of the classic Tic-Tac-Toe game built with React.
 
+<p align="center">
+  <a href="https://react.dev/">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  </a>
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  </a>
+  <a href="https://vite.dev/">
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  </a>
+  <a href="https://eslint.org/">
+    <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint" />
+  </a>
+</p>
+
+---
+
 ## Overview
 
-Play a fully functional 3x3 Tic‑Tac‑Toe with a responsive, accessible UI. The game supports alternating turns, winner detection (with winning line highlight), draw detection, a reset button, and live status updates for screen readers.
+Play a fully functional **3×3 Tic-Tac-Toe** with a responsive, accessible UI.  
+Features include alternating turns, winner detection (with highlight), draw detection, reset option, and live status updates for screen readers.
+
+---
 
 ## Features
 
@@ -12,14 +35,6 @@ Play a fully functional 3x3 Tic‑Tac‑Toe with a responsive, accessible UI. Th
 - **Win detection**: Rows, columns, diagonals; winning squares are highlighted.
 - **Draw detection**: Disables the board and shows “Draw!” when no moves remain.
 - **Reset**: Start a new game at any time.
-
-## Tech Stack
-
-- React 19, React DOM
-- TypeScript 5
-- Vite (rolldown-vite@7)
-- Tailwind CSS 4 with `@tailwindcss/vite` plugin
-- ESLint 9
 
 ## Getting Started
 
@@ -95,14 +110,6 @@ The following scripts are defined in `package.json`:
 - `build` — Type-check (`tsc -b`) and build for production
 - `preview` — Preview the production build locally
 - `lint` — Run ESLint on the project
-
-## Roadmap
-
-- Optional tab order polish for keyboard users (skip disabled cells)
-- Scoreboard with persistence (X wins, O wins, Draws)
-- Undo/redo (time travel) with move history
-- CPU opponent mode (random; optional Minimax)
-- Unit tests for winner/draw logic
 
 ## Contributing
 
