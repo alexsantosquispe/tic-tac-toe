@@ -33,11 +33,14 @@ const Square = ({
       className={twMerge(
         'flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1',
         clsx({
-          'hover:cursor-pointer': !disabled,
+          'hover:cursor-pointer hover:bg-neutral-50': !disabled,
           'hover:cursor-not-allowed': disabled,
           'bg-rose-50': highLight
         })
       )}
+      aria-disabled={disabled}
+      aria-label={value || 'Empty'}
+      type="button"
     >
       {icon}
     </button>

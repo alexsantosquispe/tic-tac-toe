@@ -7,7 +7,6 @@ export interface GameContextTypes {
   winner: SquareValueTypes | null;
   combHighLight: number[];
   checkSquare: (index: number) => void;
-  toggleCurrentPlayer: () => void;
   resetGame: () => void;
 }
 

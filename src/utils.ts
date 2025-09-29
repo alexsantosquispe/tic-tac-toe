@@ -8,10 +8,11 @@ export const getWinnerResult = (
   const winnerComb =
     WINNING_COMBINATIONS.find((combination) => {
       const [a, b, c] = combination;
-      if (!!data[a] && data[a] === data[b] && data[a] === data[c]) {
+      const isWinner = !!data[a] && data[a] === data[b] && data[a] === data[c];
+      if (isWinner) {
         winner = data[a];
-        return combination;
       }
+      return isWinner;
     }) || [];
   return { winner, combHighLight: winnerComb };
 };

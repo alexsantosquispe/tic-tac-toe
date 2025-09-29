@@ -32,7 +32,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
   };
 
   const resetGame = () => {
-    setData(DEFAULT_DATA);
+    setData([...DEFAULT_DATA]);
     setWinner(null);
     setCombHighLight([]);
     setCurrentPlayer('X');
@@ -46,7 +46,6 @@ const GameProvider = ({ children }: GameProviderProps) => {
         winner,
         combHighLight,
         checkSquare,
-        toggleCurrentPlayer,
         resetGame
       }}
     >

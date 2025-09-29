@@ -20,13 +20,9 @@ function App() {
               </span>
             </h1>
             <div className="flex flex-col items-center justify-between gap-8">
-              {winner ? (
-                <p className="text-3xl font-bold">{`"${winner}"`} wins!!</p>
-              ) : (
-                <p className="text-3xl font-bold">
-                  {`"${currentPlayer}"`} turn
-                </p>
-              )}
+              <p className="text-3xl font-bold" aria-live="polite">
+                {winner ? `"${winner}" wins!!` : `"${currentPlayer}" turn`}
+              </p>
               <Board />
               <ResetButton onClick={resetGame} />
             </div>
