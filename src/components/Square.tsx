@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import { memo, type ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { CircleIcon } from '../icons/CircleIcon';
 import { XIcon } from '../icons/XIcon';
@@ -12,12 +12,12 @@ interface SquareProps {
   isDisabled?: boolean;
 }
 
-const SQUARE_ICONS: { [key: string]: ReactNode } = {
+const SQUARE_ICONS: Record<'X' | 'O', ReactNode> = {
   X: <XIcon className="size-20 text-rose-600 md:size-28" />,
   O: <CircleIcon className="size-16 text-slate-600 md:size-20" />
 };
 
-export const Square = ({
+const Square = ({
   value,
   onClickItem,
   highLight = false,
@@ -33,7 +33,7 @@ export const Square = ({
       className={twMerge(
         'flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1',
         clsx({
-          'hover:cursor-pointer': !value,
+          'hover:cursor-pointer': !disabled,
           'hover:cursor-not-allowed': disabled,
           'bg-rose-50': highLight
         })
@@ -43,3 +43,5 @@ export const Square = ({
     </button>
   );
 };
+
+export default memo(Square);

@@ -2,7 +2,7 @@ import type { SquareValueTypes } from './types';
 
 export const DEFAULT_DATA: SquareValueTypes[] = Array(9).fill('');
 
-export const WINNING_COMBINATIONS = [
+export const WINNING_COMBINATIONS: number[][] = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],

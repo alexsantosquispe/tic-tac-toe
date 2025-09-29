@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
-import { DEFAULT_DATA, WINNING_COMBINATIONS } from '../constants';
+import { DEFAULT_DATA } from '../constants';
 import type { SquareValueTypes } from '../types';
+import { getWinnerResult } from '../utils';
 import GameContext from './GameContext';
 
 interface GameProviderProps {
@@ -22,20 +23,12 @@ const GameProvider = ({ children }: GameProviderProps) => {
     const newData = [...data];
     newData[index] = currentPlayer;
     setData(newData);
-    checkWinner(newData);
-    if (!winner) {
+    const result = getWinnerResult(newData);
+    if (!result.winner) {
       toggleCurrentPlayer();
     }
-  };
-
-  const checkWinner = (board: SquareValueTypes[]) => {
-    WINNING_COMBINATIONS.forEach((combination) => {
-      const [a, b, c] = combination;
-      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        setWinner(board[a]);
-        setCombHighLight(combination);
-      }
-    });
+    setWinner(result.winner);
+    setCombHighLight(result.combHighLight);
   };
 
   const resetGame = () => {

@@ -5,7 +5,7 @@ import { ResetButton } from './components/ResetButton';
 import useGame from './hooks/useGame';
 
 function App() {
-  const { winner, resetGame } = useGame();
+  const { winner, currentPlayer, resetGame } = useGame();
   return (
     <>
       <div className="flex min-h-screen flex-col">
@@ -20,11 +20,15 @@ function App() {
               </span>
             </h1>
             <div className="flex flex-col items-center justify-between gap-8">
-              {winner && (
+              {winner ? (
                 <p className="text-3xl font-bold">{`"${winner}"`} wins!!</p>
+              ) : (
+                <p className="text-3xl font-bold">
+                  {`"${currentPlayer}"`} turn
+                </p>
               )}
               <Board />
-              {winner && <ResetButton onClick={resetGame} />}
+              <ResetButton onClick={resetGame} />
             </div>
           </section>
         </main>

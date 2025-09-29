@@ -11,7 +11,7 @@ export const ResetButton = ({ onClick }: ResetButtonProps) => {
       onClick={onClick}
     >
       <ResetIcon />
-      Play again
+      Reset
     </button>
   );
 };

@@ -1,5 +1,5 @@
 import useGame from '../hooks/useGame';
-import { Square } from './Square';
+import Square from './Square';
 
 export const Board = () => {
   const { data, checkSquare, combHighLight, winner } = useGame();
