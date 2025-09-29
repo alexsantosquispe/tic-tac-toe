@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { DEFAULT_DATA } from '../constants';
 import type { SquareValueTypes } from '../types';
-import { getWinnerResult } from '../utils';
+import { getWinnerResult, isDraw } from '../utils';
 import GameContext from './GameContext';
 
 interface GameProviderProps {
@@ -46,7 +46,8 @@ const GameProvider = ({ children }: GameProviderProps) => {
         winner,
         combHighLight,
         checkSquare,
-        resetGame
+        resetGame,
+        isDraw: !winner && isDraw(data)
       }}
     >
       {children}

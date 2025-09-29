@@ -5,7 +5,7 @@ import { ResetButton } from './components/ResetButton';
 import useGame from './hooks/useGame';
 
 function App() {
-  const { winner, currentPlayer, resetGame } = useGame();
+  const { winner, currentPlayer, resetGame, isDraw } = useGame();
   return (
     <>
       <div className="flex min-h-screen flex-col">
@@ -21,7 +21,11 @@ function App() {
             </h1>
             <div className="flex flex-col items-center justify-between gap-8">
               <p className="text-3xl font-bold" aria-live="polite">
-                {winner ? `"${winner}" wins!!` : `"${currentPlayer}" turn`}
+                {winner
+                  ? `"${winner}" wins!!`
+                  : isDraw
+                    ? 'Draw!'
+                    : `"${currentPlayer}" turn`}
               </p>
               <Board />
               <ResetButton onClick={resetGame} />

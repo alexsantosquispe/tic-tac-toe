@@ -31,7 +31,7 @@ const Square = ({
       onClick={onClickItem}
       disabled={disabled}
       className={twMerge(
-        'flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1',
+        'flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150',
         clsx({
           'hover:cursor-pointer hover:bg-neutral-50': !disabled,
           'hover:cursor-not-allowed': disabled,

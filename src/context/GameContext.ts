@@ -8,6 +8,7 @@ export interface GameContextTypes {
   combHighLight: number[];
   checkSquare: (index: number) => void;
   resetGame: () => void;
+  isDraw: boolean;
 }
 
 const GameContext = createContext<GameContextTypes | null>(null);
