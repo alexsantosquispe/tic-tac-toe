@@ -1,3 +1,5 @@
+import { AnimatePresence, motion } from 'framer-motion';
+
 import clsx from 'clsx';
 import { memo } from 'react';
 import { twMerge } from 'tailwind-merge';
@@ -64,7 +66,19 @@ const Square = ({
       aria-label={value || 'Empty'}
       type="button"
     >
-      {icon}
+      <AnimatePresence>
+        {icon && (
+          <motion.span
+            key={value}
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          >
+            {icon}
+          </motion.span>
+        )}
+      </AnimatePresence>
+
       {hoverIcon && (
         <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-150 group-hover:opacity-100">
           {hoverIcon}
