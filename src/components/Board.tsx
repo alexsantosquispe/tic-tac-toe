@@ -1,17 +1,9 @@
-import { useCallback } from 'react';
 import useGame from '../hooks/useGame';
 import Square from './Square';
 
 export const Board = () => {
   const { data, currentPlayer, checkSquare, combHighLight, winner, isDraw } =
     useGame();
-
-  const handleClick = useCallback(
-    (index: number) => {
-      checkSquare(index);
-    },
-    [checkSquare]
-  );
 
   return (
     <div className="flex h-80 w-80 rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-lg md:h-96 md:w-96">
@@ -23,8 +15,9 @@ export const Board = () => {
           return (
             <Square
               key={index}
+              index={index}
               value={square}
-              onClickItem={() => handleClick(index)}
+              onClickItem={checkSquare}
               highLight={combHighLight.includes(index)}
               isDisabled={!!winner || isDraw}
               currentPlayer={currentPlayer}

@@ -1,19 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { memo, useCallback } from 'react';
 
 import clsx from 'clsx';
-import { memo } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { CircleIcon } from '../icons/CircleIcon';
 import { XIcon } from '../icons/XIcon';
 import type { SquareValueTypes } from '../types';
-
-interface SquareProps {
-  value: SquareValueTypes;
-  onClickItem: () => void;
-  currentPlayer: 'X' | 'O';
-  highLight?: boolean;
-  isDisabled?: boolean;
-}
 
 const ICONS = {
   X: {
@@ -37,7 +29,17 @@ const renderIcon = (player: 'X' | 'O', color: string) => {
   return <Icon className={twMerge(className, color)} />;
 };
 
+interface SquareProps {
+  index: number;
+  value: SquareValueTypes;
+  onClickItem: (index: number) => void;
+  currentPlayer: 'X' | 'O';
+  highLight?: boolean;
+  isDisabled?: boolean;
+}
+
 const Square = ({
+  index,
   value,
   onClickItem,
   currentPlayer,
@@ -49,9 +51,13 @@ const Square = ({
   const hoverIcon =
     !icon && !disabled ? renderIcon(currentPlayer, COLORS.hover) : null;
 
+  const handleClick = useCallback(() => {
+    onClickItem(index);
+  }, [index, onClickItem]);
+
   return (
     <button
-      onClick={onClickItem}
+      onClick={handleClick}
       disabled={disabled}
       className={twMerge(
         'group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150',
