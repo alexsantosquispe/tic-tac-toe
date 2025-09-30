@@ -32,6 +32,11 @@ const COLORS = {
   hover: 'text-neutral-200/60'
 } as const;
 
+const renderIcon = (player: 'X' | 'O', color: string) => {
+  const { component: Icon, className } = ICONS[player];
+  return <Icon className={twMerge(className, color)} />;
+};
+
 const Square = ({
   value,
   onClickItem,
@@ -40,13 +45,7 @@ const Square = ({
   isDisabled = false
 }: SquareProps) => {
   const disabled = !!value || isDisabled;
-
-  const renderIcon = (player: 'X' | 'O', color: string) => {
-    const { component: Icon, className } = ICONS[player];
-    return <Icon className={twMerge(className, color)} />;
-  };
-
-  const icon = value ? renderIcon(value, COLORS[value]) : null;
+  const icon = value !== '' ? renderIcon(value, COLORS[value]) : null;
   const hoverIcon =
     !icon && !disabled ? renderIcon(currentPlayer, COLORS.hover) : null;
 
@@ -62,7 +61,6 @@ const Square = ({
           'bg-rose-50': highLight
         })
       )}
-      aria-disabled={disabled}
       aria-label={value || 'Empty'}
       type="button"
     >

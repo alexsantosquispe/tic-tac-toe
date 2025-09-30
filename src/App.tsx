@@ -21,11 +21,9 @@ function App() {
             </h1>
             <div className="flex flex-col items-center justify-between gap-8">
               <p className="text-3xl font-bold" aria-live="polite">
-                {winner
-                  ? `"${winner}" wins!!`
-                  : isDraw
-                    ? 'Draw!'
-                    : `"${currentPlayer}" turn`}
+                {!winner && !isDraw && currentPlayer && `${currentPlayer} turn`}
+                {winner && `${winner} wins!!`}
+                {isDraw && !winner && 'Draw!!'}
               </p>
               <Board />
               <ResetButton onClick={resetGame} />
