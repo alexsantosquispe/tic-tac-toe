@@ -1,11 +1,13 @@
+@import './fonts.css';
 @import 'tailwindcss';
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-bitcount: 'Bitcount Single', system-ui, sans-serif;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--font-bitcount);
 }

@@ -10,11 +10,11 @@ import type { SquareValueTypes } from '../types';
 const ICONS = {
   X: {
     component: XIcon,
-    className: 'size-20 md:size-28'
+    className: 'size-20 md:size-30'
   },
   O: {
     component: CircleIcon,
-    className: 'size-16 md:size-20'
+    className: 'size-16 md:size-22'
   }
 } as const;
 
