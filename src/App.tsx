@@ -1,8 +1,9 @@
-import { Board } from './components/Board';
-import { Footer } from './components/Footer';
-import { Navbar } from './components/Navbar';
-import { ResetButton } from './components/ResetButton';
+import { Button } from './components/atoms/Button/Button';
+import { Footer } from './components/atoms/Footer/Footer';
+import { Navbar } from './components/atoms/Navbar/Navbar';
+import { Board } from './components/molecules/Board';
 import useGame from './hooks/useGame';
+import { ResetIcon } from './icons/ResetIcon';
 
 function App() {
   const { winner, currentPlayer, resetGame, isDraw } = useGame();
@@ -27,7 +28,12 @@ function App() {
                 {isDraw && !winner && 'Draw!'}
               </p>
               <Board />
-              <ResetButton onClick={resetGame} />
+              <Button
+                title="Reset"
+                ariaLabel="Reset game button"
+                icon={<ResetIcon />}
+                onClick={resetGame}
+              />
             </div>
           </section>
         </main>
