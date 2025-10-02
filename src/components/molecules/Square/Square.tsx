@@ -57,6 +57,7 @@ const Square = ({
 
   return (
     <button
+      data-testid={`square-${index}`}
       onClick={handleClick}
       disabled={disabled}
       className={twMerge(
