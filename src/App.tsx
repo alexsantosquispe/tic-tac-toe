@@ -1,7 +1,7 @@
 import { Button } from './components/atoms/Button/Button';
 import { Footer } from './components/atoms/Footer/Footer';
 import { Navbar } from './components/atoms/Navbar/Navbar';
-import { Board } from './components/molecules/Board';
+import { Board } from './components/molecules/Board/Board';
 import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
 

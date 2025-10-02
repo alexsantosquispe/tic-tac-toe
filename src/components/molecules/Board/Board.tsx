@@ -1,12 +1,15 @@
-import useGame from '../../hooks/useGame';
-import Square from './Square/Square';
+import useGame from '../../../hooks/useGame';
+import Square from '../Square/Square';
 
 export const Board = () => {
   const { data, currentPlayer, checkSquare, combHighLight, winner, isDraw } =
     useGame();
 
   return (
-    <div className="flex h-[20rem] w-[20rem] rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-lg md:h-[28rem] md:w-[28rem]">
+    <div
+      data-testid="board"
+      className="flex h-[20rem] w-[20rem] rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-lg md:h-[28rem] md:w-[28rem]"
+    >
       <div
         className="flex flex-1 flex-wrap overflow-hidden rounded-xl border border-dashed border-neutral-200 bg-white"
         aria-label="Tic Tac Toe board"
