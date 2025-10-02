@@ -1,5 +1,5 @@
-import Square from './Square';
 import useGame from '../../hooks/useGame';
+import Square from './Square/Square';
 
 export const Board = () => {
   const { data, currentPlayer, checkSquare, combHighLight, winner, isDraw } =

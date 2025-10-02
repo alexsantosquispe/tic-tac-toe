@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useCallback } from 'react';
 
-import { CircleIcon } from '../../icons/CircleIcon';
-import type { SquareValueTypes } from '../../types';
-import { XIcon } from '../../icons/XIcon';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { CircleIcon } from '../../../icons/CircleIcon';
+import { XIcon } from '../../../icons/XIcon';
+import type { SquareValueTypes } from '../../../types';
 
 const ICONS = {
   X: {

@@ -1,9 +1,10 @@
-import type { SvgIconProps } from '../types';
 import { twMerge } from 'tailwind-merge';
+import type { SvgIconProps } from '../types';
 
 export const CircleIcon = ({ className }: SvgIconProps) => {
   return (
     <svg
+      data-testid="circle-icon"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
