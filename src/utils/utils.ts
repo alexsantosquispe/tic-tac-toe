@@ -1,5 +1,5 @@
-import { WINNING_COMBINATIONS } from './constants';
-import type { SquareValueTypes } from './types';
+import { WINNING_COMBINATIONS } from '../constants';
+import type { SquareValueTypes } from '../types';
 
 export const getWinnerResult = (
   data: SquareValueTypes[]

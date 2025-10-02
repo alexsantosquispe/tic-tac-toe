@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { DEFAULT_DATA } from '../constants';
 import type { SquareValueTypes } from '../types';
-import { getWinnerResult, isDraw } from '../utils';
+import { getWinnerResult, isDraw } from '../utils/utils';
 import GameContext from './GameContext';
 
 interface GameProviderProps {
