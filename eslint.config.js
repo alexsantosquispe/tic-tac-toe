@@ -1,7 +1,6 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 import js from '@eslint/js';
-import jestPlugin from 'eslint-plugin-jest';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
@@ -19,13 +18,7 @@ export default defineConfig([
     ],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: {
-        ...globals.browser,
-        ...globals.jest
-      },
-      rules: {
-        ...jestPlugin.configs.recommended.rules
-      }
+      globals: globals.browser
     }
   }
 ]);

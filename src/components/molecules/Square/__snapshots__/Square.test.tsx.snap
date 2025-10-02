@@ -8,6 +8,7 @@ exports[`Square styles should render the square with the correct styles 1`] = `
       <button
         aria-label="Empty"
         class="group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 hover:cursor-pointer hover:bg-neutral-50"
+        data-testid="square-0"
         type="button"
       >
         <span
@@ -41,6 +42,7 @@ exports[`Square styles should render the square with the correct styles 1`] = `
     <button
       aria-label="Empty"
       class="group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 hover:cursor-pointer hover:bg-neutral-50"
+      data-testid="square-0"
       type="button"
     >
       <span
@@ -131,6 +133,7 @@ exports[`Square styles should render the square with the correct styles 2`] = `
       <button
         aria-label="Empty"
         class="group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 hover:cursor-pointer hover:bg-neutral-50"
+        data-testid="square-0"
         type="button"
       >
         <span
@@ -163,6 +166,7 @@ exports[`Square styles should render the square with the correct styles 2`] = `
       <button
         aria-label="O"
         class="group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 hover:cursor-not-allowed"
+        data-testid="square-0"
         disabled=""
         type="button"
       >
@@ -196,6 +200,7 @@ exports[`Square styles should render the square with the correct styles 2`] = `
     <button
       aria-label="O"
       class="group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 hover:cursor-not-allowed"
+      data-testid="square-0"
       disabled=""
       type="button"
     >
@@ -286,6 +291,7 @@ exports[`Square styles should render the square with the correct styles 3`] = `
       <button
         aria-label="Empty"
         class="group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 hover:cursor-pointer hover:bg-neutral-50"
+        data-testid="square-0"
         type="button"
       >
         <span
@@ -318,6 +324,7 @@ exports[`Square styles should render the square with the correct styles 3`] = `
       <button
         aria-label="O"
         class="group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 hover:cursor-not-allowed"
+        data-testid="square-0"
         disabled=""
         type="button"
       >
@@ -350,6 +357,7 @@ exports[`Square styles should render the square with the correct styles 3`] = `
       <button
         aria-label="X"
         class="group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 hover:cursor-not-allowed"
+        data-testid="square-0"
         disabled=""
         type="button"
       >
@@ -384,6 +392,7 @@ exports[`Square styles should render the square with the correct styles 3`] = `
     <button
       aria-label="X"
       class="group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 hover:cursor-not-allowed"
+      data-testid="square-0"
       disabled=""
       type="button"
     >
