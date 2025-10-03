@@ -1,6 +1,8 @@
 @import './fonts.css';
 @import 'tailwindcss';
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   --font-bitcount: 'Bitcount Single', system-ui, sans-serif;
 }

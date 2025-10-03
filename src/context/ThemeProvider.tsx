@@ -12,10 +12,17 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const initialTheme = getStoredTheme() as ThemeType;
+  const initialTheme = getStoredTheme();
   const [currentTheme, setCurrentTheme] = useState<ThemeType>(
-    initialTheme || THEME_TYPES.SYSTEM
+    initialTheme ?? THEME_TYPES.SYSTEM
   );
+
+  useEffect(() => {
+    const theme =
+      currentTheme === THEME_TYPES.SYSTEM ? getSystemTheme() : currentTheme;
+    applyTheme(theme);
+    setStoredTheme(currentTheme);
+  }, [currentTheme]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -27,13 +34,6 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
-
-  useEffect(() => {
-    const theme =
-      currentTheme === THEME_TYPES.SYSTEM ? getSystemTheme() : currentTheme;
-    applyTheme(theme);
-    setStoredTheme(theme);
-  }, [currentTheme]);
 
   return (
     <ThemeContext.Provider
