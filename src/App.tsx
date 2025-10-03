@@ -1,9 +1,9 @@
+import { Board } from './components/molecules/Board/Board';
 import { Button } from './components/atoms/Button/Button';
 import { Footer } from './components/atoms/Footer/Footer';
 import { Navbar } from './components/atoms/Navbar/Navbar';
-import { Board } from './components/molecules/Board/Board';
-import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
+import useGame from './hooks/useGame';
 
 function App() {
   const { winner, currentPlayer, resetGame, isDraw } = useGame();
@@ -14,10 +14,10 @@ function App() {
         <main className="flex flex-1 py-8 md:p-0">
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
             <h1 className="flex flex-col gap-2 text-center">
-              <span className="text-5xl font-medium">
+              <span className="text-4xl font-medium md:text-5xl">
                 TIC-<span className="text-rose-600">TAC</span>-TOE
               </span>
-              <span className="text-xl md:text-2xl">
+              <span className="text-lg md:text-2xl">
                 Lets play a classic game!
               </span>
             </h1>

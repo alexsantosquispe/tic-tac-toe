@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+set -e
+
+# Error handler to display a helpful message on failure
+on_error() {
+  echo "❌ Pre-push failed${CURRENT_STEP:+ at step: $CURRENT_STEP}"
+  exit 1
+}
+trap 'on_error' ERR
+
+echo "🔍 Running pre-push checks..."
+
+echo "🧪 Running test coverage..."
+CURRENT_STEP="coverage"
+pnpm test:coverage
+CURRENT_STEP=""
+
+echo "🏗️ Verifying build..."
+CURRENT_STEP="build"
+pnpm run build
+CURRENT_STEP=""
+
+echo "✅ Pre-push checks passed successfully."
+exit 0

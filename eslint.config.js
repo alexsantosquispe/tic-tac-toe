@@ -1,14 +1,15 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
 
+import globals from 'globals';
 import js from '@eslint/js';
-import jestPlugin from 'eslint-plugin-jest';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  {
+    ignores: ['node_modules/**', 'dist/**', 'coverage/**']
+  },
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
@@ -19,13 +20,7 @@ export default defineConfig([
     ],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: {
-        ...globals.browser,
-        ...globals.jest
-      },
-      rules: {
-        ...jestPlugin.configs.recommended.rules
-      }
+      globals: globals.browser
     }
   }
 ]);
