@@ -1,6 +1,12 @@
 import '@testing-library/jest-dom';
 
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within
+} from '@testing-library/react';
 
 import App from './App';
 import GameProvider from './context/GameProvider';
@@ -33,9 +39,11 @@ describe('App', () => {
     });
   });
 
-  describe.skip('behavior', () => {
+  describe('behavior', () => {
     it('should change the current player after select a square', () => {
-      const squareButtons = screen.getAllByRole('button');
+      const board = screen.getByTestId('board');
+
+      const squareButtons = within(board).getAllByRole('button');
 
       expect(screen.getByText('X turn')).toBeInTheDocument();
 
@@ -44,8 +52,40 @@ describe('App', () => {
       expect(screen.getByText('O turn')).toBeInTheDocument();
     });
 
+    it('should show the winner', () => {
+      const board = screen.getByTestId('board');
+      const squareButtons = within(board).getAllByRole('button');
+
+      fireEvent.click(squareButtons[0]); //X
+      fireEvent.click(squareButtons[3]); //O
+      fireEvent.click(squareButtons[1]); //X
+      fireEvent.click(squareButtons[4]); //O
+      fireEvent.click(squareButtons[2]); //X
+
+      expect(screen.getByText('X wins!')).toBeInTheDocument();
+    });
+
+    it('should check draw', () => {
+      const board = screen.getByTestId('board');
+      const squareButtons = within(board).getAllByRole('button');
+
+      fireEvent.click(squareButtons[0]); //X
+      fireEvent.click(squareButtons[1]); //O
+      fireEvent.click(squareButtons[2]); //X
+      fireEvent.click(squareButtons[3]); //O
+      fireEvent.click(squareButtons[4]); //X
+      fireEvent.click(squareButtons[6]); //0
+      fireEvent.click(squareButtons[5]); //X
+      fireEvent.click(squareButtons[8]); //O
+      fireEvent.click(squareButtons[7]); //X
+
+      expect(screen.getByText('Draw!')).toBeInTheDocument();
+    });
+
     it('should reset the game', () => {
-      const squareButtons = screen.getAllByRole('button');
+      const board = screen.getByTestId('board');
+      const squareButtons = within(board).getAllByRole('button');
+
       const resetButton = screen.getByRole('button', {
         name: 'Reset game button'
       });
@@ -53,14 +93,16 @@ describe('App', () => {
       fireEvent.click(squareButtons[0]);
       fireEvent.click(squareButtons[1]);
 
-      expect(screen.getAllByTestId('x-icon')[0]).toBeInTheDocument();
-      expect(screen.getAllByTestId('circle-icon')[0]).toBeInTheDocument();
+      expect(within(board).getAllByTestId('x-icon')[0]).toBeInTheDocument();
+      expect(
+        within(board).getAllByTestId('circle-icon')[0]
+      ).toBeInTheDocument();
 
       fireEvent.click(resetButton);
 
       waitFor(() => {
-        expect(screen.getAllByTestId('x-icon').length).toBe(0);
-        expect(screen.getAllByTestId('circle-icon').length).toBe(0);
+        expect(within(board).getAllByTestId('x-icon').length).toBe(0);
+        expect(within(board).getAllByTestId('circle-icon').length).toBe(0);
       });
     });
   });
