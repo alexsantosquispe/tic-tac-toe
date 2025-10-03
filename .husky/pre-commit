@@ -11,10 +11,15 @@ on_error() {
 trap 'on_error' ERR
 
 echo "🔍 Running pre-commit checks..."
-echo "⏳ Checking ESLint, Prettier rules, and Unit tests..."
+echo "⏳ Checking ESLint and Prettier rules..."
 
 CURRENT_STEP="lint-staged"
 pnpm exec lint-staged
+CURRENT_STEP=""
+
+echo "🧪 Running all tests..."
+CURRENT_STEP="tests"
+pnpm exec jest
 CURRENT_STEP=""
 
 echo "✅ Pre-commit checks passed successfully."

@@ -24,8 +24,7 @@
     ],
     "*.{css,md,html,json,yml,yaml}": [
       "pnpm exec prettier --check"
-    ],
-    "*.{ts,tsx,js,jsx,json}": "pnpm exec jest --findRelatedTests --bail --passWithNoTests"
+    ]
   },
   "dependencies": {
     "@tailwindcss/vite": "4.1.13",
