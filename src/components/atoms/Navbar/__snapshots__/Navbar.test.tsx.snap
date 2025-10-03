@@ -6,9 +6,11 @@ exports[`Navbar should render the navbar component correctly 1`] = `
   "baseElement": <body>
     <div>
       <nav
-        class="flex h-14 w-full items-center justify-between border-b border-neutral-200 bg-white px-8 text-xl font-semibold shadow"
+        class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 px-8 font-semibold shadow dark:border-white/20"
       >
-        <p>
+        <span
+          class="font-medium text-lg md:text-xl"
+        >
           TIC-
           <span
             class="text-rose-600"
@@ -16,15 +18,17 @@ exports[`Navbar should render the navbar component correctly 1`] = `
             TAC
           </span>
           -TOE
-        </p>
+        </span>
       </nav>
     </div>
   </body>,
   "container": <div>
     <nav
-      class="flex h-14 w-full items-center justify-between border-b border-neutral-200 bg-white px-8 text-xl font-semibold shadow"
+      class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 px-8 font-semibold shadow dark:border-white/20"
     >
-      <p>
+      <span
+        class="font-medium text-lg md:text-xl"
+      >
         TIC-
         <span
           class="text-rose-600"
@@ -32,7 +36,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
           TAC
         </span>
         -TOE
-      </p>
+      </span>
     </nav>
   </div>,
   "debug": [Function],

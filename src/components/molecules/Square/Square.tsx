@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useCallback } from 'react';
 
-import { CircleIcon } from '../../../icons/CircleIcon';
-import type { SquareValueTypes } from '../../../types';
-import { XIcon } from '../../../icons/XIcon';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { CircleIcon } from '../../../icons/CircleIcon';
+import { XIcon } from '../../../icons/XIcon';
+import type { SquareValueTypes } from '../../../types';
 
 const ICONS = {
   X: {
@@ -20,8 +20,8 @@ const ICONS = {
 
 const COLORS = {
   X: 'text-rose-600',
-  O: 'text-slate-600',
-  hover: 'text-neutral-200/60'
+  O: 'text-neutral-600 dark:text-neutral-400',
+  hover: 'text-neutral-200/60 dark:text-white/20'
 } as const;
 
 const renderIcon = (player: 'X' | 'O', color: string) => {
@@ -61,11 +61,12 @@ const Square = ({
       onClick={handleClick}
       disabled={disabled}
       className={twMerge(
-        'group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150',
+        'group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 dark:border-white/20',
         clsx({
-          'hover:cursor-pointer hover:bg-neutral-50': !disabled,
+          'hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-white/10':
+            !disabled,
           'hover:cursor-not-allowed': disabled,
-          'bg-rose-50': highLight
+          'bg-rose-50 dark:bg-rose-900/30': highLight
         })
       )}
       aria-label={value || 'Empty'}

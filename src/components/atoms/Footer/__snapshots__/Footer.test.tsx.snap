@@ -6,7 +6,7 @@ exports[`Footer should render the component correctly 1`] = `
   "baseElement": <body>
     <div>
       <footer
-        class="flex h-14 w-full items-center justify-center border-t border-neutral-200 bg-white px-8 text-[0.8125rem] font-light text-neutral-600"
+        class="flex h-14 w-full items-center justify-center border-t border-neutral-200 px-8 text-[0.8125rem] font-light dark:border-white/20"
       >
         <p
           class="text-center"
@@ -18,7 +18,7 @@ exports[`Footer should render the component correctly 1`] = `
   </body>,
   "container": <div>
     <footer
-      class="flex h-14 w-full items-center justify-center border-t border-neutral-200 bg-white px-8 text-[0.8125rem] font-light text-neutral-600"
+      class="flex h-14 w-full items-center justify-center border-t border-neutral-200 px-8 text-[0.8125rem] font-light dark:border-white/20"
     >
       <p
         class="text-center"
