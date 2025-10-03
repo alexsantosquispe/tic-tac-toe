@@ -1,4 +1,4 @@
-import { Title } from '../Title';
+import { Title } from '../Title/Title';
 
 export const Navbar = () => {
   return (
