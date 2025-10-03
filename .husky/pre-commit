@@ -1,2 +1,20 @@
-pnpm test
-pnpm run build
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+set -e
+
+# Error handler to display a helpful message on failure
+on_error() {
+  echo "❌ Pre-commit failed${CURRENT_STEP:+ at step: $CURRENT_STEP}"
+  exit 1
+}
+trap 'on_error' ERR
+
+echo "🔍 Running pre-commit checks..."
+echo "⏳ Checking ESLint, Prettier rules, and Unit tests..."
+
+CURRENT_STEP="lint-staged"
+pnpm exec lint-staged
+CURRENT_STEP=""
+
+echo "✅ Pre-commit checks passed successfully."
