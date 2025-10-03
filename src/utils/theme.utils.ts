@@ -11,20 +11,17 @@ export const getSystemTheme = () => {
 };
 
 export const getStoredTheme = () => {
-  if (typeof window === 'undefined') return THEME_TYPES.LIGHT;
-
-  return window.localStorage.getItem(THEME_KEY);
+  const storedTheme = window.localStorage.getItem(THEME_KEY);
+  if (!storedTheme) return null;
+  return storedTheme as ThemeType;
 };
 
 export const setStoredTheme = (theme: ThemeType) => {
-  if (typeof window === 'undefined') return;
-
   window.localStorage.setItem(THEME_KEY, theme);
 };
 
 export const applyTheme = (theme: ThemeType) => {
   const root = window?.document.documentElement;
-  if (!root) return;
 
   if (theme === THEME_TYPES.DARK) {
     root.classList.add(THEME_TYPES.DARK);
