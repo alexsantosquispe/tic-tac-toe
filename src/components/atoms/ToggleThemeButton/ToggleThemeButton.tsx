@@ -30,7 +30,7 @@ export const ThemeOption = ({
     <button
       aria-label={`${id} button`}
       className={twMerge(
-        'rounded-full border-neutral-200 p-1 text-neutral-600 hover:cursor-pointer dark:border-white/20',
+        'rounded-full border-neutral-200 p-0.5 text-neutral-600 hover:cursor-pointer dark:border-white/20',
         cn({ 'border bg-rose-600 text-white': isSelected })
       )}
       onClick={() => onSelectOption(id)}
@@ -44,7 +44,7 @@ export const ToggleThemeButton = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20">
+    <div className="flex items-center gap-1.5 rounded-full border border-neutral-200 p-1 dark:border-white/20">
       {THEME_OPTIONS.map((option) => {
         const isSelected = option.id === theme;
         return (
