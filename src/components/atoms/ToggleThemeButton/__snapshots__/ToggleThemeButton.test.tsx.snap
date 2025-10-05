@@ -10,6 +10,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
       >
         <div
           class="absolute top-1 left-1 h-7 w-7 rounded-full bg-rose-600 transform transition-transform duration-200 ease-in-out translate-x-0"
+          data-testid="selected-indicator"
         />
         <button
           aria-label="system button"
@@ -112,6 +113,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
     >
       <div
         class="absolute top-1 left-1 h-7 w-7 rounded-full bg-rose-600 transform transition-transform duration-200 ease-in-out translate-x-0"
+        data-testid="selected-indicator"
       />
       <button
         aria-label="system button"

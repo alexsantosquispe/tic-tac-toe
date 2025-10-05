@@ -29,7 +29,7 @@ describe('ToggleThemButton', () => {
     });
   });
 
-  describe.only('behavior', () => {
+  describe('behavior', () => {
     beforeEach(() => {
       render(
         <ThemeProvider>
