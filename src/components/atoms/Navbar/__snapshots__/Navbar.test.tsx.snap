@@ -20,11 +20,11 @@ exports[`Navbar should render the navbar component correctly 1`] = `
           -TOE
         </span>
         <div
-          class="flex items-center gap-1.5 rounded-full border border-neutral-200 p-1 dark:border-white/20"
+          class="flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
         >
           <button
             aria-label="system button"
-            class="rounded-full border-neutral-200 p-0.5 hover:cursor-pointer dark:border-white/20 border bg-rose-600 text-white"
+            class="flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer bg-rose-600 text-white"
           >
             <svg
               class="size-5"
@@ -48,7 +48,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
           </button>
           <button
             aria-label="light button"
-            class="rounded-full border-neutral-200 p-0.5 text-neutral-600 hover:cursor-pointer dark:border-white/20"
+            class="flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
           >
             <svg
               class="size-5"
@@ -95,7 +95,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
           </button>
           <button
             aria-label="dark button"
-            class="rounded-full border-neutral-200 p-0.5 text-neutral-600 hover:cursor-pointer dark:border-white/20"
+            class="flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
           >
             <svg
               class="size-5"
@@ -134,11 +134,11 @@ exports[`Navbar should render the navbar component correctly 1`] = `
         -TOE
       </span>
       <div
-        class="flex items-center gap-1.5 rounded-full border border-neutral-200 p-1 dark:border-white/20"
+        class="flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
       >
         <button
           aria-label="system button"
-          class="rounded-full border-neutral-200 p-0.5 hover:cursor-pointer dark:border-white/20 border bg-rose-600 text-white"
+          class="flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer bg-rose-600 text-white"
         >
           <svg
             class="size-5"
@@ -162,7 +162,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
         </button>
         <button
           aria-label="light button"
-          class="rounded-full border-neutral-200 p-0.5 text-neutral-600 hover:cursor-pointer dark:border-white/20"
+          class="flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
         >
           <svg
             class="size-5"
@@ -209,7 +209,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
         </button>
         <button
           aria-label="dark button"
-          class="rounded-full border-neutral-200 p-0.5 text-neutral-600 hover:cursor-pointer dark:border-white/20"
+          class="flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
         >
           <svg
             class="size-5"
