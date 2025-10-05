@@ -13,14 +13,16 @@ import GameProvider from './context/GameProvider';
 import ThemeProvider from './context/ThemeProvider';
 
 describe('App', () => {
-  beforeEach(() => {
-    render(
-      <ThemeProvider>
-        <GameProvider>
-          <App />
-        </GameProvider>
-      </ThemeProvider>
-    );
+  beforeEach(async () => {
+    await waitFor(() => {
+      render(
+        <ThemeProvider>
+          <GameProvider>
+            <App />
+          </GameProvider>
+        </ThemeProvider>
+      );
+    });
   });
 
   afterEach(() => {
@@ -28,14 +30,10 @@ describe('App', () => {
   });
 
   describe('styles', () => {
-    it('should render the app correctly', () => {
-      expect(screen.getByText('X turn')).toBeInTheDocument();
-
-      waitFor(() => {
+    it('should render the app correctly', async () => {
+      await waitFor(() => {
+        expect(screen.getByText('X turn')).toBeInTheDocument();
         expect(screen.getByTestId('board')).toBeInTheDocument();
-      });
-
-      waitFor(() => {
         expect(
           screen.getByRole('button', { name: 'Reset game button' })
         ).toBeInTheDocument();
