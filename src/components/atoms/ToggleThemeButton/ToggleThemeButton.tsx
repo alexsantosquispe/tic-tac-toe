@@ -20,12 +20,12 @@ const themeTransformMap = {
 
 export const ToggleThemeButton = () => {
   const { theme, setTheme } = useTheme();
-
   const currentTransform = themeTransformMap[theme];
 
   return (
     <div className="relative flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20">
       <div
+        data-testid="selected-indicator"
         className={twMerge(
           'absolute top-1 left-1 h-7 w-7 rounded-full bg-rose-600',
           'transform transition-transform duration-200 ease-in-out',

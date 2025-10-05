@@ -1,4 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { THEME_TYPES } from '../../../context/ThemeContext';
 import ThemeProvider from '../../../context/ThemeProvider';
@@ -27,15 +29,44 @@ describe('ToggleThemButton', () => {
     });
   });
 
-  // describe('behavior', () => {
-  //   beforeEach(() => {
-  //     render(
-  //       <ThemeProvider>
-  //         <ToggleThemeButton />
-  //       </ThemeProvider>
-  //     );
-  //   });
+  describe.only('behavior', () => {
+    beforeEach(() => {
+      render(
+        <ThemeProvider>
+          <ToggleThemeButton />
+        </ThemeProvider>
+      );
+    });
 
-  //   it('should ', () => {});
-  // });
+    it('should change the theme', () => {
+      const selectedButtonStyles = 'text-white';
+      const systemButton = screen.getByRole('button', {
+        name: `${THEME_TYPES.SYSTEM} button`
+      });
+      const lightButton = screen.getByRole('button', {
+        name: `${THEME_TYPES.LIGHT} button`
+      });
+      const darkButton = screen.getByRole('button', {
+        name: `${THEME_TYPES.DARK} button`
+      });
+      const indicator = screen.getByTestId('selected-indicator');
+
+      expect(systemButton).toHaveClass(selectedButtonStyles);
+      expect(lightButton).not.toHaveClass(selectedButtonStyles);
+      expect(darkButton).not.toHaveClass(selectedButtonStyles);
+      expect(indicator).toHaveClass('translate-x-0');
+
+      fireEvent.click(lightButton);
+      expect(systemButton).not.toHaveClass(selectedButtonStyles);
+      expect(lightButton).toHaveClass(selectedButtonStyles);
+      expect(darkButton).not.toHaveClass(selectedButtonStyles);
+      expect(indicator).toHaveClass('translate-x-[2rem]');
+
+      fireEvent.click(darkButton);
+      expect(systemButton).not.toHaveClass(selectedButtonStyles);
+      expect(lightButton).not.toHaveClass(selectedButtonStyles);
+      expect(darkButton).toHaveClass(selectedButtonStyles);
+      expect(indicator).toHaveClass('translate-x-[4rem]');
+    });
+  });
 });
