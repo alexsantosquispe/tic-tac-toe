@@ -6,11 +6,14 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
+        class="relative flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
       >
+        <div
+          class="absolute top-1 left-1 h-7 w-7 rounded-full bg-rose-600 transform transition-transform duration-200 ease-in-out translate-x-0"
+        />
         <button
           aria-label="system button"
-          class="flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer bg-rose-600 text-white"
+          class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer text-white"
         >
           <svg
             class="size-5"
@@ -34,7 +37,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
         </button>
         <button
           aria-label="light button"
-          class="flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+          class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
         >
           <svg
             class="size-5"
@@ -81,7 +84,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
         </button>
         <button
           aria-label="dark button"
-          class="flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+          class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
         >
           <svg
             class="size-5"
@@ -105,11 +108,14 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
+      class="relative flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
     >
+      <div
+        class="absolute top-1 left-1 h-7 w-7 rounded-full bg-rose-600 transform transition-transform duration-200 ease-in-out translate-x-0"
+      />
       <button
         aria-label="system button"
-        class="flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer bg-rose-600 text-white"
+        class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer text-white"
       >
         <svg
           class="size-5"
@@ -133,7 +139,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
       </button>
       <button
         aria-label="light button"
-        class="flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+        class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
       >
         <svg
           class="size-5"
@@ -180,7 +186,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
       </button>
       <button
         aria-label="dark button"
-        class="flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+        class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
       >
         <svg
           class="size-5"
