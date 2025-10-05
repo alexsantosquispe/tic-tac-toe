@@ -10,14 +10,14 @@ function App() {
   const { winner, currentPlayer, resetGame, isDraw } = useGame();
   return (
     <>
-      <div className="flex min-h-screen flex-col bg-white font-normal text-neutral-700 uppercase dark:bg-black dark:text-white/70">
+      <div className="flex min-h-screen flex-col bg-white font-normal text-neutral-700 uppercase dark:bg-black dark:text-white">
         <Navbar />
         <main className="mt-14 flex flex-1 py-8 md:p-0">
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
             <h1 className="flex flex-col gap-2 text-center">
               <Title />
               <span className="text-lg md:text-2xl">
-                Lets play a classic game!
+                Let's play a classic game!
               </span>
             </h1>
             <div className="flex flex-col items-center justify-between gap-4 md:gap-8">

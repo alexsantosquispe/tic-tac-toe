@@ -10,7 +10,7 @@ exports[`Title should render the title 1`] = `
       >
         TIC-
         <span
-          class="text-rose-600"
+          class="text-rose-600 dark:text-rose-500"
         >
           TAC
         </span>
@@ -24,7 +24,7 @@ exports[`Title should render the title 1`] = `
     >
       TIC-
       <span
-        class="text-rose-600"
+        class="text-rose-600 dark:text-rose-500"
       >
         TAC
       </span>
