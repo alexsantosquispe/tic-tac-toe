@@ -1,17 +1,21 @@
-import { Button } from './components/atoms/Button/Button';
+import { lazy, Suspense } from 'react';
 import { Footer } from './components/atoms/Footer/Footer';
-import { Navbar } from './components/atoms/Navbar/Navbar';
 import { Title } from './components/atoms/Title/Title';
-import { Board } from './components/molecules/Board/Board';
 import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
+
+const Navbar = lazy(() => import('./components/atoms/Navbar/Navbar'));
+const Board = lazy(() => import('./components/molecules/Board/Board'));
+const Button = lazy(() => import('./components/atoms/Button/Button'));
 
 function App() {
   const { winner, currentPlayer, resetGame, isDraw } = useGame();
   return (
     <>
       <div className="flex min-h-screen flex-col bg-white font-normal text-neutral-700 uppercase dark:bg-black dark:text-white">
-        <Navbar />
+        <Suspense>
+          <Navbar />
+        </Suspense>
         <main className="mt-14 flex flex-1 py-8 md:p-0">
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
             <h1 className="flex flex-col gap-2 text-center">
@@ -26,13 +30,17 @@ function App() {
                 {winner && `${winner} wins!`}
                 {isDraw && !winner && 'Draw!'}
               </p>
-              <Board />
-              <Button
-                title="Reset"
-                ariaLabel="Reset game button"
-                icon={<ResetIcon />}
-                onClick={resetGame}
-              />
+              <Suspense>
+                <Board />
+              </Suspense>
+              <Suspense>
+                <Button
+                  title="Reset"
+                  ariaLabel="Reset game button"
+                  icon={<ResetIcon />}
+                  onClick={resetGame}
+                />
+              </Suspense>
             </div>
           </section>
         </main>

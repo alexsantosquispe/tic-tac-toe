@@ -31,11 +31,15 @@ describe('App', () => {
     it('should render the app correctly', () => {
       expect(screen.getByText('X turn')).toBeInTheDocument();
 
-      expect(screen.getByTestId('board')).toBeInTheDocument();
+      waitFor(() => {
+        expect(screen.getByTestId('board')).toBeInTheDocument();
+      });
 
-      expect(
-        screen.getByRole('button', { name: 'Reset game button' })
-      ).toBeInTheDocument();
+      waitFor(() => {
+        expect(
+          screen.getByRole('button', { name: 'Reset game button' })
+        ).toBeInTheDocument();
+      });
     });
   });
 

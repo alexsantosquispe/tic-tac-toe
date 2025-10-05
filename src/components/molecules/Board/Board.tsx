@@ -1,7 +1,7 @@
 import useGame from '../../../hooks/useGame';
 import Square from '../Square/Square';
 
-export const Board = () => {
+const Board = () => {
   const { data, currentPlayer, checkSquare, combHighLight, winner, isDraw } =
     useGame();
 
@@ -31,3 +31,5 @@ export const Board = () => {
     </div>
   );
 };
+
+export default Board;

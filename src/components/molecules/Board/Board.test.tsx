@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import GameProvider from '../../../context/GameProvider';
-import { Board } from './Board';
+import Board from './Board';
 
 describe('Board', () => {
   it('should render the board', () => {

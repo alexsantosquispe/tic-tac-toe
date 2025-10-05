@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { ResetIcon } from '../../../icons/ResetIcon';
-import { Button } from './Button';
+import Button from './Button';
 
 describe('Button', () => {
   const onClickMock = jest.fn();
