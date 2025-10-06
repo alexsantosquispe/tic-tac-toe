@@ -10,17 +10,20 @@ import {
 
 import App from './App';
 import GameProvider from './context/GameProvider';
+import { I18NWrapper } from './tests/testsUtils';
 import ThemeProvider from './context/ThemeProvider';
 
 describe('App', () => {
   beforeEach(async () => {
     await waitFor(() => {
       render(
-        <ThemeProvider>
-          <GameProvider>
-            <App />
-          </GameProvider>
-        </ThemeProvider>
+        <I18NWrapper>
+          <ThemeProvider>
+            <GameProvider>
+              <App />
+            </GameProvider>
+          </ThemeProvider>
+        </I18NWrapper>
       );
     });
   });

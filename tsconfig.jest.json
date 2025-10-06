@@ -3,6 +3,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "allowJs": true,

@@ -1,0 +1,12 @@
+{
+  "gameMessage": "Juguemos un juego clásico!",
+  "turn": "{{player}} es tu turno",
+  "draw": "Empate!",
+  "win": "{{player}} gana!",
+  "boardAriaLabel": "Tablero de Tic Tac Toe",
+  "resetButton": {
+    "title": "Reiniciar",
+    "ariaLabel": "Botón para reiniciar el juego"
+  },
+  "footer": "2025 TicTacToe por Alex Santos. Todos los derechos reservados."
+}

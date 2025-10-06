@@ -1,7 +1,9 @@
-import useGame from '../../../hooks/useGame';
 import Square from '../Square/Square';
+import useGame from '../../../hooks/useGame';
+import { useTranslation } from 'react-i18next';
 
 const Board = () => {
+  const { t } = useTranslation();
   const { data, currentPlayer, checkSquare, combHighLight, winner, isDraw } =
     useGame();
 
@@ -12,7 +14,7 @@ const Board = () => {
     >
       <div
         className="flex flex-1 flex-wrap overflow-hidden rounded-xl border border-dashed border-neutral-200 bg-white dark:border-white/20 dark:bg-black"
-        aria-label="Tic Tac Toe board"
+        aria-label={t('boardAriaLabel')}
       >
         {data.map((square, index) => {
           return (

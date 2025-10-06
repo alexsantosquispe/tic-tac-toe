@@ -1,0 +1,12 @@
+{
+  "gameMessage": "Let's play a classic game!",
+  "turn": "{{player}} turn",
+  "draw": "Draw!",
+  "win": "{{player}} wins!",
+  "boardAriaLabel": "Tic Tac Toe board",
+  "resetButton": {
+    "title": "Reset",
+    "ariaLabel": "Reset game button"
+  },
+  "footer": "2025 TicTacToe by Alex Santos. All rights reserved."
+}
