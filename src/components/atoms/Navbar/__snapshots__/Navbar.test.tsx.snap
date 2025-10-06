@@ -6,7 +6,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
   "baseElement": <body>
     <div>
       <nav
-        class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 px-4 font-semibold shadow md:px-8 dark:border-white/20"
+        class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 bg-white/60 px-4 font-semibold shadow backdrop-blur md:px-8 dark:border-white/20 dark:bg-black/60"
       >
         <span
           class="font-medium text-lg md:text-xl"
@@ -124,7 +124,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
   </body>,
   "container": <div>
     <nav
-      class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 px-4 font-semibold shadow md:px-8 dark:border-white/20"
+      class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 bg-white/60 px-4 font-semibold shadow backdrop-blur md:px-8 dark:border-white/20 dark:bg-black/60"
     >
       <span
         class="font-medium text-lg md:text-xl"
