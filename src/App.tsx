@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <div className="flex min-h-screen flex-col bg-white font-normal text-neutral-700 uppercase dark:bg-black dark:text-white">
-        <Suspense>
+        <Suspense fallback={<div className="h-14" />}>
           <Navbar />
         </Suspense>
         <main className="mt-14 flex flex-1 py-8 md:p-0">
@@ -30,10 +30,14 @@ function App() {
                 {winner && `${winner} wins!`}
                 {isDraw && !winner && 'Draw!'}
               </p>
-              <Suspense>
+              <Suspense
+                fallback={
+                  <div className="flex h-[20rem] w-[20rem] md:h-[28rem] md:w-[28rem]" />
+                }
+              >
                 <Board />
               </Suspense>
-              <Suspense>
+              <Suspense fallback={<div className="h-[3.75rem] w-[10rem]" />}>
                 <Button
                   title="Reset"
                   ariaLabel="Reset game button"
