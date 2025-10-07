@@ -13,7 +13,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
     useState<Exclude<SquareValueTypes, ''>>('X');
   const [data, setData] = useState<SquareValueTypes[]>(DEFAULT_DATA);
   const [winner, setWinner] = useState<SquareValueTypes | null>(null);
-  const [combHighLight, setCombHighLight] = useState<number[]>([]);
+  const [winnerCombination, setWinnerCombination] = useState<number[]>([]);
 
   const toggleCurrentPlayer = () => {
     setCurrentPlayer((prevPlayer) => (prevPlayer === 'X' ? 'O' : 'X'));
@@ -23,19 +23,22 @@ const GameProvider = ({ children }: GameProviderProps) => {
     const boardData = [...data];
     boardData[index] = currentPlayer;
     setData(boardData);
+
     const result = getWinnerResult(boardData);
-    const draw = !result.winner && isDraw(boardData);
-    if (!result.winner && !draw) {
+    const isGameDraw = !result.winner && isDraw(boardData);
+
+    if (!result.winner && !isGameDraw) {
       toggleCurrentPlayer();
     }
+
     setWinner(result.winner);
-    setCombHighLight(result.winnerCombination);
+    setWinnerCombination(result.winnerCombination);
   };
 
   const resetGame = () => {
     setData([...DEFAULT_DATA]);
     setWinner(null);
-    setCombHighLight([]);
+    setWinnerCombination([]);
     setCurrentPlayer('X');
   };
 
@@ -45,7 +48,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
         data,
         currentPlayer,
         winner,
-        combHighLight,
+        winnerCombination,
         checkSquare,
         resetGame,
         isDraw: !winner && isDraw(data)

@@ -40,6 +40,36 @@ describe('Square', () => {
 
       expect(within(square).getByTestId('x-icon')).toBeInTheDocument();
     });
+
+    it('should display highlight styles if the square is a highlight winner combination', () => {
+      render(
+        <Square {...props} value="X" isDisabled={true} highLight={true} />
+      );
+
+      const squareButton = screen.getByRole('button');
+
+      expect(squareButton).toBeDisabled();
+
+      expect(squareButton).toHaveClass('hover:cursor-not-allowed');
+
+      expect(squareButton).toHaveClass('bg-rose-50 dark:bg-rose-600/40');
+    });
+
+    it('should display disabled styles if the square is not a highlight winner combination', () => {
+      render(
+        <Square {...props} value="X" isDisabled={true} highLight={false} />
+      );
+
+      const squareButton = screen.getByRole('button');
+
+      expect(squareButton).toBeDisabled();
+
+      expect(squareButton).toHaveClass('hover:cursor-not-allowed');
+
+      expect(squareButton).toHaveClass(
+        'opacity-25 brightness-30 dark:opacity-80 dark:brightness-25'
+      );
+    });
   });
 
   describe('behavior', () => {
@@ -67,22 +97,6 @@ describe('Square', () => {
       expect(onClickItemMock).toHaveBeenCalledTimes(0);
 
       expect(squareButton).toHaveClass('hover:cursor-not-allowed');
-    });
-
-    it('should display disabled styles if the square is not a highlight winner combination', () => {
-      render(
-        <Square {...props} value="X" isDisabled={true} highLight={false} />
-      );
-
-      const squareButton = screen.getByRole('button');
-
-      expect(squareButton).toBeDisabled();
-
-      expect(squareButton).toHaveClass('hover:cursor-not-allowed');
-
-      expect(squareButton).toHaveClass(
-        'opacity-25 brightness-30 dark:opacity-80 dark:brightness-25'
-      );
     });
   });
 });

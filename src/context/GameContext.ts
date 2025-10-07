@@ -5,7 +5,7 @@ export interface GameContextTypes {
   data: SquareValueTypes[];
   currentPlayer: 'X' | 'O';
   winner: SquareValueTypes | null;
-  combHighLight: number[];
+  winnerCombination: number[];
   checkSquare: (index: number) => void;
   resetGame: () => void;
   isDraw: boolean;

@@ -5,8 +5,14 @@ import Square from '../Square/Square';
 
 const Board = () => {
   const { t } = useTranslation();
-  const { data, currentPlayer, checkSquare, combHighLight, winner, isDraw } =
-    useGame();
+  const {
+    data,
+    currentPlayer,
+    checkSquare,
+    winnerCombination,
+    winner,
+    isDraw
+  } = useGame();
 
   return (
     <div
@@ -26,7 +32,7 @@ const Board = () => {
               index={index}
               value={square}
               onClickItem={checkSquare}
-              highLight={combHighLight.includes(index)}
+              highLight={winnerCombination.includes(index)}
               isDisabled={!!winner || isDraw}
               currentPlayer={currentPlayer}
             />
