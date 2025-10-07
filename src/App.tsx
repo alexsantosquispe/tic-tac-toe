@@ -1,10 +1,10 @@
 import { Suspense, lazy } from 'react';
 
+import { useTranslation } from 'react-i18next';
 import { Footer } from './components/atoms/Footer/Footer';
-import { ResetIcon } from './icons/ResetIcon';
 import { Title } from './components/atoms/Title/Title';
 import useGame from './hooks/useGame';
-import { useTranslation } from 'react-i18next';
+import { ResetIcon } from './icons/ResetIcon';
 
 const Navbar = lazy(() => import('./components/atoms/Navbar/Navbar'));
 const Board = lazy(() => import('./components/molecules/Board/Board'));
@@ -24,7 +24,7 @@ function App() {
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
             <h1 className="flex flex-col gap-2 text-center">
               <Title />
-              <span className="text-lg md:text-2xl">{t('gameMessage')}</span>
+              <span className="text-lg md:text-xl">{t('gameMessage')}</span>
             </h1>
             <div className="flex flex-col items-center justify-between gap-4 md:gap-8">
               <p className="text-3xl md:text-4xl" aria-live="polite">

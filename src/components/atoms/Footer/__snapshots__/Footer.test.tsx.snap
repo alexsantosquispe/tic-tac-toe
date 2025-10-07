@@ -11,7 +11,7 @@ exports[`Footer should render the component correctly 1`] = `
         <p
           class="text-center"
         >
-          2025 TicTacToe by Alex Santos. All rights reserved.
+          2025 TIC-TAC-TOE by Alex Santos. All rights reserved.
         </p>
       </footer>
     </div>
@@ -23,7 +23,7 @@ exports[`Footer should render the component correctly 1`] = `
       <p
         class="text-center"
       >
-        2025 TicTacToe by Alex Santos. All rights reserved.
+        2025 TIC-TAC-TOE by Alex Santos. All rights reserved.
       </p>
     </footer>
   </div>,

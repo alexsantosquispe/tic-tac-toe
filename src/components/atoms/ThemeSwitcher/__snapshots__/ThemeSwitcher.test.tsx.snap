@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`ToggleThemButton styles should render the component correctly 1`] = `
+exports[`ThemeSwitcher styles should render the component correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="relative flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
+        class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
       >
         <div
-          class="absolute top-1 left-1 h-7 w-7 rounded-full bg-rose-600 transform transition-transform duration-200 ease-in-out translate-x-0"
+          class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-200 ease-in-out translate-x-[0rem] bg-black dark:bg-white"
           data-testid="selected-indicator"
         />
         <button
           aria-label="system button"
-          class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer text-white"
+          class="relative z-10 flex h-7 w-7 items-center justify-center text-xs hover:cursor-pointer text-white dark:text-black"
         >
           <svg
             class="size-5"
@@ -38,7 +38,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
         </button>
         <button
           aria-label="light button"
-          class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+          class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
         >
           <svg
             class="size-5"
@@ -85,7 +85,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
         </button>
         <button
           aria-label="dark button"
-          class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+          class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
         >
           <svg
             class="size-5"
@@ -109,15 +109,15 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="relative flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
+      class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
     >
       <div
-        class="absolute top-1 left-1 h-7 w-7 rounded-full bg-rose-600 transform transition-transform duration-200 ease-in-out translate-x-0"
+        class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-200 ease-in-out translate-x-[0rem] bg-black dark:bg-white"
         data-testid="selected-indicator"
       />
       <button
         aria-label="system button"
-        class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer text-white"
+        class="relative z-10 flex h-7 w-7 items-center justify-center text-xs hover:cursor-pointer text-white dark:text-black"
       >
         <svg
           class="size-5"
@@ -141,7 +141,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
       </button>
       <button
         aria-label="light button"
-        class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+        class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
       >
         <svg
           class="size-5"
@@ -188,7 +188,7 @@ exports[`ToggleThemButton styles should render the component correctly 1`] = `
       </button>
       <button
         aria-label="dark button"
-        class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+        class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
       >
         <svg
           class="size-5"

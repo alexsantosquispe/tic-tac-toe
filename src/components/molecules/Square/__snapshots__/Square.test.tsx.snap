@@ -174,7 +174,7 @@ exports[`Square styles should render the square with the correct styles 2`] = `
           style="opacity: 0; transform: scale(0.5);"
         >
           <svg
-            class="size-20 md:size-28 text-neutral-600 dark:text-neutral-400"
+            class="size-20 md:size-28 text-neutral-600 dark:text-neutral-200"
             data-testid="circle-icon"
             fill="none"
             height="24"
@@ -208,7 +208,7 @@ exports[`Square styles should render the square with the correct styles 2`] = `
         style="opacity: 0; transform: scale(0.5);"
       >
         <svg
-          class="size-20 md:size-28 text-neutral-600 dark:text-neutral-400"
+          class="size-20 md:size-28 text-neutral-600 dark:text-neutral-200"
           data-testid="circle-icon"
           fill="none"
           height="24"
@@ -332,7 +332,7 @@ exports[`Square styles should render the square with the correct styles 3`] = `
           style="opacity: 0; transform: scale(0.5);"
         >
           <svg
-            class="size-20 md:size-28 text-neutral-600 dark:text-neutral-400"
+            class="size-20 md:size-28 text-neutral-600 dark:text-neutral-200"
             data-testid="circle-icon"
             fill="none"
             height="24"
@@ -365,7 +365,7 @@ exports[`Square styles should render the square with the correct styles 3`] = `
           style="opacity: 0; transform: scale(0.5);"
         >
           <svg
-            class="size-28 md:size-36 text-rose-600"
+            class="size-28 md:size-36 text-rose-600 dark:text-rose-500"
             data-testid="x-icon"
             fill="none"
             height="24"
@@ -400,7 +400,7 @@ exports[`Square styles should render the square with the correct styles 3`] = `
         style="opacity: 0; transform: scale(0.5);"
       >
         <svg
-          class="size-28 md:size-36 text-rose-600"
+          class="size-28 md:size-36 text-rose-600 dark:text-rose-500"
           data-testid="x-icon"
           fill="none"
           height="24"

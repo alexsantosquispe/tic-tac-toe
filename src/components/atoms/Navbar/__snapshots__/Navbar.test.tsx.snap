@@ -6,7 +6,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
   "baseElement": <body>
     <div>
       <nav
-        class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 bg-white/60 px-4 font-semibold shadow backdrop-blur md:px-8 dark:border-white/20 dark:bg-black/60"
+        class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 bg-white/60 px-4 font-semibold shadow backdrop-blur dark:border-white/20 dark:bg-black/60"
       >
         <span
           class="font-medium text-lg md:text-xl"
@@ -20,15 +20,164 @@ exports[`Navbar should render the navbar component correctly 1`] = `
           -TOE
         </span>
         <div
-          class="relative flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
+          class="flex gap-2"
         >
           <div
-            class="absolute top-1 left-1 h-7 w-7 rounded-full bg-rose-600 transform transition-transform duration-200 ease-in-out translate-x-0"
+            class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
+          >
+            <div
+              class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-200 ease-in-out translate-x-[0rem] bg-black dark:bg-white"
+              data-testid="selected-indicator"
+            />
+            <button
+              aria-label="system button"
+              class="relative z-10 flex h-7 w-7 items-center justify-center text-xs hover:cursor-pointer text-white dark:text-black"
+            >
+              <svg
+                class="size-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z"
+                />
+                <path
+                  d="M20.054 15.987H3.946"
+                />
+              </svg>
+            </button>
+            <button
+              aria-label="light button"
+              class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
+            >
+              <svg
+                class="size-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                />
+                <path
+                  d="M12 2v2"
+                />
+                <path
+                  d="M12 20v2"
+                />
+                <path
+                  d="m4.93 4.93 1.41 1.41"
+                />
+                <path
+                  d="m17.66 17.66 1.41 1.41"
+                />
+                <path
+                  d="M2 12h2"
+                />
+                <path
+                  d="M20 12h2"
+                />
+                <path
+                  d="m6.34 17.66-1.41 1.41"
+                />
+                <path
+                  d="m19.07 4.93-1.41 1.41"
+                />
+              </svg>
+            </button>
+            <button
+              aria-label="dark button"
+              class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
+            >
+              <svg
+                class="size-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
+          >
+            <div
+              class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-200 ease-in-out translate-x-[0rem] bg-rose-600 dark:bg-rose-500"
+              data-testid="selected-indicator"
+            />
+            <button
+              aria-label="en button"
+              class="relative z-10 flex h-7 w-7 items-center justify-center text-xs hover:cursor-pointer dark:text-white text-white"
+            >
+              <pre>
+                EN
+              </pre>
+            </button>
+            <button
+              aria-label="es button"
+              class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
+            >
+              <pre>
+                ES
+              </pre>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>,
+  "container": <div>
+    <nav
+      class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 bg-white/60 px-4 font-semibold shadow backdrop-blur dark:border-white/20 dark:bg-black/60"
+    >
+      <span
+        class="font-medium text-lg md:text-xl"
+      >
+        TIC-
+        <span
+          class="text-rose-600 dark:text-rose-500"
+        >
+          TAC
+        </span>
+        -TOE
+      </span>
+      <div
+        class="flex gap-2"
+      >
+        <div
+          class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
+        >
+          <div
+            class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-200 ease-in-out translate-x-[0rem] bg-black dark:bg-white"
             data-testid="selected-indicator"
           />
           <button
             aria-label="system button"
-            class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer text-white"
+            class="relative z-10 flex h-7 w-7 items-center justify-center text-xs hover:cursor-pointer text-white dark:text-black"
           >
             <svg
               class="size-5"
@@ -52,7 +201,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
           </button>
           <button
             aria-label="light button"
-            class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+            class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
           >
             <svg
               class="size-5"
@@ -99,7 +248,7 @@ exports[`Navbar should render the navbar component correctly 1`] = `
           </button>
           <button
             aria-label="dark button"
-            class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
+            class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
           >
             <svg
               class="size-5"
@@ -119,123 +268,30 @@ exports[`Navbar should render the navbar component correctly 1`] = `
             </svg>
           </button>
         </div>
-      </nav>
-    </div>
-  </body>,
-  "container": <div>
-    <nav
-      class="fixed flex h-14 w-full items-center justify-between border-b border-neutral-200 bg-white/60 px-4 font-semibold shadow backdrop-blur md:px-8 dark:border-white/20 dark:bg-black/60"
-    >
-      <span
-        class="font-medium text-lg md:text-xl"
-      >
-        TIC-
-        <span
-          class="text-rose-600 dark:text-rose-500"
-        >
-          TAC
-        </span>
-        -TOE
-      </span>
-      <div
-        class="relative flex items-center gap-1 rounded-full border border-neutral-200 p-1 dark:border-white/20"
-      >
         <div
-          class="absolute top-1 left-1 h-7 w-7 rounded-full bg-rose-600 transform transition-transform duration-200 ease-in-out translate-x-0"
-          data-testid="selected-indicator"
-        />
-        <button
-          aria-label="system button"
-          class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full hover:cursor-pointer text-white"
+          class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
         >
-          <svg
-            class="size-5"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-200 ease-in-out translate-x-[0rem] bg-rose-600 dark:bg-rose-500"
+            data-testid="selected-indicator"
+          />
+          <button
+            aria-label="en button"
+            class="relative z-10 flex h-7 w-7 items-center justify-center text-xs hover:cursor-pointer dark:text-white text-white"
           >
-            <path
-              d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z"
-            />
-            <path
-              d="M20.054 15.987H3.946"
-            />
-          </svg>
-        </button>
-        <button
-          aria-label="light button"
-          class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
-        >
-          <svg
-            class="size-5"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
+            <pre>
+              EN
+            </pre>
+          </button>
+          <button
+            aria-label="es button"
+            class="relative z-10 flex h-7 w-7 items-center justify-center text-xs text-neutral-600 hover:cursor-pointer dark:text-white"
           >
-            <circle
-              cx="12"
-              cy="12"
-              r="4"
-            />
-            <path
-              d="M12 2v2"
-            />
-            <path
-              d="M12 20v2"
-            />
-            <path
-              d="m4.93 4.93 1.41 1.41"
-            />
-            <path
-              d="m17.66 17.66 1.41 1.41"
-            />
-            <path
-              d="M2 12h2"
-            />
-            <path
-              d="M20 12h2"
-            />
-            <path
-              d="m6.34 17.66-1.41 1.41"
-            />
-            <path
-              d="m19.07 4.93-1.41 1.41"
-            />
-          </svg>
-        </button>
-        <button
-          aria-label="dark button"
-          class="relative z-10 flex h-7 w-7 items-center justify-center rounded-full text-neutral-600 hover:cursor-pointer"
-        >
-          <svg
-            class="size-5"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
-            />
-          </svg>
-        </button>
+            <pre>
+              ES
+            </pre>
+          </button>
+        </div>
       </div>
     </nav>
   </div>,
