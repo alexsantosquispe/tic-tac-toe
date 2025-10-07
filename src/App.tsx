@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { Footer } from './components/atoms/Footer/Footer';
+import Status from './components/atoms/Status/Status';
 import { Title } from './components/atoms/Title/Title';
 import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
@@ -20,21 +21,21 @@ function App() {
         <Suspense fallback={<div className="h-14" />}>
           <Navbar />
         </Suspense>
+
         <main className="mt-14 flex flex-1 py-8 md:p-0">
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
             <h1 className="flex flex-col gap-2 text-center">
               <Title />
               <span className="text-lg md:text-xl">{t('gameMessage')}</span>
             </h1>
+
             <div className="flex flex-col items-center justify-between gap-4 md:gap-8">
-              <p className="text-3xl md:text-4xl" aria-live="polite">
-                {!winner &&
-                  !isDraw &&
-                  currentPlayer &&
-                  t('turn', { player: currentPlayer })}
-                {winner && t('win', { player: winner })}
-                {isDraw && !winner && t('draw')}
-              </p>
+              <Status
+                winner={winner}
+                isDraw={isDraw}
+                currentPlayer={currentPlayer}
+              />
+
               <Suspense
                 fallback={
                   <div className="flex h-[20rem] w-[20rem] md:h-[28rem] md:w-[28rem]" />
@@ -42,6 +43,7 @@ function App() {
               >
                 <Board />
               </Suspense>
+
               <Suspense fallback={<div className="h-[3.75rem] w-[10rem]" />}>
                 <Button
                   title={t('resetButton.title')}
@@ -53,6 +55,7 @@ function App() {
             </div>
           </section>
         </main>
+
         <Footer />
       </div>
     </>

@@ -10,8 +10,8 @@ import {
 
 import App from './App';
 import GameProvider from './context/GameProvider';
-import { I18NWrapper } from './tests/testsUtils';
 import ThemeProvider from './context/ThemeProvider';
+import { I18NWrapper } from './tests/testsUtils';
 
 describe('App', () => {
   beforeEach(async () => {
