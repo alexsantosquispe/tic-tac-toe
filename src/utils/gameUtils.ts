@@ -6,6 +6,10 @@ type WinnerResultType = {
   winnerCombination: number[];
 };
 
+export const getIsBoardDirty = (data: SquareValueTypes[]) => {
+  return data.some((value) => value !== '');
+};
+
 export const getWinnerResult = (data: SquareValueTypes[]): WinnerResultType => {
   let winner: SquareValueTypes | null = null;
 

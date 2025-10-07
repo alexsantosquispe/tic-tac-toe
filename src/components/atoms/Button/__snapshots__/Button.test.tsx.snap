@@ -7,7 +7,8 @@ exports[`Button should render the component correctly 1`] = `
     <div>
       <button
         aria-label="Reset Button"
-        class="flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-5 py-3 text-2xl text-white uppercase shadow-md hover:cursor-pointer hover:bg-rose-500"
+        class="flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-5 py-2 text-2xl text-white uppercase shadow-md hover:cursor-pointer hover:bg-rose-500"
+        type="button"
       >
         <svg
           class="size-6"
@@ -35,7 +36,8 @@ exports[`Button should render the component correctly 1`] = `
   "container": <div>
     <button
       aria-label="Reset Button"
-      class="flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-5 py-3 text-2xl text-white uppercase shadow-md hover:cursor-pointer hover:bg-rose-500"
+      class="flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-5 py-2 text-2xl text-white uppercase shadow-md hover:cursor-pointer hover:bg-rose-500"
+      type="button"
     >
       <svg
         class="size-6"

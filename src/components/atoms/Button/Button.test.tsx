@@ -20,6 +20,7 @@ describe('Button', () => {
 
   it('should call the onClick function when clicked', () => {
     render(<Button {...props} />);
+
     const button = screen.getByRole('button');
 
     fireEvent.click(button);

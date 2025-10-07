@@ -1,5 +1,5 @@
-import { useState, type ReactNode } from 'react';
-import { DEFAULT_DATA } from '../constants';
+import { useCallback, useMemo, useState, type ReactNode } from 'react';
+import { DEFAULT_DATA, PLAYER_O, PLAYER_X } from '../constants';
 import type { SquareValueTypes } from '../types';
 import { getWinnerResult, isDraw } from '../utils/gameUtils';
 import GameContext from './GameContext';
@@ -8,39 +8,42 @@ interface GameProviderProps {
   children: ReactNode;
 }
 
+type CurrentPlayerType = Exclude<SquareValueTypes, ''>;
+
 const GameProvider = ({ children }: GameProviderProps) => {
-  const [currentPlayer, setCurrentPlayer] =
-    useState<Exclude<SquareValueTypes, ''>>('X');
   const [data, setData] = useState<SquareValueTypes[]>(DEFAULT_DATA);
   const [winner, setWinner] = useState<SquareValueTypes | null>(null);
   const [winnerCombination, setWinnerCombination] = useState<number[]>([]);
+  const [currentPlayer, setCurrentPlayer] =
+    useState<CurrentPlayerType>(PLAYER_X);
 
-  const toggleCurrentPlayer = () => {
-    setCurrentPlayer((prevPlayer) => (prevPlayer === 'X' ? 'O' : 'X'));
-  };
+  const checkSquare = useCallback(
+    (index: number) => {
+      const boardData = [...data];
+      boardData[index] = currentPlayer;
 
-  const checkSquare = (index: number) => {
-    const boardData = [...data];
-    boardData[index] = currentPlayer;
-    setData(boardData);
+      const result = getWinnerResult(boardData);
+      const isGameDraw = !result.winner && isDraw(boardData);
 
-    const result = getWinnerResult(boardData);
-    const isGameDraw = !result.winner && isDraw(boardData);
+      setData(boardData);
+      setWinner(result.winner);
+      setWinnerCombination(result.winnerCombination);
 
-    if (!result.winner && !isGameDraw) {
-      toggleCurrentPlayer();
-    }
+      if (!result.winner && !isGameDraw) {
+        setCurrentPlayer((prevPlayer) =>
+          prevPlayer === PLAYER_X ? PLAYER_O : PLAYER_X
+        );
+      }
+    },
+    [data, currentPlayer]
+  );
 
-    setWinner(result.winner);
-    setWinnerCombination(result.winnerCombination);
-  };
-
-  const resetGame = () => {
+  const resetGame = useCallback(() => {
     setData([...DEFAULT_DATA]);
     setWinner(null);
     setWinnerCombination([]);
-    setCurrentPlayer('X');
-  };
+    setCurrentPlayer(PLAYER_X);
+  }, []);
 
   return (
     <GameContext.Provider
@@ -51,7 +54,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
         winnerCombination,
         checkSquare,
         resetGame,
-        isDraw: !winner && isDraw(data)
+        isDraw: useMemo(() => !winner && isDraw(data), [winner, data])
       }}
     >
       {children}

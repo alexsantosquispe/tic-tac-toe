@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { Footer } from './components/atoms/Footer/Footer';
@@ -6,6 +6,7 @@ import Status from './components/atoms/Status/Status';
 import { Title } from './components/atoms/Title/Title';
 import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
+import { getIsBoardDirty } from './utils/gameUtils';
 
 const Navbar = lazy(() => import('./components/atoms/Navbar/Navbar'));
 const Board = lazy(() => import('./components/molecules/Board/Board'));
@@ -13,7 +14,8 @@ const Button = lazy(() => import('./components/atoms/Button/Button'));
 
 function App() {
   const { t } = useTranslation();
-  const { winner, currentPlayer, resetGame, isDraw } = useGame();
+  const { data, winner, currentPlayer, resetGame, isDraw } = useGame();
+  const isBoardDirty = useMemo(() => getIsBoardDirty(data), [data]);
 
   return (
     <>
@@ -50,6 +52,7 @@ function App() {
                   ariaLabel={t('resetButton.ariaLabel')}
                   icon={<ResetIcon />}
                   onClick={resetGame}
+                  isDisabled={!isBoardDirty}
                 />
               </Suspense>
             </div>

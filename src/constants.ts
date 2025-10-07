@@ -1,5 +1,9 @@
 import type { SquareValueTypes } from './types';
 
+export const PLAYER_X = 'X';
+
+export const PLAYER_O = 'O';
+
 export const DEFAULT_DATA: SquareValueTypes[] = Array(9).fill('');
 
 export const WINNING_COMBINATIONS: number[][] = [
