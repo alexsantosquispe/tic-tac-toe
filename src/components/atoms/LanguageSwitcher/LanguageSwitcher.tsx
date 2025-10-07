@@ -5,9 +5,10 @@ import { TabGroup } from '../TabGroup/TabGroup';
 
 export const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
-  const currentLanguage = useMemo(() => {
-    return (i18n.language.split('-')[0] || LANGUAGES[0]) as LanguageTypes;
-  }, [i18n.language]);
+  const currentLanguage = useMemo(
+    () => (i18n.language.split('-')[0] || LANGUAGES[0]) as LanguageTypes,
+    [i18n.language]
+  );
 
   const toggleLanguage = useCallback(
     (optionId: LanguageTypes) => {
