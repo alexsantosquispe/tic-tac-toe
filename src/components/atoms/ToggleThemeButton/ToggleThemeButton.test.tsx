@@ -54,7 +54,7 @@ describe('ToggleThemButton', () => {
       expect(systemButton).toHaveClass(selectedButtonStyles);
       expect(lightButton).not.toHaveClass(selectedButtonStyles);
       expect(darkButton).not.toHaveClass(selectedButtonStyles);
-      expect(indicator).toHaveClass('translate-x-0');
+      expect(indicator).toHaveClass('translate-x-[0rem]');
 
       fireEvent.click(lightButton);
       expect(systemButton).not.toHaveClass(selectedButtonStyles);
