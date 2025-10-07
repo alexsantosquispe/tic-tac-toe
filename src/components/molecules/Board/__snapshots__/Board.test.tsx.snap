@@ -6,7 +6,7 @@ exports[`Board should render the board 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex h-[20rem] w-[20rem] rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-lg md:h-[28rem] md:w-[28rem] dark:border-white/20 dark:bg-white/10"
+        class="relative flex h-[20rem] w-[20rem] rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-lg md:h-[28rem] md:w-[28rem] dark:border-white/20 dark:bg-white/10"
         data-testid="board"
       >
         <div
@@ -298,7 +298,7 @@ exports[`Board should render the board 1`] = `
   </body>,
   "container": <div>
     <div
-      class="flex h-[20rem] w-[20rem] rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-lg md:h-[28rem] md:w-[28rem] dark:border-white/20 dark:bg-white/10"
+      class="relative flex h-[20rem] w-[20rem] rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-lg md:h-[28rem] md:w-[28rem] dark:border-white/20 dark:bg-white/10"
       data-testid="board"
     >
       <div

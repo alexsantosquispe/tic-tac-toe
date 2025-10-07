@@ -4,14 +4,14 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import { THEME_TYPES } from '../../../context/ThemeContext';
 import ThemeProvider from '../../../context/ThemeProvider';
-import { ToggleThemeButton } from './ToggleThemeButton';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
-describe('ToggleThemButton', () => {
+describe('ThemeSwitcher', () => {
   describe('styles', () => {
     it('should render the component correctly', () => {
       const component = render(
         <ThemeProvider>
-          <ToggleThemeButton />
+          <ThemeSwitcher />
         </ThemeProvider>
       );
 
@@ -33,7 +33,7 @@ describe('ToggleThemButton', () => {
     beforeEach(() => {
       render(
         <ThemeProvider>
-          <ToggleThemeButton />
+          <ThemeSwitcher />
         </ThemeProvider>
       );
     });

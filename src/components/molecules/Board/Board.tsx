@@ -1,6 +1,7 @@
-import Square from '../Square/Square';
-import useGame from '../../../hooks/useGame';
 import { useTranslation } from 'react-i18next';
+import { twMerge } from 'tailwind-merge';
+import useGame from '../../../hooks/useGame';
+import Square from '../Square/Square';
 
 const Board = () => {
   const { t } = useTranslation();
@@ -10,10 +11,12 @@ const Board = () => {
   return (
     <div
       data-testid="board"
-      className="flex h-[20rem] w-[20rem] rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-lg md:h-[28rem] md:w-[28rem] dark:border-white/20 dark:bg-white/10"
+      className="relative flex h-[20rem] w-[20rem] rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-lg md:h-[28rem] md:w-[28rem] dark:border-white/20 dark:bg-white/10"
     >
       <div
-        className="flex flex-1 flex-wrap overflow-hidden rounded-xl border border-dashed border-neutral-200 bg-white dark:border-white/20 dark:bg-black"
+        className={twMerge(
+          'flex flex-1 flex-wrap overflow-hidden rounded-xl border border-dashed border-neutral-200 bg-white dark:border-white/20 dark:bg-black'
+        )}
         aria-label={t('boardAriaLabel')}
       >
         {data.map((square, index) => {

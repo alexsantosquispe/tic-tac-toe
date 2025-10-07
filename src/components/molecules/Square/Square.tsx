@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useCallback } from 'react';
 
-import clsx from 'clsx';
+import cn from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { CircleIcon } from '../../../icons/CircleIcon';
 import { XIcon } from '../../../icons/XIcon';
@@ -19,8 +19,8 @@ const ICONS = {
 } as const;
 
 const COLORS = {
-  X: 'text-rose-600',
-  O: 'text-neutral-600 dark:text-neutral-400',
+  X: 'text-rose-600 dark:text-rose-500',
+  O: 'text-neutral-600 dark:text-neutral-200',
   hover: 'text-neutral-200/60 dark:text-white/20'
 } as const;
 
@@ -62,11 +62,13 @@ const Square = ({
       disabled={disabled}
       className={twMerge(
         'group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 dark:border-white/20',
-        clsx({
+        cn({
           'hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-white/10':
             !disabled,
           'hover:cursor-not-allowed': disabled,
-          'bg-rose-50 dark:bg-rose-900/30': highLight
+          'bg-rose-50 dark:bg-rose-600/40': highLight,
+          'opacity-25 brightness-30 dark:opacity-80 dark:brightness-25':
+            !highLight && isDisabled
         })
       )}
       aria-label={value || 'Empty'}

@@ -11,7 +11,7 @@ const THEME_OPTIONS = [
   { id: THEME_TYPES.DARK, icon: <MoonIcon /> }
 ];
 
-export const ToggleThemeButton = () => {
+export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
 
   return (
