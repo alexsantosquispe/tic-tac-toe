@@ -54,5 +54,35 @@ describe('Square', () => {
 
       expect(onClickItemMock).toHaveBeenCalledWith(props.index);
     });
+
+    it('should not call onClickItem when the square it was already selected', () => {
+      render(<Square {...props} value="X" />);
+
+      const squareButton = screen.getByRole('button');
+
+      expect(squareButton).toBeDisabled();
+
+      fireEvent.click(squareButton);
+
+      expect(onClickItemMock).toHaveBeenCalledTimes(0);
+
+      expect(squareButton).toHaveClass('hover:cursor-not-allowed');
+    });
+
+    it('should display disabled styles if the square is not a highlight winner combination', () => {
+      render(
+        <Square {...props} value="X" isDisabled={true} highLight={false} />
+      );
+
+      const squareButton = screen.getByRole('button');
+
+      expect(squareButton).toBeDisabled();
+
+      expect(squareButton).toHaveClass('hover:cursor-not-allowed');
+
+      expect(squareButton).toHaveClass(
+        'opacity-25 brightness-30 dark:opacity-80 dark:brightness-25'
+      );
+    });
   });
 });

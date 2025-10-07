@@ -4,7 +4,7 @@ import {
   getStoredTheme,
   getSystemTheme,
   setStoredTheme
-} from '../utils/theme.utils';
+} from '../utils/themeUtils';
 import { THEME_TYPES, ThemeContext, type ThemeType } from './ThemeContext';
 
 interface ThemeProviderProps {

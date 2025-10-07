@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { DEFAULT_DATA } from '../constants';
 import type { SquareValueTypes } from '../types';
-import { getWinnerResult, isDraw } from '../utils/utils';
+import { getWinnerResult, isDraw } from '../utils/gameUtils';
 import GameContext from './GameContext';
 
 interface GameProviderProps {
@@ -9,7 +9,8 @@ interface GameProviderProps {
 }
 
 const GameProvider = ({ children }: GameProviderProps) => {
-  const [currentPlayer, setCurrentPlayer] = useState<'X' | 'O'>('X');
+  const [currentPlayer, setCurrentPlayer] =
+    useState<Exclude<SquareValueTypes, ''>>('X');
   const [data, setData] = useState<SquareValueTypes[]>(DEFAULT_DATA);
   const [winner, setWinner] = useState<SquareValueTypes | null>(null);
   const [combHighLight, setCombHighLight] = useState<number[]>([]);
@@ -19,17 +20,16 @@ const GameProvider = ({ children }: GameProviderProps) => {
   };
 
   const checkSquare = (index: number) => {
-    if (data[index] !== '' || winner) return;
-    const newData = [...data];
-    newData[index] = currentPlayer;
-    setData(newData);
-    const result = getWinnerResult(newData);
-    const draw = !result.winner && isDraw(newData);
+    const boardData = [...data];
+    boardData[index] = currentPlayer;
+    setData(boardData);
+    const result = getWinnerResult(boardData);
+    const draw = !result.winner && isDraw(boardData);
     if (!result.winner && !draw) {
       toggleCurrentPlayer();
     }
     setWinner(result.winner);
-    setCombHighLight(result.combHighLight);
+    setCombHighLight(result.winnerCombination);
   };
 
   const resetGame = () => {

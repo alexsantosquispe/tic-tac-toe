@@ -1,4 +1,4 @@
-import { getWinnerResult, isDraw } from './utils';
+import { getWinnerResult, isDraw } from './gameUtils';
 
 import type { SquareValueTypes } from '../types';
 
@@ -22,14 +22,14 @@ describe('utils', () => {
       const result = getWinnerResult(data);
 
       expect(result.winner).toEqual(resultExpected.winner);
-      expect(result.combHighLight).toEqual(resultExpected.combHighLight);
+      expect(result.winnerCombination).toEqual(resultExpected.combHighLight);
     });
 
     it('should return default values', () => {
       const result = getWinnerResult(drawData);
 
       expect(result.winner).toEqual(null);
-      expect(result.combHighLight).toEqual([]);
+      expect(result.winnerCombination).toEqual([]);
     });
   });
 

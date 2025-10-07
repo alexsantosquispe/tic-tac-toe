@@ -1,11 +1,15 @@
 import { WINNING_COMBINATIONS } from '../constants';
 import type { SquareValueTypes } from '../types';
 
-export const getWinnerResult = (
-  data: SquareValueTypes[]
-): { winner: SquareValueTypes | null; combHighLight: number[] } => {
+type WinnerResultType = {
+  winner: SquareValueTypes | null;
+  winnerCombination: number[];
+};
+
+export const getWinnerResult = (data: SquareValueTypes[]): WinnerResultType => {
   let winner: SquareValueTypes | null = null;
-  const winnerComb =
+
+  const winnerCombination =
     WINNING_COMBINATIONS.find((combination) => {
       const [a, b, c] = combination;
       const isWinner = !!data[a] && data[a] === data[b] && data[a] === data[c];
@@ -14,7 +18,8 @@ export const getWinnerResult = (
       }
       return isWinner;
     }) || [];
-  return { winner, combHighLight: winnerComb };
+
+  return { winner, winnerCombination };
 };
 
 export const isDraw = (data: SquareValueTypes[]): boolean => {
