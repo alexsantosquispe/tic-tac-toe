@@ -74,7 +74,7 @@ export const TabGroup = <T extends string | number | symbol>({
           'transform transition-transform duration-200 ease-in-out',
           currentTransform,
           cn({
-            'bg-rose-600 dark:bg-rose-500': !isDefault,
+            'bg-rose-600': !isDefault,
             'bg-black dark:bg-white': isDefault
           })
         )}
