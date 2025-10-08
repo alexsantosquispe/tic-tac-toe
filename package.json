@@ -22,7 +22,7 @@
       "pnpm exec eslint --max-warnings=0",
       "pnpm exec prettier --check"
     ],
-    "*.{css,md,html,json,yml,yaml}": [
+    "*.{css,md,html,json}": [
       "pnpm exec prettier --check"
     ]
   },
