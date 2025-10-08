@@ -24,7 +24,7 @@ function App() {
           <Navbar />
         </Suspense>
 
-        <main className="mt-14 flex flex-1 py-8 md:p-0">
+        <main className="mt-14 mb-8 flex flex-1 py-8 md:p-0">
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
             <h1 className="flex flex-col gap-2 text-center">
               <Title />
