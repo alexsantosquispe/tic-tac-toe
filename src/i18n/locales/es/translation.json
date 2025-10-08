@@ -7,6 +7,5 @@
   "resetButton": {
     "title": "Reiniciar",
     "ariaLabel": "Botón para reiniciar el juego"
-  },
-  "footer": "2025 TIC-TAC-TOE por Alex Santos. Todos los derechos reservados."
+  }
 }
