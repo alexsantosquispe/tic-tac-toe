@@ -7,7 +7,7 @@ export const Footer = () => {
           href="https://github.com/alexsantosquispe"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-blue-600 transition-colors duration-200 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+          className="font-medium text-rose-600 transition-colors duration-200 hover:underline"
         >
           Alex Santos
         </a>

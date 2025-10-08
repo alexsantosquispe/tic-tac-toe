@@ -14,7 +14,7 @@ exports[`Footer should render the component correctly 1`] = `
           2025 TIC-TAC-TOE by
            
           <a
-            class="font-medium text-blue-600 transition-colors duration-200 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            class="font-medium text-rose-600 transition-colors duration-200 hover:underline"
             href="https://github.com/alexsantosquispe"
             rel="noopener noreferrer"
             target="_blank"
@@ -36,7 +36,7 @@ exports[`Footer should render the component correctly 1`] = `
         2025 TIC-TAC-TOE by
          
         <a
-          class="font-medium text-blue-600 transition-colors duration-200 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+          class="font-medium text-rose-600 transition-colors duration-200 hover:underline"
           href="https://github.com/alexsantosquispe"
           rel="noopener noreferrer"
           target="_blank"
