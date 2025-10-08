@@ -1,13 +1,15 @@
 <div align="center">
-  <h1>Tic-Tac-Toe</h1>
+  <h1>🎮 Tic-Tac-Toe</h1>
   <p align="center">
-    A clean, modern implementation of the classic Tic-Tac-Toe game built with React.
+    A modern, accessible, and fully-featured implementation of the classic Tic-Tac-Toe game built with React, TypeScript, and Tailwind CSS.
   </p>
 
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)](https://jestjs.io/)
+[![Testing Library](https://img.shields.io/badge/Testing%20Library-E33332?style=for-the-badge&logo=testing-library&logoColor=white)](https://testing-library.com/)
 
 </div>
 
@@ -15,31 +17,88 @@
 
 ## Overview
 
-Play a fully functional **3×3 Tic-Tac-Toe** with a responsive, accessible UI.  
-Features include alternating turns, winner detection (with highlight), draw detection, reset option, and live status updates for screen readers.
+Play a fully functional **3×3 Tic-Tac-Toe** game with a modern, responsive, and accessible UI. This project showcases best practices in React development with TypeScript, comprehensive testing, internationalization, theme switching, and smooth animations.
+
+### Key Highlights
+
+- 🎯 **Fully Accessible**: WCAG compliant with screen reader support
+- 🌍 **Internationalization**: Multi-language support (English/Spanish)
+- 🎨 **Theme Support**: Light, dark, and system theme modes
+- ✨ **Smooth Animations**: Powered by Framer Motion
+- 🧪 **Comprehensive Testing**: 100% test coverage with Jest and Testing Library
+- 📱 **Responsive Design**: Works perfectly on all device sizes
+- ⚡ **Performance Optimized**: Code splitting and lazy loading
 
 ---
 
 ## Screenshots
 
 <div align="center">
-  <img src="./screenshots/light.webp" alt="Tic-Tac-Toe light" width="45%"/>
-  <img src="./screenshots/dark.webp" alt="Tic-Tac-Toe dark" width="45%"/>
+  <img src="./screenshots/light.webp" alt="Tic-Tac-Toe game in light theme showing a game in progress" width="45%"/>
+  <img src="./screenshots/dark.webp" alt="Tic-Tac-Toe game in dark theme showing a completed game" width="45%"/>
 </div>
 
 ## Features
 
-- **Turn-based play**: X starts, then O; only empty squares can be selected.
-- **Win detection**: Rows, columns, diagonals; winning squares are highlighted.
-- **Draw detection**: Disables the board and shows “Draw!” when no moves remain.
-- **Reset**: Start a new game at any time.
+### Core Gameplay
+
+- **Turn-based play**: X starts, then O; only empty squares can be selected
+- **Win detection**: Rows, columns, diagonals; winning squares are highlighted
+- **Draw detection**: Disables the board and shows "Draw!" when no moves remain
+- **Reset functionality**: Start a new game at any time with smooth animations
+
+### User Experience
+
+- **🌍 Internationalization**: Support for English and Spanish with easy language switching
+- **🎨 Theme Support**: Light, dark, and system theme modes with persistent preferences
+- **✨ Smooth Animations**: Framer Motion powered transitions and micro-interactions
+- **📱 Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **♿ Accessibility**: Full WCAG compliance with screen reader support and keyboard navigation
+
+### Technical Features
+
+- **⚡ Performance**: Code splitting, lazy loading, and optimized bundle size
+- **🧪 Testing**: Comprehensive test suite with 100% coverage
+- **🔧 Developer Experience**: ESLint, Prettier, Husky, and lint-staged for code quality
+- **📦 Modern Stack**: React 19, TypeScript, Tailwind CSS v4, and Vite
+
+## Tech Stack
+
+### Core Technologies
+
+- **[React 19](https://react.dev/)** - Latest React with concurrent features
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
+- **[Vite](https://vitejs.dev/)** - Fast build tool and dev server
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework
+
+### UI & Animation
+
+- **[Framer Motion](https://www.framer.com/motion/)** - Smooth animations and transitions
+- **[clsx](https://github.com/lukeed/clsx)** - Conditional className utility
+- **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** - Tailwind class merging
+
+### Internationalization
+
+- **[i18next](https://www.i18next.com/)** - Internationalization framework
+- **[react-i18next](https://react.i18next.com/)** - React integration for i18next
+- **[i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languagedetector)** - Language detection
+
+### Testing & Quality
+
+- **[Jest](https://jestjs.io/)** - Testing framework
+- **[Testing Library](https://testing-library.com/)** - React testing utilities
+- **[ESLint](https://eslint.org/)** - Code linting
+- **[Prettier](https://prettier.io/)** - Code formatting
+- **[Husky](https://typicode.github.io/husky/)** - Git hooks
+- **[lint-staged](https://github.com/okonet/lint-staged)** - Pre-commit hooks
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ (LTS recommended)
-- pnpm 8+ (preferred). You can also use npm or yarn.
+- **Node.js 18+** (LTS recommended)
+- **pnpm 8+** (preferred package manager)
+- Modern web browser with ES2020+ support
 
 ### Installation
 
@@ -77,10 +136,50 @@ The output will be in `dist/`.
 pnpm preview
 ```
 
-### Lint
+### Testing
+
+Run the test suite:
+
+```bash
+pnpm test
+```
+
+Run tests with coverage:
+
+```bash
+pnpm test:coverage
+```
+
+Update test snapshots:
+
+```bash
+pnpm test:update
+```
+
+### Code Quality
+
+Lint the codebase:
 
 ```bash
 pnpm lint
+```
+
+Fix linting issues automatically:
+
+```bash
+pnpm lint:fix
+```
+
+Check code formatting:
+
+```bash
+pnpm format:check
+```
+
+Format code automatically:
+
+```bash
+pnpm format:fix
 ```
 
 ## Game Rules
@@ -102,13 +201,106 @@ This project uses Tailwind CSS v4 with the official Vite plugin.
 
 ## Available Scripts
 
-The following scripts are defined in `package.json`:
+The following scripts are available in `package.json`:
 
-- `dev` — Start the Vite dev server
-- `build` — Type-check (`tsc -b`) and build for production
+### Development
+
+- `dev` — Start the Vite development server with hot reload
+- `build` — Type-check and build for production
 - `preview` — Preview the production build locally
+
+### Testing
+
+- `test` — Run the Jest test suite
+- `test:coverage` — Run tests with coverage report
+- `test:update` — Update Jest snapshots
+
+### Code Quality
+
 - `lint` — Run ESLint on the project
+- `lint:fix` — Fix ESLint issues automatically
+- `format:check` — Check code formatting with Prettier
+- `format:fix` — Format code with Prettier
+
+### Git Hooks
+
+- `prepare` — Set up Husky git hooks (runs automatically after install)
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── atoms/          # Basic UI components (Button, Footer, etc.)
+│   └── molecules/      # Composite components (Board, Square)
+├── context/            # React Context providers (Game, Theme)
+├── hooks/              # Custom React hooks
+├── i18n/               # Internationalization configuration
+│   └── locales/        # Translation files (en, es)
+├── icons/              # SVG icon components
+├── tests/              # Test utilities and helpers
+├── utils/              # Utility functions
+├── App.tsx             # Main application component
+└── main.tsx            # Application entry point
+```
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or submit PRs to improve features, fix bugs, or enhance documentation.
+We welcome contributions! Here's how you can help:
+
+### 🐛 Bug Reports
+
+- Use the issue template to provide detailed information
+- Include steps to reproduce the issue
+- Specify your environment (OS, browser, Node.js version)
+
+### ✨ Feature Requests
+
+- Describe the feature and its use case
+- Consider the project's scope and accessibility requirements
+- Check existing issues to avoid duplicates
+
+### 🔧 Development Setup
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Install dependencies: `pnpm install`
+4. Make your changes
+5. Run tests: `pnpm test`
+6. Check code quality: `pnpm lint && pnpm format:check`
+7. Commit your changes: `git commit -m 'Add amazing feature'`
+8. Push to the branch: `git push origin feature/amazing-feature`
+9. Open a Pull Request
+
+### 📋 Development Guidelines
+
+- Follow the existing code style and patterns
+- Write tests for new features
+- Ensure accessibility compliance
+- Update documentation as needed
+- Keep commits atomic and well-described
+
+### 🧪 Testing Requirements
+
+- Maintain 100% test coverage
+- Write meaningful test descriptions
+- Test both happy path and edge cases
+- Include accessibility tests where applicable
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Built with ❤️ using modern React patterns
+- Inspired by classic Tic-Tac-Toe gameplay
+- Designed with accessibility and user experience in mind
+- Special thanks to the open-source community for the amazing tools and libraries
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by <a href="https://github.com/alexsantosquispe">Alex Santos</a></p>
+  <p>⭐ Star this repo if you found it helpful!</p>
+</div>
