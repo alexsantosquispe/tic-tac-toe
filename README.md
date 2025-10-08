@@ -291,6 +291,16 @@ We welcome contributions! Here's how you can help:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+### Attribution
+
+If you use this project in your work, please include proper attribution:
+
+- **For code usage**: Include a link to this repository: `https://github.com/alexsantosquispe/tic-tac-toe`
+- **For inspiration**: Credit Alex Santos as the original author
+- **For forks/derivatives**: Maintain the original copyright notice and add your own
+
+This helps support the project and gives proper credit to the original work! 🙏
+
 ## Acknowledgments
 
 - Built with ❤️ using modern React patterns
