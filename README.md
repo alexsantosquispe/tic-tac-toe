@@ -23,7 +23,8 @@ Features include alternating turns, winner detection (with highlight), draw dete
 ## Screenshots
 
 <div align="center">
-  <img src="./screenshots/tic-tac-toe.webp" alt="Tic-Tac-Toe" width="90%"/>
+  <img src="./screenshots/light.webp" alt="Tic-Tac-Toe light" width="45%"/>
+  <img src="./screenshots/dark.webp" alt="Tic-Tac-Toe dark" width="45%"/>
 </div>
 
 ## Features
