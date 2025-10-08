@@ -7,5 +7,10 @@
   "resetButton": {
     "title": "Reiniciar",
     "ariaLabel": "Botón para reiniciar el juego"
+  },
+  "footer": {
+    "firstLine": "2025 TIC-TAC-TOE por ",
+    "authorName": "Alex Santos",
+    "secondLine": ". Todos los derechos reservados."
   }
 }
