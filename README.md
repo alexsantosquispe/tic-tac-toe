@@ -1,3 +1,5 @@
+[![CI/CD Pipeline](https://github.com/alexsantosquispe/tic-tac-toe/actions/workflows/ci_cd.yml/badge.svg)](https://github.com/alexsantosquispe/tic-tac-toe/actions/workflows/ci_cd.yml)
+
 <div align="center">
   <h1>🎮 Tic-Tac-Toe</h1>
   <p align="center">
