@@ -1,9 +1,10 @@
-import { Suspense, lazy, useMemo } from 'react';
+import { Suspense, lazy, useMemo, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { Footer } from './components/atoms/Footer/Footer';
 import Status from './components/atoms/Status/Status';
 import { Title } from './components/atoms/Title/Title';
+import { SettingsModal } from './components/molecules/SettingsModal/SettingsModal';
 import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
 import { getIsBoardDirty } from './utils/gameUtils';
@@ -16,9 +17,9 @@ function App() {
   const { t } = useTranslation();
   const { data, winner, currentPlayer, resetGame, isDraw } = useGame();
   const isBoardDirty = useMemo(() => getIsBoardDirty(data), [data]);
-
-  //TODO: This section will be implemented in the next commit
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+  //TODO: This state should be improved in order to show the modal the first time
+  //TODO: and then the next time should be from settings icon
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -39,12 +40,13 @@ function App() {
                 isDraw={isDraw}
                 currentPlayer={currentPlayer}
               />
-              //TODO: This section will be implemented in the next commit
-              {/* <Button
+
+              <Button
                 title={t('settings.title')}
                 ariaLabel="Start game button"
                 onClick={() => setIsModalOpen(true)}
-              /> */}
+              />
+
               <Suspense
                 fallback={
                   <div className="flex h-[20rem] w-[20rem] md:h-[28rem] md:w-[28rem]" />
@@ -52,6 +54,7 @@ function App() {
               >
                 <Board />
               </Suspense>
+
               <Suspense fallback={<div className="h-[3.75rem] w-[10rem]" />}>
                 <Button
                   title={t('resetButton.title')}
@@ -64,9 +67,10 @@ function App() {
             </div>
           </section>
         </main>
+
         <Footer />
-        //TODO: This section will be implemented in the next commit
-        {/* {isModalOpen && <SettingsModal onClose={() => setIsModalOpen(false)} />} */}
+
+        {isModalOpen && <SettingsModal onClose={() => setIsModalOpen(false)} />}
       </div>
     </>
   );

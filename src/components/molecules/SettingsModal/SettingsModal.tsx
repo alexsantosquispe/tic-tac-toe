@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { BotIcon } from '../../../icons/BotIcon';
 import { PersonIcon } from '../../../icons/PersonIcon';
 import Button from '../../atoms/Button/Button';
 import { CardGroup } from '../../atoms/CardGroup/CardGroup';
 import { Modal } from '../../atoms/Modal/Modal';
+import { PlayersCard } from '../../atoms/Modal/PlayersCard';
 
 interface SettingsModalProps {
   onClose: () => void;
@@ -12,22 +12,15 @@ const options = [
   {
     value: 'singlePlayer',
     component: (
-      <div className="flex items-center justify-between gap-8 px-8 py-4">
-        <PersonIcon className="size-12" />
-        <span className="text-xl font-medium">VS</span>
-        <BotIcon className="size-12" />
-      </div>
+      <PlayersCard
+        playerIcon={<PersonIcon className="size-12" />}
+        isSinglePlayer={true}
+      />
     )
   },
   {
     value: 'twoPlayers',
-    component: (
-      <div className="flex items-center justify-between gap-8 px-8 py-4">
-        <PersonIcon className="size-12" />
-        <span className="text-xl font-medium">VS</span>
-        <PersonIcon className="size-12" />
-      </div>
-    )
+    component: <PlayersCard playerIcon={<PersonIcon className="size-12" />} />
   }
 ];
 

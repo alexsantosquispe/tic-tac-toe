@@ -15,10 +15,8 @@ export const PersonIcon = ({ className }: SvgIconProps) => {
       strokeLinejoin="round"
       className={twMerge('size-6', className)}
     >
-      <circle cx="12" cy="5" r="1" />
-      <path d="m9 20 3-6 3 6" />
-      <path d="m6 8 6 2 6-2" />
-      <path d="M12 10v4" />
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
     </svg>
   );
 };
