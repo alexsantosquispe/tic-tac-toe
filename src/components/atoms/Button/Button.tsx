@@ -3,11 +3,12 @@ import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 interface ButtonProps {
-  title: string;
+  title?: string;
   ariaLabel: string;
   onClick: () => void;
   icon?: ReactNode;
   isDisabled?: boolean;
+  className?: string;
 }
 
 const Button = ({
@@ -15,7 +16,8 @@ const Button = ({
   ariaLabel,
   onClick,
   icon,
-  isDisabled = false
+  isDisabled = false,
+  className
 }: ButtonProps) => {
   return (
     <button
@@ -24,7 +26,8 @@ const Button = ({
         cn({
           'bg-neutral-200 shadow-none hover:cursor-not-allowed hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-600 dark:hover:bg-neutral-800':
             isDisabled
-        })
+        }),
+        className
       )}
       onClick={onClick}
       aria-label={ariaLabel}
@@ -32,7 +35,7 @@ const Button = ({
       type="button"
     >
       {!!icon && icon}
-      {title}
+      {!!title && title}
     </button>
   );
 };

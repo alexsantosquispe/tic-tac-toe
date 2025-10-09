@@ -17,13 +17,15 @@ function App() {
   const { data, winner, currentPlayer, resetGame, isDraw } = useGame();
   const isBoardDirty = useMemo(() => getIsBoardDirty(data), [data]);
 
+  //TODO: This section will be implemented in the next commit
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       <div className="flex min-h-screen flex-col bg-white font-normal text-neutral-700 uppercase dark:bg-black dark:text-white">
         <Suspense fallback={<div className="h-14" />}>
           <Navbar />
         </Suspense>
-
         <main className="mt-14 mb-8 flex flex-1 py-8 md:p-0">
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
             <h1 className="flex flex-col gap-2 text-center">
@@ -37,7 +39,12 @@ function App() {
                 isDraw={isDraw}
                 currentPlayer={currentPlayer}
               />
-
+              //TODO: This section will be implemented in the next commit
+              {/* <Button
+                title={t('settings.title')}
+                ariaLabel="Start game button"
+                onClick={() => setIsModalOpen(true)}
+              /> */}
               <Suspense
                 fallback={
                   <div className="flex h-[20rem] w-[20rem] md:h-[28rem] md:w-[28rem]" />
@@ -45,7 +52,6 @@ function App() {
               >
                 <Board />
               </Suspense>
-
               <Suspense fallback={<div className="h-[3.75rem] w-[10rem]" />}>
                 <Button
                   title={t('resetButton.title')}
@@ -58,8 +64,9 @@ function App() {
             </div>
           </section>
         </main>
-
         <Footer />
+        //TODO: This section will be implemented in the next commit
+        {/* {isModalOpen && <SettingsModal onClose={() => setIsModalOpen(false)} />} */}
       </div>
     </>
   );
