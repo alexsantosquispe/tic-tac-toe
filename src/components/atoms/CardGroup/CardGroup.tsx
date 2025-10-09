@@ -31,9 +31,10 @@ export const CardGroup = ({
           key={option.value}
           onClick={() => handleSelectOption(option.value)}
           className={twMerge(
-            'rounded-xl border-2 border-neutral-300 p-2 hover:cursor-pointer',
+            'rounded-xl border-2 border-neutral-300 p-2 hover:cursor-pointer dark:border-white/20',
             cn({
-              'border-rose-600 bg-rose-100': selectedOption === option.value
+              'border-rose-600 bg-rose-100 dark:border-rose-600 dark:bg-rose-950/70':
+                selectedOption === option.value
             })
           )}
         >

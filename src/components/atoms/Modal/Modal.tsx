@@ -10,11 +10,11 @@ interface ModalProps {
 export const Modal = ({ title, children, onClose }: ModalProps) => {
   return (
     <section className="fixed z-50 flex h-full w-full items-center justify-center bg-black/50 p-8 backdrop-blur-xs dark:bg-black/20">
-      <div className="flex w-full flex-col rounded-2xl bg-white md:w-80 dark:border dark:border-white/20 dark:bg-black">
+      <div className="flex w-full flex-col rounded-2xl bg-white md:w-80 dark:border dark:border-white/20 dark:bg-neutral-950">
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="mt-3 mr-3 self-end rounded-xl bg-white p-1 text-neutral-600 hover:cursor-pointer hover:bg-black hover:text-white"
+          className="mt-3 mr-3 self-end rounded-xl p-1 text-neutral-500 hover:cursor-pointer hover:text-black dark:text-neutral-600 dark:hover:text-white"
         >
           <XIcon />
         </button>
