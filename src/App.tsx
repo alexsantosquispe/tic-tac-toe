@@ -1,9 +1,10 @@
-import { Suspense, lazy, useMemo } from 'react';
+import { Suspense, lazy, useMemo, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { Footer } from './components/atoms/Footer/Footer';
 import Status from './components/atoms/Status/Status';
 import { Title } from './components/atoms/Title/Title';
+import { SettingsModal } from './components/molecules/SettingsModal/SettingsModal';
 import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
 import { getIsBoardDirty } from './utils/gameUtils';
@@ -16,6 +17,9 @@ function App() {
   const { t } = useTranslation();
   const { data, winner, currentPlayer, resetGame, isDraw } = useGame();
   const isBoardDirty = useMemo(() => getIsBoardDirty(data), [data]);
+  //TODO: This state should be improved in order to show the modal the first time
+  //TODO: and then the next time should be from settings icon
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -23,7 +27,6 @@ function App() {
         <Suspense fallback={<div className="h-14" />}>
           <Navbar />
         </Suspense>
-
         <main className="mt-14 mb-8 flex flex-1 py-8 md:p-0">
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
             <h1 className="flex flex-col gap-2 text-center">
@@ -36,6 +39,12 @@ function App() {
                 winner={winner}
                 isDraw={isDraw}
                 currentPlayer={currentPlayer}
+              />
+
+              <Button
+                title={t('settings.title')}
+                ariaLabel="Start game button"
+                onClick={() => setIsModalOpen(true)}
               />
 
               <Suspense
@@ -60,6 +69,8 @@ function App() {
         </main>
 
         <Footer />
+
+        {isModalOpen && <SettingsModal onClose={() => setIsModalOpen(false)} />}
       </div>
     </>
   );

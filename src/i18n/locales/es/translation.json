@@ -1,8 +1,11 @@
 {
   "gameMessage": "Juguemos un juego clásico!",
-  "turn": "{{player}} es tu turno",
-  "draw": "Empate!",
-  "win": "{{player}} gana!",
+  "turn": "{{player}} tu turno",
+  "draw": "Empataron!",
+  "win": "{{player}} ganaste!",
+  "settings": {
+    "title": "Configuración"
+  },
   "boardAriaLabel": "Tablero de Tic Tac Toe",
   "resetButton": {
     "title": "Reiniciar",

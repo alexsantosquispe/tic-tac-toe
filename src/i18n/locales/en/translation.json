@@ -3,6 +3,9 @@
   "turn": "{{player}} turn",
   "draw": "Draw!",
   "win": "{{player}} wins!",
+  "settings": {
+    "title": "Settings"
+  },
   "boardAriaLabel": "Tic Tac Toe board",
   "resetButton": {
     "title": "Reset",
