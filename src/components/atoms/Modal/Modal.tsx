@@ -9,8 +9,8 @@ interface ModalProps {
 
 export const Modal = ({ title, children, onClose }: ModalProps) => {
   return (
-    <section className="fixed z-50 flex h-full w-full items-center justify-center bg-black/50 p-8 backdrop-blur-xs">
-      <div className="flex w-full flex-col rounded-2xl bg-white md:w-80 dark:bg-black">
+    <section className="fixed z-50 flex h-full w-full items-center justify-center bg-black/50 p-8 backdrop-blur-xs dark:bg-black/20">
+      <div className="flex w-full flex-col rounded-2xl bg-white md:w-80 dark:border dark:border-white/20 dark:bg-black">
         <button
           onClick={onClose}
           aria-label="Close modal"
