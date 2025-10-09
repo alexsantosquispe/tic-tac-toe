@@ -6,7 +6,7 @@ exports[`Title should render the title 1`] = `
   "baseElement": <body>
     <div>
       <span
-        class="text-4xl font-medium md:text-5xl"
+        class="transform text-4xl font-medium transition-transform duration-300 hover:scale-125 md:text-5xl"
       >
         TIC-
         <span
@@ -20,7 +20,7 @@ exports[`Title should render the title 1`] = `
   </body>,
   "container": <div>
     <span
-      class="text-4xl font-medium md:text-5xl"
+      class="transform text-4xl font-medium transition-transform duration-300 hover:scale-125 md:text-5xl"
     >
       TIC-
       <span

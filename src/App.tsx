@@ -1,24 +1,26 @@
 import { Suspense, lazy, useMemo, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import { Footer } from './components/atoms/Footer/Footer';
 import Status from './components/atoms/Status/Status';
 import { Title } from './components/atoms/Title/Title';
-import { SettingsModal } from './components/molecules/SettingsModal/SettingsModal';
 import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
+import { SettingsIcon } from './icons/SettingsIcon';
 import { getIsBoardDirty } from './utils/gameUtils';
 
 const Navbar = lazy(() => import('./components/atoms/Navbar/Navbar'));
+const Footer = lazy(() => import('./components/atoms/Footer/Footer'));
 const Board = lazy(() => import('./components/molecules/Board/Board'));
 const Button = lazy(() => import('./components/atoms/Button/Button'));
+const SettingsModal = lazy(
+  () => import('./components/molecules/SettingsModal/SettingsModal')
+);
 
 function App() {
   const { t } = useTranslation();
   const { data, winner, currentPlayer, resetGame, isDraw } = useGame();
   const isBoardDirty = useMemo(() => getIsBoardDirty(data), [data]);
-  //TODO: This state should be improved in order to show the modal the first time
-  //TODO: and then the next time should be from settings icon
+  //TODO: This state will be improved to show the modal the first loading time
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -27,7 +29,16 @@ function App() {
         <Suspense fallback={<div className="h-14" />}>
           <Navbar />
         </Suspense>
-        <main className="mt-14 mb-8 flex flex-1 py-8 md:p-0">
+
+        <main className="mt-14 mb-8 flex flex-1 flex-col">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            aria-label={t('settings.settingsButtonAriaLabel')}
+            className="transform self-end rounded-xl p-4 text-neutral-500 transition-transform duration-500 hover:rotate-90 hover:cursor-pointer hover:text-black dark:text-neutral-400 dark:hover:text-white"
+          >
+            <SettingsIcon />
+          </button>
+
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
             <h1 className="flex flex-col gap-2 text-center">
               <Title />
@@ -39,12 +50,6 @@ function App() {
                 winner={winner}
                 isDraw={isDraw}
                 currentPlayer={currentPlayer}
-              />
-
-              <Button
-                title={t('settings.title')}
-                ariaLabel="Start game button"
-                onClick={() => setIsModalOpen(true)}
               />
 
               <Suspense
@@ -68,9 +73,16 @@ function App() {
           </section>
         </main>
 
-        <Footer />
+        <Suspense fallback={<div className="h-14" />}>
+          <Footer />
+        </Suspense>
 
-        {isModalOpen && <SettingsModal onClose={() => setIsModalOpen(false)} />}
+        <Suspense>
+          <SettingsModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
+        </Suspense>
       </div>
     </>
   );

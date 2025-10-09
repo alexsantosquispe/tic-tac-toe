@@ -4,8 +4,15 @@
   "draw": "Empataron!",
   "win": "{{player}} ganaste!",
   "settings": {
-    "title": "Configuración"
+    "title": "Configuración",
+    "description": "Elige tu modo de juego",
+    "singlePlayerAriaLabel": "Botón para jugar solo",
+    "twoPlayersAriaLabel": "Botón para jugar con dos jugadores",
+    "continueButton": "Continuar",
+    "continueButtonAriaLabel": "Botón para continuar",
+    "settingsButtonAriaLabel": "Botón de configuración"
   },
+  "closeModalButtonAriaLabel": "Botón para cerrar la ventana modal",
   "boardAriaLabel": "Tablero de Tic Tac Toe",
   "resetButton": {
     "title": "Reiniciar",

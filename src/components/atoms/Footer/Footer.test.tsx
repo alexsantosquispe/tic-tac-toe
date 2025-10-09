@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { I18NWrapper } from '../../../tests/testsUtils';
-import { Footer } from './Footer';
+import Footer from './Footer';
 
 describe('Footer', () => {
   it('should render the component correctly', () => {
