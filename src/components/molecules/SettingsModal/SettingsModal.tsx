@@ -1,28 +1,23 @@
 import { useTranslation } from 'react-i18next';
-import { PersonIcon } from '../../../icons/PersonIcon';
+import { PLAYER_MODE, type OptionType } from '../../../models/types';
 import Button from '../../atoms/Button/Button';
-import { CardGroup } from '../../atoms/CardGroup/CardGroup';
 import { Modal } from '../../atoms/Modal/Modal';
 import PlayersCard from '../../atoms/PlayersCard/PlayersCard';
+import { PlayerModeOptions } from './PlayerModeOptions/PlayerModeOptions';
 
 interface SettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const options = [
+const options: OptionType[] = [
   {
-    value: 'singlePlayer',
-    component: (
-      <PlayersCard
-        playerIcon={<PersonIcon className="size-12" />}
-        isSinglePlayer={true}
-      />
-    )
+    value: PLAYER_MODE.SINGLE_PLAYER,
+    component: <PlayersCard />
   },
   {
-    value: 'twoPlayers',
-    component: <PlayersCard playerIcon={<PersonIcon className="size-12" />} />
+    value: PLAYER_MODE.TWO_PLAYERS,
+    component: <PlayersCard isSinglePlayer={false} />
   }
 ];
 
@@ -34,9 +29,9 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
       <div className="flex w-full flex-col gap-3 px-6 py-6">
         <span className="text-center">{t('settings.description')}</span>
 
-        <CardGroup
+        <PlayerModeOptions
           options={options}
-          defaultSelectedOption={options[0].value}
+          initialOptionValue={options[0].value}
           onSelectOption={() => {}}
         />
 

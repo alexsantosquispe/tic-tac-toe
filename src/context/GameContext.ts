@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import type { SquareValueTypes } from '../types';
+import type { SquareValueTypes } from '../models/types';
 
 export interface GameContextTypes {
   data: SquareValueTypes[];

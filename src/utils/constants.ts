@@ -1,4 +1,4 @@
-import type { SquareValueTypes } from './types';
+import type { SquareValueTypes } from '../models/types';
 
 export const PLAYER_X = 'X';
 

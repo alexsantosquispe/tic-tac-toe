@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LANGUAGES, type LanguageTypes } from '../../../types';
+import { LANGUAGES, type LanguageTypes } from '../../../models/types';
 import { TabGroup } from '../TabGroup/TabGroup';
 
 export const LanguageSwitcher = () => {
