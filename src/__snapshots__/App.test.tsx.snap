@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
-
-exports[`App styles should render the app correctly 1`] = `undefined`;
-
-exports[`App styles should render the app correctly 2`] = `undefined`;
-
-exports[`App styles should render the app correctly 3`] = `undefined`;

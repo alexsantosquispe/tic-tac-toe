@@ -14,22 +14,23 @@ import ThemeProvider from './context/ThemeProvider';
 import { I18NWrapper } from './tests/testsUtils';
 
 describe('App', () => {
+  beforeEach(async () => {
+    await waitFor(() => {
+      render(
+        <I18NWrapper>
+          <ThemeProvider>
+            <GameProvider>
+              <App />
+            </GameProvider>
+          </ThemeProvider>
+        </I18NWrapper>
+      );
+    });
+  });
+
   describe('styles', () => {
     it('should render the app correctly', async () => {
-      const component = await waitFor(() => {
-        render(
-          <I18NWrapper>
-            <ThemeProvider>
-              <GameProvider>
-                <App />
-              </GameProvider>
-            </ThemeProvider>
-          </I18NWrapper>
-        );
-      });
-
       await waitFor(() => {
-        expect(component).toMatchSnapshot();
         expect(screen.getByText('X turn')).toBeInTheDocument();
         expect(screen.getByTestId('board')).toBeInTheDocument();
         expect(
@@ -40,20 +41,6 @@ describe('App', () => {
   });
 
   describe('behavior', () => {
-    beforeEach(async () => {
-      await waitFor(() => {
-        render(
-          <I18NWrapper>
-            <ThemeProvider>
-              <GameProvider>
-                <App />
-              </GameProvider>
-            </ThemeProvider>
-          </I18NWrapper>
-        );
-      });
-    });
-
     it('should change the current player after select a square', () => {
       const board = screen.getByTestId('board');
 
