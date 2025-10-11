@@ -24,6 +24,15 @@ const options: OptionType[] = [
 const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
   const { t } = useTranslation();
 
+  const onSelectOption = (value: OptionType['value']) => {
+    console.log(value);
+  };
+
+  const saveSettings = () => {
+    //TODO: Save settings function
+    onClose();
+  };
+
   return (
     <Modal title={t('settings.title')} isOpen={isOpen} onClose={onClose}>
       <div className="flex w-full flex-col gap-3 px-6 py-6">
@@ -32,13 +41,13 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
         <PlayerModeOptions
           options={options}
           initialOptionValue={options[0].value}
-          onSelectOption={() => {}}
+          onSelectOption={onSelectOption}
         />
 
         <Button
           title={t('settings.continueButton')}
           ariaLabel={t('settings.continueButtonAriaLabel')}
-          onClick={() => {}}
+          onClick={saveSettings}
         />
       </div>
     </Modal>
