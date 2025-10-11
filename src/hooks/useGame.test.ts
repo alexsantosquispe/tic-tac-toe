@@ -1,4 +1,4 @@
-import { DEFAULT_DATA, PLAYER_X } from '../constants';
+import { DEFAULT_DATA, PLAYER_X } from '../utils/constants';
 
 import { renderHook } from '@testing-library/react';
 import type { GameContextTypes } from '../context/GameContext';

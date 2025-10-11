@@ -5,7 +5,7 @@ import cn from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { CircleIcon } from '../../../icons/CircleIcon';
 import { XIcon } from '../../../icons/XIcon';
-import type { SquareValueTypes } from '../../../types';
+import type { SquareValueTypes } from '../../../models/types';
 
 const ICONS = {
   X: {

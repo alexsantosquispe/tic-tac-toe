@@ -1,6 +1,6 @@
 import { getWinnerResult, isDraw } from './gameUtils';
 
-import type { SquareValueTypes } from '../types';
+import type { SquareValueTypes } from '../models/types';
 
 describe('utils', () => {
   const data: SquareValueTypes[] = ['X', 'X', 'X', 'O', 'O', '', '', '', 'O'];

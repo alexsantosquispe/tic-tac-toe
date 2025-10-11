@@ -1,27 +1,24 @@
 import cn from 'clsx';
-import { useState, type ReactNode } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
+import { PLAYER_MODE, type OptionType } from '../../../../models/types';
 
-type CardItem = {
-  value: string;
-  component: ReactNode;
-};
-
-interface CardGroupProps {
-  options: CardItem[];
-  defaultSelectedOption: string;
-  onSelectOption: (value: string) => void;
+interface PlayerModeOptionsProps {
+  options: OptionType[];
+  initialOptionValue?: OptionType['value'];
+  onSelectOption: (value: OptionType['value']) => void;
 }
 
-export const CardGroup = ({
+export const PlayerModeOptions = ({
   options,
-  defaultSelectedOption,
+  initialOptionValue = PLAYER_MODE.SINGLE_PLAYER,
   onSelectOption
-}: CardGroupProps) => {
+}: PlayerModeOptionsProps) => {
   const { t } = useTranslation();
-  const [selectedOption, setSelectedOption] = useState(defaultSelectedOption);
-  const handleSelectOption = (value: string) => {
+  const [selectedOption, setSelectedOption] = useState(initialOptionValue);
+
+  const handleSelectOption = (value: OptionType['value']) => {
     setSelectedOption(value);
     onSelectOption(value);
   };

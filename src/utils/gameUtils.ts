@@ -1,5 +1,5 @@
-import { WINNING_COMBINATIONS } from '../constants';
-import type { SquareValueTypes } from '../types';
+import type { SquareValueTypes } from '../models/types';
+import { WINNING_COMBINATIONS } from './constants';
 
 type WinnerResultType = {
   winner: SquareValueTypes | null;

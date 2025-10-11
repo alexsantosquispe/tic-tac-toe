@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState, type ReactNode } from 'react';
-import { DEFAULT_DATA, PLAYER_O, PLAYER_X } from '../constants';
-import type { SquareValueTypes } from '../types';
+import type { SquareValueTypes } from '../models/types';
+import { DEFAULT_DATA, PLAYER_O, PLAYER_X } from '../utils/constants';
 import { getWinnerResult, isDraw } from '../utils/gameUtils';
 import GameContext from './GameContext';
 
