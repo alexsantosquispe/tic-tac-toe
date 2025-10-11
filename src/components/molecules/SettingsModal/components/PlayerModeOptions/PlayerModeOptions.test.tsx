@@ -2,9 +2,9 @@ import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { PLAYER_MODE } from '../../../../models/types';
-import { I18NWrapper } from '../../../../tests/testsUtils';
-import PlayersCard from '../../../atoms/PlayersCard/PlayersCard';
+import { PLAYER_MODE } from '../../../../../models/types';
+import { I18NWrapper } from '../../../../../tests/testsUtils';
+import PlayersCard from '../../../../atoms/PlayersCard/PlayersCard';
 import { PlayerModeOptions } from './PlayerModeOptions';
 
 describe('PlayerModeOptions', () => {
