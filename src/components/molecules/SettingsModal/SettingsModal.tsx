@@ -3,7 +3,7 @@ import { PLAYER_MODE, type OptionType } from '../../../models/types';
 import Button from '../../atoms/Button/Button';
 import { Modal } from '../../atoms/Modal/Modal';
 import PlayersCard from '../../atoms/PlayersCard/PlayersCard';
-import { PlayerModeOptions } from './PlayerModeOptions/PlayerModeOptions';
+import { PlayerModeOptions } from './components/PlayerModeOptions/PlayerModeOptions';
 
 interface SettingsModalProps {
   isOpen: boolean;

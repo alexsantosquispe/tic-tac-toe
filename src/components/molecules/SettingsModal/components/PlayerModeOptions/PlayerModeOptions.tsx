@@ -2,7 +2,7 @@ import cn from 'clsx';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { PLAYER_MODE, type OptionType } from '../../../../models/types';
+import { PLAYER_MODE, type OptionType } from '../../../../../models/types';
 
 interface PlayerModeOptionsProps {
   options: OptionType[];

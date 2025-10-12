@@ -1,4 +1,4 @@
-import { Suspense, lazy, useMemo, useState } from 'react';
+import { Suspense, lazy, useCallback, useMemo, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import Status from './components/atoms/Status/Status';
@@ -23,6 +23,16 @@ function App() {
   //TODO: This state will be improved to show the modal the first loading time
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const openSettingsModal = useCallback(() => {
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  }, []);
+
+  const closeSettingsModal = useCallback(() => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+  }, []);
+
   return (
     <>
       <div className="flex min-h-screen flex-col bg-white font-normal text-neutral-700 uppercase dark:bg-black dark:text-white">
@@ -32,9 +42,9 @@ function App() {
 
         <main className="mt-14 mb-8 flex flex-1 flex-col">
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={openSettingsModal}
             aria-label={t('settings.settingsButtonAriaLabel')}
-            className="transform self-end rounded-xl p-4 text-neutral-500 transition-transform duration-500 hover:rotate-90 hover:cursor-pointer hover:text-black dark:text-neutral-400 dark:hover:text-white"
+            className="transform self-end rounded-xl p-4 text-neutral-500 transition-transform duration-500 hover:rotate-90 hover:cursor-pointer hover:text-black focus:outline-none dark:text-neutral-400 dark:hover:text-white"
           >
             <SettingsIcon />
           </button>
@@ -78,10 +88,7 @@ function App() {
         </Suspense>
 
         <Suspense>
-          <SettingsModal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-          />
+          <SettingsModal isOpen={isModalOpen} onClose={closeSettingsModal} />
         </Suspense>
       </div>
     </>
