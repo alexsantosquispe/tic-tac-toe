@@ -7,6 +7,7 @@ exports[`SettingsModal should render the component correctly 1`] = `
     <div>
       <section
         class="fixed z-50 flex h-full w-full items-center justify-center bg-black/50 p-8 backdrop-blur-xs dark:bg-black/20"
+        data-testid="modal"
         style="opacity: 0;"
       >
         <div
@@ -200,6 +201,7 @@ exports[`SettingsModal should render the component correctly 1`] = `
   "container": <div>
     <section
       class="fixed z-50 flex h-full w-full items-center justify-center bg-black/50 p-8 backdrop-blur-xs dark:bg-black/20"
+      data-testid="modal"
       style="opacity: 0;"
     >
       <div

@@ -20,6 +20,7 @@ export const Modal = ({ isOpen, title, children, onClose }: ModalProps) => {
     <AnimatePresence>
       {isOpen && (
         <motion.section
+          data-testid="modal"
           key="backdrop"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

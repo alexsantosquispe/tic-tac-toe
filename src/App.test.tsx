@@ -106,5 +106,29 @@ describe('App', () => {
         expect(within(board).getAllByTestId('circle-icon').length).toBe(0);
       });
     });
+
+    it('should open and close de settings modal', () => {
+      const settingsButton = screen.getByRole('button', {
+        name: 'Settings button'
+      });
+
+      expect(settingsButton).toBeInTheDocument();
+
+      fireEvent.click(settingsButton);
+
+      const settingsModal = screen.getByTestId('modal');
+
+      expect(settingsModal).toBeInTheDocument();
+
+      const closeSettingsButton = screen.getByRole('button', {
+        name: 'Close modal button'
+      });
+
+      fireEvent.click(closeSettingsButton);
+
+      waitFor(() => {
+        expect(settingsModal).not.toBeInTheDocument();
+      });
+    });
   });
 });
