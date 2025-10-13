@@ -14,33 +14,45 @@ describe('Modal', () => {
     onClose: onCloseMock
   };
 
-  it('should render the component correctly', () => {
-    const component = render(
-      <I18NWrapper>
-        <Modal {...props} />
-      </I18NWrapper>
-    );
+  describe('styles', () => {
+    it('should render the component correctly', () => {
+      const component = render(
+        <I18NWrapper>
+          <Modal {...props} />
+        </I18NWrapper>
+      );
 
-    expect(component).toMatchSnapshot();
+      expect(component).toMatchSnapshot();
 
-    expect(screen.getByText(props.title)).toBeInTheDocument();
+      expect(screen.getByText(props.title)).toBeInTheDocument();
 
-    expect(screen.getByText('Modal Content')).toBeInTheDocument();
+      expect(screen.getByText('Modal Content')).toBeInTheDocument();
+    });
   });
 
-  it('should call the onClose function when the close button is clicked', () => {
-    render(
-      <I18NWrapper>
-        <Modal {...props} />
-      </I18NWrapper>
-    );
+  describe('behavior', () => {
+    beforeEach(() => {
+      render(
+        <I18NWrapper>
+          <Modal {...props} />
+        </I18NWrapper>
+      );
+    });
 
-    const closeButton = screen.getByRole('button');
+    it('should call the onClose function when the close button is clicked', () => {
+      const closeButton = screen.getByRole('button');
 
-    expect(closeButton).toBeInTheDocument();
+      expect(closeButton).toBeInTheDocument();
 
-    fireEvent.click(closeButton);
+      fireEvent.click(closeButton);
 
-    expect(onCloseMock).toHaveBeenCalledTimes(1);
+      expect(onCloseMock).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call the onClose function when Escape key is pressed', () => {
+      fireEvent.keyDown(document, { key: 'Escape' });
+
+      expect(onCloseMock).toHaveBeenCalledTimes(1);
+    });
   });
 });
