@@ -25,7 +25,8 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
   const { t } = useTranslation();
 
   const onSelectOption = (value: OptionType['value']) => {
-    console.log(value);
+    //TODO: Select option function will be implemented in the next PR
+    console.info(value);
   };
 
   const saveSettings = () => {

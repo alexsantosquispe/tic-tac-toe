@@ -8,7 +8,6 @@ const usePressKey = (
   useEffect(() => {
     const onPressKey = (event: KeyboardEvent) => {
       if (!skip && event.key === targetKey) {
-        console.log('esc key pressed');
         callback();
       }
     };
