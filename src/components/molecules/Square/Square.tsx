@@ -61,13 +61,13 @@ const Square = ({
       onClick={handleClick}
       disabled={disabled}
       className={twMerge(
-        'group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 dark:border-white/20',
+        'group relative flex h-1/3 w-1/3 items-center justify-center border border-dashed border-neutral-200 p-1 transition-colors duration-150 dark:border-white/35',
         cn({
           'hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-white/10':
             !disabled,
           'hover:cursor-not-allowed': disabled,
-          'bg-rose-50 dark:bg-rose-600/40': highLight,
-          'opacity-25 brightness-30 dark:opacity-80 dark:brightness-25':
+          'bg-rose-50 dark:bg-rose-800/40': highLight,
+          'opacity-25 brightness-30 dark:opacity-80 dark:brightness-50':
             !highLight && isDisabled
         })
       )}

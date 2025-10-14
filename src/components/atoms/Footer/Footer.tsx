@@ -10,7 +10,7 @@ const Footer = () => {
           href="https://github.com/alexsantosquispe"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-rose-600 transition-colors duration-200 hover:underline"
+          className="font-medium text-rose-600 transition-colors duration-200 hover:underline dark:text-rose-500"
         >
           {t('footer.authorName')}
         </a>

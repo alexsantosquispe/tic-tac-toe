@@ -21,7 +21,7 @@ const Board = () => {
     >
       <div
         className={twMerge(
-          'flex flex-1 flex-wrap overflow-hidden rounded-xl border border-dashed border-neutral-200 bg-white dark:border-white/20 dark:bg-black'
+          'flex flex-1 flex-wrap overflow-hidden rounded-xl border border-dashed border-neutral-200 bg-white dark:border-white/35 dark:bg-black'
         )}
         aria-label={t('boardAriaLabel')}
       >

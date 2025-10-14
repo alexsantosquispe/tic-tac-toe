@@ -52,7 +52,7 @@ describe('Square', () => {
 
       expect(squareButton).toHaveClass('hover:cursor-not-allowed');
 
-      expect(squareButton).toHaveClass('bg-rose-50 dark:bg-rose-600/40');
+      expect(squareButton).toHaveClass('bg-rose-50 dark:bg-rose-800/40');
     });
 
     it('should display disabled styles if the square is not a highlight winner combination', () => {
@@ -67,7 +67,7 @@ describe('Square', () => {
       expect(squareButton).toHaveClass('hover:cursor-not-allowed');
 
       expect(squareButton).toHaveClass(
-        'opacity-25 brightness-30 dark:opacity-80 dark:brightness-25'
+        'opacity-25 brightness-30 dark:opacity-80 dark:brightness-50'
       );
     });
   });
