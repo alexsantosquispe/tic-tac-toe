@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState, type ReactNode } from 'react';
 import type { CurrentPlayerType, SquareValueTypes } from '../models/types';
 import { DEFAULT_DATA, PLAYER_O, PLAYER_X } from '../utils/constants';
-import { getWinnerResult, isDraw } from '../utils/gameUtils';
+import { getWinnerResultByIndex, isDraw } from '../utils/gameUtils';
 import GameContext from './GameContext';
 
 interface GameProviderProps {
@@ -20,7 +20,8 @@ const GameProvider = ({ children }: GameProviderProps) => {
       const boardData = [...data];
       boardData[index] = currentPlayer;
 
-      const result = getWinnerResult(boardData);
+      // const result = getWinnerResult(boardData);
+      const result = getWinnerResultByIndex(boardData, index);
       const isGameDraw = !result.winner && isDraw(boardData);
 
       setData(boardData);
