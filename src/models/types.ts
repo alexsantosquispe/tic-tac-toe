@@ -12,6 +12,8 @@ export type LanguageTypes = (typeof LANGUAGES)[number]['id'];
 
 export type SquareValueTypes = 'X' | 'O' | '';
 
+export type CurrentPlayerType = Exclude<SquareValueTypes, ''>;
+
 export const PLAYER_MODE = {
   SINGLE_PLAYER: 'singlePlayer',
   TWO_PLAYERS: 'twoPlayers'

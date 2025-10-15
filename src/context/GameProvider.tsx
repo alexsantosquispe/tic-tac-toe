@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState, type ReactNode } from 'react';
-import type { SquareValueTypes } from '../models/types';
+import type { CurrentPlayerType, SquareValueTypes } from '../models/types';
 import { DEFAULT_DATA, PLAYER_O, PLAYER_X } from '../utils/constants';
 import { getWinnerResult, isDraw } from '../utils/gameUtils';
 import GameContext from './GameContext';
@@ -7,8 +7,6 @@ import GameContext from './GameContext';
 interface GameProviderProps {
   children: ReactNode;
 }
-
-type CurrentPlayerType = Exclude<SquareValueTypes, ''>;
 
 const GameProvider = ({ children }: GameProviderProps) => {
   const [data, setData] = useState<SquareValueTypes[]>(DEFAULT_DATA);

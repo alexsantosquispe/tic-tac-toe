@@ -26,6 +26,25 @@ export const getWinnerResult = (data: SquareValueTypes[]): WinnerResultType => {
   return { winner, winnerCombination };
 };
 
+// export const getWinnerResultByIndex = (
+//   data: SquareValueTypes[],
+//   index: number
+// ): WinnerResultType => {
+//   let winner: SquareValueTypes | null = null;
+
+//   const winnerCombination =
+//     WINNING_COMBINATIONS.find((combination) => {
+//       const [a, b, c] = combination;
+//       const isWinner = !!data[a] && data[a] === data[b] && data[a] === data[c];
+//       if (isWinner) {
+//         winner = data[a];
+//       }
+//       return isWinner;
+//     }) || [];
+
+//   return { winner, winnerCombination };
+// };
+
 export const isDraw = (data: SquareValueTypes[]): boolean => {
-  return data.every((cell) => cell !== '');
+  return !data.some((cell) => cell === '');
 };

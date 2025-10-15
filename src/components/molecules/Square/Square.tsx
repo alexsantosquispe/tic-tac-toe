@@ -1,11 +1,14 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useCallback } from 'react';
+import type {
+  CurrentPlayerType,
+  SquareValueTypes
+} from '../../../models/types';
 
 import cn from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { CircleIcon } from '../../../icons/CircleIcon';
 import { XIcon } from '../../../icons/XIcon';
-import type { SquareValueTypes } from '../../../models/types';
 
 const ICONS = {
   X: {
@@ -24,7 +27,7 @@ const COLORS = {
   hover: 'text-neutral-200/60 dark:text-white/20'
 } as const;
 
-const renderIcon = (player: 'X' | 'O', color: string) => {
+const renderIcon = (player: CurrentPlayerType, color: string) => {
   const { component: Icon, className } = ICONS[player];
   return <Icon className={twMerge(className, color)} />;
 };
@@ -33,7 +36,7 @@ interface SquareProps {
   index: number;
   value: SquareValueTypes;
   onClickItem: (index: number) => void;
-  currentPlayer: 'X' | 'O';
+  currentPlayer: CurrentPlayerType;
   highLight?: boolean;
   isDisabled?: boolean;
 }
