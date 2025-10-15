@@ -1,7 +1,7 @@
 import type { SquareValueTypes } from '../models/types';
 import { COMBINATIONS_BY_POSITION } from './constants';
 
-type WinnerResultType = {
+export type WinnerResultType = {
   winner: SquareValueTypes | null;
   winnerCombination: number[];
 };
@@ -26,8 +26,4 @@ export const getWinnerResultByIndex = (
     winner: combination.length ? data[combination[0]] : null,
     winnerCombination: combination
   };
-};
-
-export const isDraw = (data: SquareValueTypes[]): boolean => {
-  return !data.some((cell) => cell === '');
 };

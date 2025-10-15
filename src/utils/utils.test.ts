@@ -1,6 +1,5 @@
-import { getWinnerResultByIndex, isDraw } from './gameUtils';
-
 import type { SquareValueTypes } from '../models/types';
+import { getWinnerResultByIndex } from './gameUtils';
 
 describe('utils', () => {
   const data: SquareValueTypes[] = ['X', 'X', 'X', 'O', 'O', '', '', '', 'O'];
@@ -30,20 +29,6 @@ describe('utils', () => {
 
       expect(result.winner).toEqual(null);
       expect(result.winnerCombination).toEqual([]);
-    });
-  });
-
-  describe('isDraw', () => {
-    it('should return true if the game is draw', () => {
-      const result = isDraw(drawData);
-
-      expect(result).toBe(true);
-    });
-
-    it('should return false if the game is not draw', () => {
-      const result = isDraw(data);
-
-      expect(result).toBe(false);
     });
   });
 });

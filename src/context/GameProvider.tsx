@@ -1,7 +1,15 @@
 import { useCallback, useMemo, useState, type ReactNode } from 'react';
 import type { CurrentPlayerType, SquareValueTypes } from '../models/types';
-import { DEFAULT_DATA, PLAYER_O, PLAYER_X } from '../utils/constants';
-import { getWinnerResultByIndex, isDraw } from '../utils/gameUtils';
+import {
+  DEFAULT_DATA,
+  MIN_MOVES_TO_WIN,
+  PLAYER_O,
+  PLAYER_X
+} from '../utils/constants';
+import {
+  getWinnerResultByIndex,
+  type WinnerResultType
+} from '../utils/gameUtils';
 import GameContext from './GameContext';
 
 interface GameProviderProps {
@@ -14,26 +22,32 @@ const GameProvider = ({ children }: GameProviderProps) => {
   const [winnerCombination, setWinnerCombination] = useState<number[]>([]);
   const [currentPlayer, setCurrentPlayer] =
     useState<CurrentPlayerType>(PLAYER_X);
+  const [movesCount, setMovesCount] = useState<number>(0);
 
   const checkSquare = useCallback(
     (index: number) => {
+      let result: WinnerResultType = { winner: null, winnerCombination: [] };
+
       const boardData = [...data];
       boardData[index] = currentPlayer;
+      const newMovesCount = movesCount + 1;
 
-      const result = getWinnerResultByIndex(boardData, index);
-      const isGameDraw = !result.winner && isDraw(boardData);
+      if (newMovesCount > MIN_MOVES_TO_WIN) {
+        result = getWinnerResultByIndex(boardData, index);
+      }
 
       setData(boardData);
       setWinner(result.winner);
       setWinnerCombination(result.winnerCombination);
+      setMovesCount(newMovesCount);
 
-      if (!result.winner && !isGameDraw) {
+      if (!result.winner && newMovesCount < DEFAULT_DATA.length) {
         setCurrentPlayer((prevPlayer) =>
           prevPlayer === PLAYER_X ? PLAYER_O : PLAYER_X
         );
       }
     },
-    [data, currentPlayer]
+    [data, currentPlayer, movesCount]
   );
 
   const resetGame = useCallback(() => {
@@ -41,6 +55,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
     setWinner(null);
     setWinnerCombination([]);
     setCurrentPlayer(PLAYER_X);
+    setMovesCount(0);
   }, []);
 
   return (
@@ -52,7 +67,10 @@ const GameProvider = ({ children }: GameProviderProps) => {
         winnerCombination,
         checkSquare,
         resetGame,
-        isDraw: useMemo(() => !winner && isDraw(data), [winner, data])
+        isDraw: useMemo(
+          () => !winner && movesCount === DEFAULT_DATA.length,
+          [winner, movesCount]
+        )
       }}
     >
       {children}
