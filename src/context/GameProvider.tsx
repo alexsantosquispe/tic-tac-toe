@@ -20,7 +20,6 @@ const GameProvider = ({ children }: GameProviderProps) => {
       const boardData = [...data];
       boardData[index] = currentPlayer;
 
-      // const result = getWinnerResult(boardData);
       const result = getWinnerResultByIndex(boardData, index);
       const isGameDraw = !result.winner && isDraw(boardData);
 
