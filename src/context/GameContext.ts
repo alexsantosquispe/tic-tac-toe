@@ -1,4 +1,8 @@
-import type { CurrentPlayerType, SquareValueTypes } from '../models/types';
+import type {
+  CurrentPlayerType,
+  PlayerModeTypes,
+  SquareValueTypes
+} from '../models/types';
 
 import { createContext } from 'react';
 
@@ -10,6 +14,8 @@ export interface GameContextTypes {
   checkSquare: (index: number) => void;
   resetGame: () => void;
   isDraw: boolean;
+  playerMode: PlayerModeTypes;
+  setPlayerMode: (mode: PlayerModeTypes) => void;
 }
 
 const GameContext = createContext<GameContextTypes | null>(null);

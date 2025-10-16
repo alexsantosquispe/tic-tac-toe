@@ -3,6 +3,7 @@ import { DEFAULT_DATA, PLAYER_X } from '../utils/constants';
 import { renderHook } from '@testing-library/react';
 import type { GameContextTypes } from '../context/GameContext';
 import GameProvider from '../context/GameProvider';
+import { PLAYER_MODE } from '../models/types';
 import useGame from './useGame';
 
 describe('useGame', () => {
@@ -20,7 +21,9 @@ describe('useGame', () => {
       winnerCombination: [],
       checkSquare: jest.fn(),
       resetGame: jest.fn(),
-      isDraw: false
+      isDraw: false,
+      playerMode: PLAYER_MODE.SINGLE_PLAYER,
+      setPlayerMode: jest.fn()
     };
 
     const { result } = renderHook(() => useGame(), { wrapper: GameProvider });
@@ -36,5 +39,7 @@ describe('useGame', () => {
     expect(typeof result.current.checkSquare).toBe('function');
     expect(typeof result.current.resetGame).toBe('function');
     expect(result.current.isDraw).toEqual(mockContextValue.isDraw);
+    expect(result.current.playerMode).toEqual(mockContextValue.playerMode);
+    expect(typeof result.current.setPlayerMode).toBe('function');
   });
 });

@@ -1,3 +1,4 @@
+import { PLAYER_MODE } from '../../models/types';
 import { PLAYER_O, PLAYER_X } from '../../utils/constants';
 import { getWinnerResultByIndex } from '../../utils/gameUtils';
 import {
@@ -41,7 +42,7 @@ describe('gameReducer', () => {
 
     expect(result.winner).toBe(PLAYER_X);
     expect(result.winnerCombination).toEqual([0, 1, 2]);
-    expect(result.currentPlayer).toBe(PLAYER_X); // stays the same
+    expect(result.currentPlayer).toBe(PLAYER_X);
   });
 
   it('should not check for a winner before the minimum move count', () => {
@@ -58,7 +59,7 @@ describe('gameReducer', () => {
 
     const result = gameReducer(state, { type: 'CHECK_SQUARE', index: 1 });
 
-    expect(getWinnerResultByIndex).not.toHaveBeenCalled(); // too early
+    expect(getWinnerResultByIndex).not.toHaveBeenCalled();
     expect(result.movesCount).toBe(3);
   });
 
@@ -67,11 +68,28 @@ describe('gameReducer', () => {
       ...initialState,
       data: ['X', 'O', 'X', 'O', 'X', '', '', '', ''],
       currentPlayer: PLAYER_O,
-      movesCount: 5
+      movesCount: 5,
+      playerMode: PLAYER_MODE.TWO_PLAYERS
     };
 
     const result = gameReducer(modifiedState, { type: 'RESET' });
 
-    expect(result).toEqual(initialState);
+    expect(result.data).toEqual(initialState.data);
+    expect(result.currentPlayer).toBe(initialState.currentPlayer);
+    expect(result.movesCount).toBe(initialState.movesCount);
+    expect(result.winner).toBe(initialState.winner);
+    expect(result.playerMode).toBe(PLAYER_MODE.SINGLE_PLAYER);
+  });
+
+  it('should set the player mode when SET_PLAYER_MODE is dispatched', () => {
+    const state: GameStateType = { ...initialState };
+
+    const result = gameReducer(state, {
+      type: 'SET_PLAYER_MODE',
+      mode: PLAYER_MODE.TWO_PLAYERS
+    });
+
+    expect(result.playerMode).toBe(PLAYER_MODE.TWO_PLAYERS);
+    expect(result).not.toBe(state); // ensure immutability
   });
 });
