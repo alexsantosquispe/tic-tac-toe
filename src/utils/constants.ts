@@ -4,6 +4,8 @@ export const PLAYER_X = 'X';
 
 export const PLAYER_O = 'O';
 
+export const MIN_MOVES_TO_WIN = 4;
+
 export const DEFAULT_DATA: SquareValueTypes[] = Array(9).fill('');
 
 export const COMBINATIONS_BY_POSITION: Record<number, number[][]> = {
