@@ -1,4 +1,9 @@
-import type { CurrentPlayerType, SquareValueTypes } from '../../models/types';
+import {
+  PLAYER_MODE,
+  type CurrentPlayerType,
+  type PlayerModeTypes,
+  type SquareValueTypes
+} from '../../models/types';
 import {
   DEFAULT_DATA,
   MIN_MOVES_TO_WIN,
@@ -14,18 +19,21 @@ export interface GameStateType {
   winner: CurrentPlayerType | null;
   winnerCombination: number[];
   movesCount: number;
+  playerMode: PlayerModeTypes;
 }
 
 export type GameActionType =
   | { type: 'CHECK_SQUARE'; index: number }
-  | { type: 'RESET' };
+  | { type: 'RESET' }
+  | { type: 'SET_PLAYER_MODE'; mode: PlayerModeTypes };
 
 export const initialState: GameStateType = {
   data: [...DEFAULT_DATA],
   currentPlayer: PLAYER_X,
   winner: null,
   winnerCombination: [],
-  movesCount: 0
+  movesCount: 0,
+  playerMode: PLAYER_MODE.SINGLE_PLAYER
 };
 
 export const gameReducer = (
@@ -61,6 +69,10 @@ export const gameReducer = (
               : PLAYER_X
             : state.currentPlayer
       };
+    }
+
+    case 'SET_PLAYER_MODE': {
+      return { ...state, playerMode: action.mode };
     }
 
     case 'RESET':

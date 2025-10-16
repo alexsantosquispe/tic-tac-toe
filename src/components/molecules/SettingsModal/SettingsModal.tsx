@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import useGame from '../../../hooks/useGame';
 import { PLAYER_MODE, type OptionType } from '../../../models/types';
 import Button from '../../atoms/Button/Button';
 import { Modal } from '../../atoms/Modal/Modal';
@@ -23,14 +24,13 @@ const options: OptionType[] = [
 
 const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
   const { t } = useTranslation();
+  const { playerMode, setPlayerMode } = useGame();
 
   const onSelectOption = (value: OptionType['value']) => {
-    //TODO: Select option function will be implemented in the next PR
-    console.info(value);
+    setPlayerMode(value);
   };
 
   const saveSettings = () => {
-    //TODO: Save settings function
     onClose();
   };
 
@@ -41,7 +41,7 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
 
         <PlayerModeOptions
           options={options}
-          initialOptionValue={options[0].value}
+          initialOptionValue={playerMode}
           onSelectOption={onSelectOption}
         />
 

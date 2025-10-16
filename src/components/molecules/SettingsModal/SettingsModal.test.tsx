@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
+import GameProvider from '../../../context/GameProvider';
 import { I18NWrapper } from '../../../tests/testsUtils';
 import SettingsModal from './SettingsModal';
 
@@ -15,7 +16,9 @@ describe('SettingsModal', () => {
   it('should render the component correctly', () => {
     const component = render(
       <I18NWrapper>
-        <SettingsModal {...props} />
+        <GameProvider>
+          <SettingsModal {...props} />
+        </GameProvider>
       </I18NWrapper>
     );
 
@@ -23,7 +26,11 @@ describe('SettingsModal', () => {
   });
 
   it('should call onClose when the close button is clicked', () => {
-    render(<SettingsModal {...props} />);
+    render(
+      <GameProvider>
+        <SettingsModal {...props} />
+      </GameProvider>
+    );
 
     const closeButton = screen.getByRole('button', {
       name: 'Close modal button'
