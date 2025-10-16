@@ -78,7 +78,6 @@ describe('gameReducer', () => {
     expect(result.currentPlayer).toBe(initialState.currentPlayer);
     expect(result.movesCount).toBe(initialState.movesCount);
     expect(result.winner).toBe(initialState.winner);
-    expect(result.playerMode).toBe(PLAYER_MODE.SINGLE_PLAYER);
   });
 
   it('should set the player mode when SET_PLAYER_MODE is dispatched', () => {

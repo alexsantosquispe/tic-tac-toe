@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import useGame from '../../../hooks/useGame';
 import { PLAYER_MODE, type OptionType } from '../../../models/types';
-import Button from '../../atoms/Button/Button';
 import { Modal } from '../../atoms/Modal/Modal';
 import PlayersCard from '../../atoms/PlayersCard/PlayersCard';
 import { PlayerModeOptions } from './components/PlayerModeOptions/PlayerModeOptions';
@@ -30,10 +29,6 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
     setPlayerMode(value);
   };
 
-  const saveSettings = () => {
-    onClose();
-  };
-
   return (
     <Modal title={t('settings.title')} isOpen={isOpen} onClose={onClose}>
       <div className="flex w-full flex-col gap-3 px-6 py-6">
@@ -43,12 +38,6 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
           options={options}
           initialOptionValue={playerMode}
           onSelectOption={onSelectOption}
-        />
-
-        <Button
-          title={t('settings.continueButton')}
-          ariaLabel={t('settings.continueButtonAriaLabel')}
-          onClick={saveSettings}
         />
       </div>
     </Modal>

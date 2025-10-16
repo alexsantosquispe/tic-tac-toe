@@ -75,8 +75,9 @@ export const gameReducer = (
       return { ...state, playerMode: action.mode };
     }
 
-    case 'RESET':
-      return initialState;
+    case 'RESET': {
+      return { ...initialState, playerMode: state.playerMode };
+    }
 
     default:
       return state;

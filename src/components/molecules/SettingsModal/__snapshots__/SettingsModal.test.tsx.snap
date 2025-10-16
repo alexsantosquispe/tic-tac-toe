@@ -185,13 +185,6 @@ exports[`SettingsModal should render the component correctly 1`] = `
                   </div>
                 </button>
               </div>
-              <button
-                aria-label="Continue button"
-                class="flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-5 py-2 text-2xl text-white uppercase shadow-md hover:cursor-pointer hover:bg-rose-500"
-                type="button"
-              >
-                Continue
-              </button>
             </div>
           </div>
         </div>
@@ -379,13 +372,6 @@ exports[`SettingsModal should render the component correctly 1`] = `
                 </div>
               </button>
             </div>
-            <button
-              aria-label="Continue button"
-              class="flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-5 py-2 text-2xl text-white uppercase shadow-md hover:cursor-pointer hover:bg-rose-500"
-              type="button"
-            >
-              Continue
-            </button>
           </div>
         </div>
       </div>
