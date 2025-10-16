@@ -11,7 +11,8 @@ const Board = () => {
     checkSquare,
     winnerCombination,
     winner,
-    isDraw
+    isDraw,
+    playerMode
   } = useGame();
 
   return (
@@ -26,15 +27,17 @@ const Board = () => {
         aria-label={t('boardAriaLabel')}
       >
         {data.map((square, index) => {
+          const gameIsOver = !!winner || isDraw;
           return (
             <Square
               key={index}
               index={index}
               value={square}
               onClickItem={checkSquare}
-              highLight={winnerCombination.includes(index)}
-              isDisabled={!!winner || isDraw}
               currentPlayer={currentPlayer}
+              playerMode={playerMode}
+              isHighLight={winnerCombination.includes(index)}
+              isDisabled={gameIsOver}
             />
           );
         })}

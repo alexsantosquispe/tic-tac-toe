@@ -1,14 +1,17 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useCallback } from 'react';
-import type {
-  CurrentPlayerType,
-  SquareValueTypes
+import {
+  PLAYER_MODE,
+  type CurrentPlayerType,
+  type PlayerModeTypes,
+  type SquareValueTypes
 } from '../../../models/types';
 
 import cn from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { CircleIcon } from '../../../icons/CircleIcon';
 import { XIcon } from '../../../icons/XIcon';
+import { PLAYER_O } from '../../../utils/constants';
 
 const ICONS = {
   X: {
@@ -37,7 +40,8 @@ interface SquareProps {
   value: SquareValueTypes;
   onClickItem: (index: number) => void;
   currentPlayer: CurrentPlayerType;
-  highLight?: boolean;
+  playerMode: PlayerModeTypes;
+  isHighLight?: boolean;
   isDisabled?: boolean;
 }
 
@@ -46,10 +50,14 @@ const Square = ({
   value,
   onClickItem,
   currentPlayer,
-  highLight = false,
+  playerMode,
+  isHighLight = false,
   isDisabled = false
 }: SquareProps) => {
-  const disabled = !!value || isDisabled;
+  const disabled =
+    !!value ||
+    isDisabled ||
+    (playerMode === PLAYER_MODE.SINGLE_PLAYER && currentPlayer === PLAYER_O);
   const icon = value !== '' ? renderIcon(value, COLORS[value]) : null;
   const hoverIcon =
     !icon && !disabled ? renderIcon(currentPlayer, COLORS.hover) : null;
@@ -69,9 +77,9 @@ const Square = ({
           'hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-white/10':
             !disabled,
           'hover:cursor-not-allowed': disabled,
-          'bg-rose-50 dark:bg-rose-800/40': highLight,
+          'bg-rose-50 dark:bg-rose-800/40': isHighLight,
           'opacity-25 brightness-30 dark:opacity-80 dark:brightness-50':
-            !highLight && isDisabled
+            !isHighLight && isDisabled
         })
       )}
       aria-label={value || 'Empty'}

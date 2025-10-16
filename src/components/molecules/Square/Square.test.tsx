@@ -3,6 +3,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 
 import type { ComponentProps } from 'react';
+import { PLAYER_MODE } from '../../../models/types';
 import Square from './Square';
 
 describe('Square', () => {
@@ -12,9 +13,10 @@ describe('Square', () => {
     index: 0,
     value: '',
     onClickItem: onClickItemMock,
+    isHighLight: false,
+    isDisabled: false,
     currentPlayer: 'X',
-    highLight: false,
-    isDisabled: false
+    playerMode: PLAYER_MODE.SINGLE_PLAYER
   };
 
   describe('styles', () => {
@@ -43,7 +45,7 @@ describe('Square', () => {
 
     it('should display highlight styles if the square is a highlight winner combination', () => {
       render(
-        <Square {...props} value="X" isDisabled={true} highLight={true} />
+        <Square {...props} value="X" isDisabled={true} isHighLight={true} />
       );
 
       const squareButton = screen.getByRole('button');
@@ -57,7 +59,7 @@ describe('Square', () => {
 
     it('should display disabled styles if the square is not a highlight winner combination', () => {
       render(
-        <Square {...props} value="X" isDisabled={true} highLight={false} />
+        <Square {...props} value="X" isDisabled={true} isHighLight={false} />
       );
 
       const squareButton = screen.getByRole('button');

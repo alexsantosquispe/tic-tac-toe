@@ -13,6 +13,17 @@ import GameProvider from './context/GameProvider';
 import ThemeProvider from './context/ThemeProvider';
 import { I18NWrapper } from './tests/testsUtils';
 
+jest.mock('./context/reducers/gameReducer', () => {
+  const actualModule = jest.requireActual('./context/reducers/gameReducer');
+  return {
+    ...actualModule,
+    initialState: {
+      ...actualModule.initialState,
+      playerMode: 'twoPlayers'
+    }
+  };
+});
+
 describe('App', () => {
   beforeEach(async () => {
     await waitFor(() => {

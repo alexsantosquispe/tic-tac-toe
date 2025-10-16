@@ -2,7 +2,7 @@
   "gameMessage": "Juguemos un juego clásico!",
   "turn": "{{player}} tu turno",
   "draw": "Empate!",
-  "win": "{{player}} ganaste!",
+  "win": "{{player}} gana!",
   "settings": {
     "title": "Configuración",
     "description": "Elige tu modo de juego",

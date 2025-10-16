@@ -31,13 +31,21 @@ export const getWinnerResultByIndex = (
   };
 };
 
-export const getCPUMove = (board: SquareValueTypes[]): number | null => {
-  const emptyIndexes = board
+export const getRandomMove = (availableIndexes: number[]) => {
+  const randomIndex = Math.floor(Math.random() * availableIndexes.length);
+  return availableIndexes[randomIndex];
+};
+
+export const getAvailableIndexes = (board: SquareValueTypes[]) => {
+  return board
     .map((value, index) => (value === '' ? index : null))
-    .filter((item) => item !== null) as number[];
+    .filter((value) => value !== null);
+};
 
-  if (emptyIndexes.length === 0) return null;
+export const getCPUMove = (board: SquareValueTypes[]): number | null => {
+  const availableIndexes = getAvailableIndexes(board);
 
-  const randomIndex = Math.floor(Math.random() * emptyIndexes.length);
-  return emptyIndexes[randomIndex];
+  if (availableIndexes.length === 0) return null;
+
+  return getRandomMove(availableIndexes);
 };
