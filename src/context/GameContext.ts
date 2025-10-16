@@ -1,9 +1,10 @@
+import type { CurrentPlayerType, SquareValueTypes } from '../models/types';
+
 import { createContext } from 'react';
-import type { SquareValueTypes } from '../models/types';
 
 export interface GameContextTypes {
   data: SquareValueTypes[];
-  currentPlayer: 'X' | 'O';
+  currentPlayer: CurrentPlayerType;
   winner: SquareValueTypes | null;
   winnerCombination: number[];
   checkSquare: (index: number) => void;

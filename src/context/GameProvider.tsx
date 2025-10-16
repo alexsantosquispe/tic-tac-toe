@@ -1,62 +1,20 @@
-import { useCallback, useMemo, useState, type ReactNode } from 'react';
-import type { CurrentPlayerType, SquareValueTypes } from '../models/types';
-import {
-  DEFAULT_DATA,
-  MIN_MOVES_TO_WIN,
-  PLAYER_O,
-  PLAYER_X
-} from '../utils/constants';
-import {
-  getWinnerResultByIndex,
-  type WinnerResultType
-} from '../utils/gameUtils';
+import { useMemo, useReducer, type ReactNode } from 'react';
+import { DEFAULT_DATA } from '../utils/constants';
 import GameContext from './GameContext';
+import { gameReducer, initialState } from './reducers/gameReducer';
 
 interface GameProviderProps {
   children: ReactNode;
 }
 
 const GameProvider = ({ children }: GameProviderProps) => {
-  const [data, setData] = useState<SquareValueTypes[]>(DEFAULT_DATA);
-  const [winner, setWinner] = useState<SquareValueTypes | null>(null);
-  const [winnerCombination, setWinnerCombination] = useState<number[]>([]);
-  const [currentPlayer, setCurrentPlayer] =
-    useState<CurrentPlayerType>(PLAYER_X);
-  const [movesCount, setMovesCount] = useState<number>(0);
+  const [state, dispatch] = useReducer(gameReducer, initialState);
+  const { data, currentPlayer, winner, winnerCombination, movesCount } = state;
 
-  const checkSquare = useCallback(
-    (index: number) => {
-      let result: WinnerResultType = { winner: null, winnerCombination: [] };
+  const checkSquare = (index: number) =>
+    dispatch({ type: 'CHECK_SQUARE', index });
 
-      const boardData = [...data];
-      boardData[index] = currentPlayer;
-      const newMovesCount = movesCount + 1;
-
-      if (newMovesCount > MIN_MOVES_TO_WIN) {
-        result = getWinnerResultByIndex(boardData, index);
-      }
-
-      setData(boardData);
-      setWinner(result.winner);
-      setWinnerCombination(result.winnerCombination);
-      setMovesCount(newMovesCount);
-
-      if (!result.winner && newMovesCount < DEFAULT_DATA.length) {
-        setCurrentPlayer((prevPlayer) =>
-          prevPlayer === PLAYER_X ? PLAYER_O : PLAYER_X
-        );
-      }
-    },
-    [data, currentPlayer, movesCount]
-  );
-
-  const resetGame = useCallback(() => {
-    setData([...DEFAULT_DATA]);
-    setWinner(null);
-    setWinnerCombination([]);
-    setCurrentPlayer(PLAYER_X);
-    setMovesCount(0);
-  }, []);
+  const resetGame = () => dispatch({ type: 'RESET' });
 
   return (
     <GameContext.Provider
@@ -68,7 +26,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
         checkSquare,
         resetGame,
         isDraw: useMemo(
-          () => !winner && movesCount === DEFAULT_DATA.length,
+          () => !winner && movesCount >= DEFAULT_DATA.length,
           [winner, movesCount]
         )
       }}
