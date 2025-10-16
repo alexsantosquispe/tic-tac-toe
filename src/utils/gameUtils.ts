@@ -30,3 +30,14 @@ export const getWinnerResultByIndex = (
     winnerCombination: combination
   };
 };
+
+export const getCPUMove = (board: SquareValueTypes[]): number | null => {
+  const emptyIndexes = board
+    .map((value, index) => (value === '' ? index : null))
+    .filter((item) => item !== null) as number[];
+
+  if (emptyIndexes.length === 0) return null;
+
+  const randomIndex = Math.floor(Math.random() * emptyIndexes.length);
+  return emptyIndexes[randomIndex];
+};

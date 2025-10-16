@@ -1,6 +1,7 @@
-import { useMemo, useReducer, type ReactNode } from 'react';
-import type { PlayerModeTypes } from '../models/types';
-import { DEFAULT_DATA } from '../utils/constants';
+import { useEffect, useMemo, useReducer, type ReactNode } from 'react';
+import { PLAYER_MODE, type PlayerModeTypes } from '../models/types';
+import { CPU_MOVE_DELAY, DEFAULT_DATA, PLAYER_O } from '../utils/constants';
+import { getCPUMove } from '../utils/gameUtils';
 import GameContext from './GameContext';
 import { gameReducer, initialState } from './reducers/gameReducer';
 
@@ -32,6 +33,23 @@ const GameProvider = ({ children }: GameProviderProps) => {
   const setPlayerMode = (mode: PlayerModeTypes) => {
     dispatch({ type: 'SET_PLAYER_MODE', mode });
   };
+
+  useEffect(() => {
+    if (
+      playerMode === PLAYER_MODE.SINGLE_PLAYER &&
+      currentPlayer === PLAYER_O &&
+      !winner
+    ) {
+      const cpuMove = getCPUMove(data);
+      if (cpuMove !== null) {
+        const timeout = setTimeout(() => {
+          dispatch({ type: 'CHECK_SQUARE', index: cpuMove });
+        }, CPU_MOVE_DELAY);
+
+        return () => clearTimeout(timeout);
+      }
+    }
+  }, [playerMode, currentPlayer, winner, data]);
 
   return (
     <GameContext.Provider
