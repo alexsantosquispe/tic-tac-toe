@@ -1,4 +1,5 @@
 [![CI/CD Pipeline](https://github.com/alexsantosquispe/tic-tac-toe/actions/workflows/ci_cd.yml/badge.svg)](https://github.com/alexsantosquispe/tic-tac-toe/actions/workflows/ci_cd.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 <div align="center">
   <h1>🎮 Tic-Tac-Toe</h1>
@@ -14,6 +15,24 @@
 [![Testing Library](https://img.shields.io/badge/Testing%20Library-E33332?style=for-the-badge&logo=testing-library&logoColor=white)](https://testing-library.com/)
 
 </div>
+
+---
+
+## 📘 Table of Contents
+
+- [Overview](#overview)
+- [Screenshots](#screenshots)
+- [Game Rules](#game-rules)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Scripts Reference](#scripts-reference)
+- [Tailwind Configuration](#tailwind-configuration)
+- [Project Structure](#project-structure)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -246,9 +265,19 @@ src/
 └── main.tsx            # Application entry point
 ```
 
+## 🗺️ Roadmap
+
+- [ ] CPU Difficulty Levels (Easy / Medium / Hard)
+- [ ] Configurable Game Modes (2 Players / vs CPU)
+- [ ] UI Animations for Turn Transitions
+- [ ] Persistent Scores & Ranking
+- [ ] CPU “Thinking” Indicator
+
+---
+
 ## Contributing
 
-We welcome contributions! Here's how you can help:
+Contributions are welcome!
 
 ### 🐛 Bug Reports
 
