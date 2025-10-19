@@ -31,7 +31,6 @@ export const getWinnerResultByIndex = (
   };
 };
 
-/* istanbul ignore next */
 export const getRandomMove = (availableIndexes: number[]) => {
   const randomIndex = Math.floor(Math.random() * availableIndexes.length);
   return availableIndexes[randomIndex];
