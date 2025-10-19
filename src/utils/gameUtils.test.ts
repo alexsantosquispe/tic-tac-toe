@@ -8,7 +8,6 @@ import {
 
 import type { SquareValueTypes } from '../models/types';
 
-// 🔹 Mock de las combinaciones ganadoras
 jest.mock('./constants', () => ({
   COMBINATIONS_BY_POSITION: {
     0: [
@@ -34,7 +33,6 @@ describe('gameUtils', () => {
     'O'
   ];
 
-  // ------------------------------------------------------
   describe('getIsBoardDirty', () => {
     it('should return false when all squares are empty', () => {
       const result = getIsBoardDirty(['', '', '', '', '', '', '', '', '']);
@@ -47,7 +45,6 @@ describe('gameUtils', () => {
     });
   });
 
-  // ------------------------------------------------------
   describe('getWinnerResultByIndex', () => {
     it('should return the winner and the winning combination', () => {
       const result = getWinnerResultByIndex(data, 0);
@@ -74,7 +71,6 @@ describe('gameUtils', () => {
     });
   });
 
-  // ------------------------------------------------------
   describe('getAvailableIndexes', () => {
     it('should return indexes of empty squares', () => {
       const board: SquareValueTypes[] = [
@@ -98,7 +94,6 @@ describe('gameUtils', () => {
     });
   });
 
-  // ------------------------------------------------------
   describe('getRandomMove', () => {
     it('should return one of the available indexes', () => {
       const available = [2, 4, 6];
@@ -109,7 +104,6 @@ describe('gameUtils', () => {
     });
   });
 
-  // ------------------------------------------------------
   describe('getCPUMove', () => {
     it('should return null when no available moves', () => {
       const result = getCPUMove(drawData);
