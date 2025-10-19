@@ -40,16 +40,16 @@ function App() {
           <Navbar />
         </Suspense>
 
-        <main className="mt-14 mb-8 flex flex-1 flex-col">
+        <main className="mt-14 mb-8 flex flex-1 flex-col md:mb-0">
           <button
             onClick={openSettingsModal}
             aria-label={t('settings.settingsButtonAriaLabel')}
-            className="transform self-end rounded-xl p-4 text-neutral-500 transition-transform duration-500 hover:rotate-90 hover:cursor-pointer hover:text-black focus:outline-none dark:text-neutral-400 dark:hover:text-white"
+            className="transform self-end rounded-xl p-4 text-rose-600 transition-transform duration-500 hover:rotate-90 hover:cursor-pointer hover:text-rose-500 focus:outline-none dark:text-rose-500 dark:hover:text-rose-400"
           >
             <SettingsIcon />
           </button>
 
-          <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-10">
+          <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-8">
             <h1 className="flex flex-col gap-2 text-center">
               <Title />
               <p className="text-lg md:text-xl">{t('gameMessage')}</p>
