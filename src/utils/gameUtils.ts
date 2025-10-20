@@ -36,14 +36,23 @@ export const getRandomMove = (availableIndexes: number[]) => {
   return availableIndexes[randomIndex];
 };
 
-export const getAvailableIndexes = (board: SquareValueTypes[]) => {
-  return board
-    .map((value, index) => (value === '' ? index : null))
-    .filter((value) => value !== null);
+export const getIndexesByValue = (board: SquareValueTypes[]) => {
+  const indexesByValue: Record<string, number[]> = {
+    X: [],
+    O: [],
+    empty: []
+  };
+
+  return board.reduce((acc, value, index) => {
+    const key = value || 'empty';
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(index);
+    return acc;
+  }, indexesByValue);
 };
 
 export const getCPUMove = (board: SquareValueTypes[]): number | null => {
-  const availableIndexes = getAvailableIndexes(board);
+  const availableIndexes = getIndexesByValue(board).empty;
 
   if (availableIndexes.length === 0) return null;
 

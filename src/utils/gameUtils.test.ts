@@ -1,6 +1,6 @@
 import {
-  getAvailableIndexes,
   getCPUMove,
+  getIndexesByValue,
   getIsBoardDirty,
   getRandomMove,
   getWinnerResultByIndex
@@ -71,26 +71,74 @@ describe('gameUtils', () => {
     });
   });
 
-  describe('getAvailableIndexes', () => {
-    it('should return indexes of empty squares', () => {
+  describe('getIndexesByValue', () => {
+    it('should return indexes grouped by X, O, and empty', () => {
       const board: SquareValueTypes[] = [
         'X',
         '',
         'O',
-        '',
         'X',
-        '',
         'O',
         '',
-        ''
+        '',
+        'X',
+        'O'
       ];
-      const result = getAvailableIndexes(board);
-      expect(result).toEqual([1, 3, 5, 7, 8]);
+      const expectedResult = {
+        X: [0, 3, 7],
+        O: [2, 4, 8],
+        empty: [1, 5, 6]
+      };
+
+      const result = getIndexesByValue(board);
+
+      expect(result).toEqual(expectedResult);
     });
 
-    it('should return an empty array when no empty squares', () => {
-      const result = getAvailableIndexes(drawData);
-      expect(result).toEqual([]);
+    it('should handle a board with only empty squares', () => {
+      const board: SquareValueTypes[] = ['', '', '', '', '', '', '', '', ''];
+      const expectedResult = {
+        X: [],
+        O: [],
+        empty: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+      };
+      const result = getIndexesByValue(board);
+
+      expect(result).toEqual(expectedResult);
+    });
+
+    it('should handle a board with only one value type', () => {
+      const board: SquareValueTypes[] = [
+        'X',
+        'X',
+        'X',
+        'X',
+        'X',
+        'X',
+        'X',
+        'X',
+        'X'
+      ];
+
+      const result = getIndexesByValue(board);
+
+      expect(result).toEqual({
+        X: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        O: [],
+        empty: []
+      });
+    });
+
+    it('should handle an empty board array', () => {
+      const board: SquareValueTypes[] = [];
+
+      const result = getIndexesByValue(board);
+
+      expect(result).toEqual({
+        X: [],
+        O: [],
+        empty: []
+      });
     });
   });
 
@@ -107,6 +155,7 @@ describe('gameUtils', () => {
   describe('getCPUMove', () => {
     it('should return null when no available moves', () => {
       const result = getCPUMove(drawData);
+
       expect(result).toBeNull();
     });
   });
