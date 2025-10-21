@@ -27,6 +27,7 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
 
   const onSelectOption = (value: OptionType['value']) => {
     setPlayerMode(value);
+    onClose();
   };
 
   return (

@@ -8,17 +8,6 @@ import {
 
 import type { SquareValueTypes } from '../models/types';
 
-jest.mock('./constants', () => ({
-  COMBINATIONS_BY_POSITION: {
-    0: [
-      [0, 1, 2],
-      [0, 3, 6],
-      [0, 4, 8]
-    ],
-    1: [[1, 4, 7]]
-  }
-}));
-
 describe('gameUtils', () => {
   const data: SquareValueTypes[] = ['X', 'X', 'X', 'O', 'O', '', '', '', 'O'];
   const drawData: SquareValueTypes[] = [

@@ -12,23 +12,20 @@ export const getIsBoardDirty = (data: SquareValueTypes[]) => {
 };
 
 export const getWinnerResultByIndex = (
-  data: SquareValueTypes[],
+  board: SquareValueTypes[],
   index: number
 ): WinnerResultType => {
   const combinations = COMBINATIONS_BY_POSITION[index];
-  if (!combinations) return { winner: null, winnerCombination: [] };
-
   const combination =
     combinations.find(
-      ([a, b, c]) => !!data[a] && data[a] === data[b] && data[a] === data[c]
+      ([a, b]) =>
+        !!board[index] && board[index] === board[a] && board[index] === board[b]
     ) || [];
 
   return {
-    winner: combination.length
-      ? (data[combination[0]] as CurrentPlayerType)
-      : null,
-    winnerCombination: combination
-  };
+    winner: combination.length ? board[index] : null,
+    winnerCombination: combination.length ? [index, ...combination] : []
+  } as WinnerResultType;
 };
 
 export const getRandomMove = (availableIndexes: number[]) => {
