@@ -31,6 +31,8 @@ export const getWinnerResultByIndex = (
   };
 };
 
+export const isPossibleWinCombination = () => {};
+
 export const getRandomMove = (availableIndexes: number[]) => {
   const randomIndex = Math.floor(Math.random() * availableIndexes.length);
   return availableIndexes[randomIndex];
@@ -52,9 +54,9 @@ export const getIndexesByValue = (board: SquareValueTypes[]) => {
 };
 
 export const getCPUMove = (board: SquareValueTypes[]): number | null => {
-  const availableIndexes = getIndexesByValue(board).empty;
+  const indexesByValue = getIndexesByValue(board);
 
-  if (availableIndexes.length === 0) return null;
+  if (indexesByValue.empty.length === 0) return null;
 
-  return getRandomMove(availableIndexes);
+  return getRandomMove(indexesByValue.empty);
 };
