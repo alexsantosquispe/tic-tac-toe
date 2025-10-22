@@ -28,6 +28,8 @@ export const getWinnerResultByIndex = (
   } as WinnerResultType;
 };
 
+export const isPossibleWinCombination = () => {};
+
 export const getRandomMove = (availableIndexes: number[]) => {
   const randomIndex = Math.floor(Math.random() * availableIndexes.length);
   return availableIndexes[randomIndex];
