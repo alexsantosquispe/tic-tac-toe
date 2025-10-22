@@ -28,8 +28,6 @@ export const getWinnerResultByIndex = (
   } as WinnerResultType;
 };
 
-export const isPossibleWinCombination = () => {};
-
 export const getRandomMove = (availableIndexes: number[]) => {
   const randomIndex = Math.floor(Math.random() * availableIndexes.length);
   return availableIndexes[randomIndex];
@@ -79,5 +77,5 @@ export const getCPUMove = (
 
   if (availableIndexes.length === 0) return null;
 
-  return blockIndex || getRandomMove(availableIndexes);
+  return blockIndex !== null ? blockIndex : getRandomMove(availableIndexes);
 };
