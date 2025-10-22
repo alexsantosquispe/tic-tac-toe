@@ -12,23 +12,20 @@ export const getIsBoardDirty = (data: SquareValueTypes[]) => {
 };
 
 export const getWinnerResultByIndex = (
-  data: SquareValueTypes[],
+  board: SquareValueTypes[],
   index: number
 ): WinnerResultType => {
   const combinations = COMBINATIONS_BY_POSITION[index];
-  if (!combinations) return { winner: null, winnerCombination: [] };
-
   const combination =
     combinations.find(
-      ([a, b, c]) => !!data[a] && data[a] === data[b] && data[a] === data[c]
+      ([a, b]) =>
+        !!board[index] && board[index] === board[a] && board[index] === board[b]
     ) || [];
 
   return {
-    winner: combination.length
-      ? (data[combination[0]] as CurrentPlayerType)
-      : null,
-    winnerCombination: combination
-  };
+    winner: combination.length ? board[index] : null,
+    winnerCombination: combination.length ? [index, ...combination] : []
+  } as WinnerResultType;
 };
 
 export const isPossibleWinCombination = () => {};
@@ -53,10 +50,34 @@ export const getIndexesByValue = (board: SquareValueTypes[]) => {
   }, indexesByValue);
 };
 
-export const getCPUMove = (board: SquareValueTypes[]): number | null => {
-  const indexesByValue = getIndexesByValue(board);
+export const getIndexToBlock = (
+  board: SquareValueTypes[],
+  lastMoveIndex: number
+) => {
+  const combinations = COMBINATIONS_BY_POSITION[lastMoveIndex];
+  const winnerCombination = combinations.find(
+    ([a, b]) =>
+      !!board[lastMoveIndex] &&
+      (board[lastMoveIndex] === board[a] ||
+        board[lastMoveIndex] === board[b]) &&
+      (board[a] === '' || board[b] === '')
+  );
 
-  if (indexesByValue.empty.length === 0) return null;
+  if (winnerCombination?.length) {
+    const [a, b] = winnerCombination;
+    return board[a] === '' ? a : b;
+  }
+  return null;
+};
 
-  return getRandomMove(indexesByValue.empty);
+export const getCPUMove = (
+  board: SquareValueTypes[],
+  lastMove: number
+): number | null => {
+  const blockIndex = getIndexToBlock(board, lastMove);
+  const availableIndexes = getIndexesByValue(board).empty;
+
+  if (availableIndexes.length === 0) return null;
+
+  return blockIndex || getRandomMove(availableIndexes);
 };
