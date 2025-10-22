@@ -48,19 +48,26 @@ export const getIndexesByValue = (board: SquareValueTypes[]) => {
   }, indexesByValue);
 };
 
+export const getWinnerCombinationByIndex = (
+  board: SquareValueTypes[],
+  index: number
+) => {
+  const combinations = COMBINATIONS_BY_POSITION[index];
+  const winnerCombination = combinations.find(
+    ([a, b]) =>
+      !!board[index] &&
+      (board[index] === board[a] || board[index] === board[b]) &&
+      (board[a] === '' || board[b] === '')
+  );
+
+  return winnerCombination || [];
+};
+
 export const getIndexToBlock = (
   board: SquareValueTypes[],
   lastMoveIndex: number
 ) => {
-  const combinations = COMBINATIONS_BY_POSITION[lastMoveIndex];
-  const winnerCombination = combinations.find(
-    ([a, b]) =>
-      !!board[lastMoveIndex] &&
-      (board[lastMoveIndex] === board[a] ||
-        board[lastMoveIndex] === board[b]) &&
-      (board[a] === '' || board[b] === '')
-  );
-
+  const winnerCombination = getWinnerCombinationByIndex(board, lastMoveIndex);
   if (winnerCombination?.length) {
     const [a, b] = winnerCombination;
     return board[a] === '' ? a : b;
