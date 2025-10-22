@@ -143,9 +143,15 @@ describe('gameUtils', () => {
 
   describe('getCPUMove', () => {
     it('should return null when no available moves', () => {
-      const result = getCPUMove(drawData);
+      const result = getCPUMove(drawData, 0);
 
       expect(result).toBeNull();
+    });
+
+    it('should return index to block a possible X win', () => {
+      const result = getCPUMove(['X', '', 'X', 'O', '', '', '', '', ''], 2);
+
+      expect(result).toBe(1);
     });
   });
 });

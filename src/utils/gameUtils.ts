@@ -48,10 +48,34 @@ export const getIndexesByValue = (board: SquareValueTypes[]) => {
   }, indexesByValue);
 };
 
-export const getCPUMove = (board: SquareValueTypes[]): number | null => {
+export const getIndexToBlock = (
+  board: SquareValueTypes[],
+  lastMoveIndex: number
+) => {
+  const combinations = COMBINATIONS_BY_POSITION[lastMoveIndex];
+  const winnerCombination = combinations.find(
+    ([a, b]) =>
+      !!board[lastMoveIndex] &&
+      (board[lastMoveIndex] === board[a] ||
+        board[lastMoveIndex] === board[b]) &&
+      (board[a] === '' || board[b] === '')
+  );
+
+  if (winnerCombination?.length) {
+    const [a, b] = winnerCombination;
+    return board[a] === '' ? a : b;
+  }
+  return null;
+};
+
+export const getCPUMove = (
+  board: SquareValueTypes[],
+  lastMove: number
+): number | null => {
+  const blockIndex = getIndexToBlock(board, lastMove);
   const availableIndexes = getIndexesByValue(board).empty;
 
   if (availableIndexes.length === 0) return null;
 
-  return getRandomMove(availableIndexes);
+  return blockIndex || getRandomMove(availableIndexes);
 };

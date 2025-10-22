@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer, type ReactNode } from 'react';
+import { useEffect, useMemo, useReducer, useRef, type ReactNode } from 'react';
 import { PLAYER_MODE, type PlayerModeTypes } from '../models/types';
 import { CPU_MOVE_DELAY, DEFAULT_DATA, PLAYER_O } from '../utils/constants';
 import { getCPUMove } from '../utils/gameUtils';
@@ -19,14 +19,17 @@ const GameProvider = ({ children }: GameProviderProps) => {
     movesCount,
     playerMode
   } = state;
+  const moves = useRef<number[]>([]);
 
   const isDraw = useMemo(
     () => !winner && movesCount >= DEFAULT_DATA.length,
     [winner, movesCount]
   );
 
-  const checkSquare = (index: number) =>
+  const checkSquare = (index: number) => {
     dispatch({ type: 'CHECK_SQUARE', index });
+    moves.current.push(index);
+  };
 
   const resetGame = () => dispatch({ type: 'RESET' });
 
@@ -40,7 +43,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
       currentPlayer === PLAYER_O &&
       !winner
     ) {
-      const cpuMove = getCPUMove(data);
+      const cpuMove = getCPUMove(data, moves.current[moves.current.length - 1]);
       if (cpuMove !== null) {
         const timeout = setTimeout(() => {
           dispatch({ type: 'CHECK_SQUARE', index: cpuMove });
