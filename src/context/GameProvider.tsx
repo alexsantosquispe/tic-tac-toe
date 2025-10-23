@@ -43,7 +43,9 @@ const GameProvider = ({ children }: GameProviderProps) => {
       currentPlayer === PLAYER_O &&
       !winner
     ) {
-      const cpuMove = getCPUMove(data, moves.current[moves.current.length - 1]);
+      const lastIndexMove = moves.current[moves.current.length - 1];
+      const cpuMove = getCPUMove(data, lastIndexMove, 'hard');
+
       if (cpuMove !== null) {
         const timeout = setTimeout(() => {
           dispatch({ type: 'CHECK_SQUARE', index: cpuMove });

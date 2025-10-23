@@ -1,6 +1,5 @@
+import { COMBINATIONS_BY_POSITION, PLAYER_O } from './constants';
 import type { CurrentPlayerType, SquareValueTypes } from '../models/types';
-
-import { COMBINATIONS_BY_POSITION } from './constants';
 
 export type WinnerResultType = {
   winner: CurrentPlayerType | null;
@@ -68,21 +67,47 @@ export const getIndexToBlock = (
   lastMoveIndex: number
 ) => {
   const winnerCombination = getWinnerCombinationByIndex(board, lastMoveIndex);
-  if (winnerCombination?.length) {
+  if (winnerCombination.length) {
     const [a, b] = winnerCombination;
     return board[a] === '' ? a : b;
   }
   return null;
 };
 
+export const getIndexToWin = (
+  board: SquareValueTypes[],
+  indexes: number[]
+): number | null => {
+  if (indexes.length === 0) return null;
+
+  for (const index of indexes) {
+    const winnerCombination = getWinnerCombinationByIndex(board, index);
+    if (winnerCombination.length) {
+      const [a, b] = winnerCombination;
+      return board[a] === '' ? a : b;
+    }
+  }
+
+  return null;
+};
+
 export const getCPUMove = (
   board: SquareValueTypes[],
-  lastMove: number
+  lastMove: number,
+  difficulty?: 'easy' | 'hard'
 ): number | null => {
-  const blockIndex = getIndexToBlock(board, lastMove);
-  const availableIndexes = getIndexesByValue(board).empty;
+  const indexesByValue = getIndexesByValue(board);
+  const availableIndexes = indexesByValue.empty;
 
   if (availableIndexes.length === 0) return null;
 
-  return blockIndex !== null ? blockIndex : getRandomMove(availableIndexes);
+  if (difficulty === 'hard') {
+    const winIndex = getIndexToWin(board, indexesByValue[PLAYER_O]);
+    if (winIndex !== null) return winIndex;
+  }
+
+  const blockIndex = getIndexToBlock(board, lastMove);
+  if (blockIndex !== null) return blockIndex;
+
+  return getRandomMove(availableIndexes);
 };
