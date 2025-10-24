@@ -144,14 +144,55 @@ describe('gameUtils', () => {
   describe('getCPUMove', () => {
     it('should return null when no available moves', () => {
       const result = getCPUMove(drawData, 0);
-
       expect(result).toBeNull();
     });
 
-    it('should return index to block a possible X win', () => {
-      const result = getCPUMove(['X', '', 'X', 'O', '', '', '', '', ''], 2);
-
+    it('should return index to block a possible X win (easy mode)', () => {
+      const result = getCPUMove(
+        ['X', '', 'X', 'O', '', '', '', '', ''],
+        2,
+        'easy'
+      );
       expect(result).toBe(1);
+    });
+
+    it('should block X and not try to win in easy mode', () => {
+      // CPU has a chance to win, but easy mode should only block or random
+      const board: SquareValueTypes[] = [
+        'O',
+        'O',
+        '',
+        'X',
+        'X',
+        '',
+        '',
+        '',
+        ''
+      ];
+      const result = getCPUMove(board, 4, 'easy');
+      // The CPU shouldn't necessarily pick the winning move (2)
+      expect(result).not.toBe(2);
+    });
+
+    it('should try to win if possible in hard mode', () => {
+      const board: SquareValueTypes[] = ['O', 'O', '', 'X', '', '', '', '', ''];
+      const result = getCPUMove(board, 3, 'hard');
+      expect(result).toBe(2); // CPU should complete its win
+    });
+
+    it('should block player X if cannot win (hard mode)', () => {
+      const board: SquareValueTypes[] = ['X', '', 'X', '', 'O', '', '', '', ''];
+      const result = getCPUMove(board, 2, 'hard');
+      expect(result).toBe(1); // CPU blocks X from winning
+    });
+
+    it('should return a random move when no win or block available', () => {
+      const board: SquareValueTypes[] = ['X', 'O', 'X', '', '', '', '', '', ''];
+      const available = [3, 4, 5, 6, 7, 8];
+      jest.spyOn(Math, 'random').mockReturnValue(0.5);
+      const result = getCPUMove(board, 2);
+      expect(available).toContain(result);
+      jest.restoreAllMocks();
     });
   });
 });
