@@ -44,7 +44,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
       !winner
     ) {
       const lastIndexMove = moves.current[moves.current.length - 1];
-      const cpuMove = getCPUMove(data, lastIndexMove, 'hard');
+      const cpuMove = getCPUMove(data, lastIndexMove);
 
       if (cpuMove !== null) {
         const timeout = setTimeout(() => {
