@@ -1,9 +1,9 @@
+import { LEVELS, PLAYER_MODE } from '../models/types';
 import { DEFAULT_DATA, PLAYER_X } from '../utils/constants';
 
 import { renderHook } from '@testing-library/react';
 import type { GameContextTypes } from '../context/GameContext';
 import GameProvider from '../context/GameProvider';
-import { PLAYER_MODE } from '../models/types';
 import useGame from './useGame';
 
 describe('useGame', () => {
@@ -23,7 +23,9 @@ describe('useGame', () => {
       resetGame: jest.fn(),
       isDraw: false,
       playerMode: PLAYER_MODE.SINGLE_PLAYER,
-      setPlayerMode: jest.fn()
+      setPlayerMode: jest.fn(),
+      levelOfDifficulty: LEVELS.EASY,
+      setLevelOfDifficulty: jest.fn()
     };
 
     const { result } = renderHook(() => useGame(), { wrapper: GameProvider });

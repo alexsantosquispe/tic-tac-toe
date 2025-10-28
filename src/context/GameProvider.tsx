@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useReducer, useRef, type ReactNode } from 'react';
-import { PLAYER_MODE, type PlayerModeTypes } from '../models/types';
+import {
+  PLAYER_MODE,
+  type LevelTypes,
+  type PlayerModeTypes
+} from '../models/types';
 import { CPU_MOVE_DELAY, DEFAULT_DATA, PLAYER_O } from '../utils/constants';
 import { getCPUMove } from '../utils/gameUtils';
 import GameContext from './GameContext';
@@ -17,7 +21,8 @@ const GameProvider = ({ children }: GameProviderProps) => {
     winner,
     winnerCombination,
     movesCount,
-    playerMode
+    playerMode,
+    levelOfDifficulty
   } = state;
   const moves = useRef<number[]>([]);
 
@@ -35,6 +40,10 @@ const GameProvider = ({ children }: GameProviderProps) => {
 
   const setPlayerMode = (mode: PlayerModeTypes) => {
     dispatch({ type: 'SET_PLAYER_MODE', mode });
+  };
+
+  const setLevelOfDifficulty = (level: LevelTypes) => {
+    dispatch({ type: 'SET_LEVEL_OF_DIFFICULTY', level });
   };
 
   useEffect(() => {
@@ -67,7 +76,9 @@ const GameProvider = ({ children }: GameProviderProps) => {
         resetGame,
         isDraw,
         playerMode,
-        setPlayerMode
+        setPlayerMode,
+        levelOfDifficulty,
+        setLevelOfDifficulty
       }}
     >
       {children}

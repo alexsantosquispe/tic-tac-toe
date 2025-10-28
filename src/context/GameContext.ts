@@ -1,5 +1,6 @@
 import type {
   CurrentPlayerType,
+  LevelTypes,
   PlayerModeTypes,
   SquareValueTypes
 } from '../models/types';
@@ -16,6 +17,8 @@ export interface GameContextTypes {
   isDraw: boolean;
   playerMode: PlayerModeTypes;
   setPlayerMode: (mode: PlayerModeTypes) => void;
+  levelOfDifficulty: LevelTypes;
+  setLevelOfDifficulty: (level: LevelTypes) => void;
 }
 
 const GameContext = createContext<GameContextTypes | null>(null);
