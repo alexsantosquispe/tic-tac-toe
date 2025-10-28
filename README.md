@@ -67,6 +67,7 @@ Play a fully functional **3×3 Tic-Tac-Toe** game with a modern, responsive, and
 - **Win detection**: Rows, columns, diagonals; winning squares are highlighted
 - **Draw detection**: Disables the board and shows "Draw!" when no moves remain
 - **Reset functionality**: Start a new game at any time with smooth animations
+- **Settings button**: The settings icon button shows a modal, where the player can select a playing mode: single player(vs CP) and two players.
 
 ### User Experience
 
