@@ -8,6 +8,9 @@
     "description": "Elige tu modo de juego",
     "singlePlayerAriaLabel": "Botón para jugar solo",
     "twoPlayersAriaLabel": "Botón para jugar con dos jugadores",
+    "levels": "Niveles",
+    "easy": "Fácil",
+    "hard": "Difícil",
     "continueButton": "Continuar",
     "continueButtonAriaLabel": "Botón para continuar",
     "settingsButtonAriaLabel": "Botón de configuración"

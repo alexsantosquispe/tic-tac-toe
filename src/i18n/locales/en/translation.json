@@ -8,6 +8,9 @@
     "description": "Choose your gaming mode",
     "singlePlayerAriaLabel": "Single player button",
     "twoPlayersAriaLabel": "Two players button",
+    "levels": "Levels",
+    "easy": "Easy",
+    "hard": "Hard",
     "continueButton": "Continue",
     "continueButtonAriaLabel": "Continue button",
     "settingsButtonAriaLabel": "Settings button"
