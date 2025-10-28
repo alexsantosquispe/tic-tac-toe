@@ -52,7 +52,7 @@ function App() {
           <section className="flex w-full flex-col items-center justify-center gap-6 px-4 md:gap-8">
             <h1 className="flex flex-col gap-2 text-center">
               <Title />
-              <p className="text-lg md:text-xl">{t('gameMessage')}</p>
+              <p className="text-base md:text-lg">{t('gameMessage')}</p>
             </h1>
 
             <div className="flex flex-col items-center justify-between gap-4 md:gap-8">
