@@ -55,8 +55,8 @@ Play a fully functional **3×3 Tic-Tac-Toe** game with a modern, responsive, and
 ## Screenshots
 
 <div align="center">
-  <img src="./screenshots/light.webp" alt="Tic-Tac-Toe game in light theme showing a game in progress" width="45%"/>
-  <img src="./screenshots/dark.webp" alt="Tic-Tac-Toe game in dark theme showing a completed game" width="45%"/>
+  <img src="./screenshots/light.webp" alt="Tic-Tac-Toe game in light theme showing a game in progress" width="46%"/>
+  <img src="./screenshots/dark.webp" alt="Tic-Tac-Toe game in dark theme showing a completed game" width="46%"/>
 </div>
 
 ## Features
@@ -64,10 +64,10 @@ Play a fully functional **3×3 Tic-Tac-Toe** game with a modern, responsive, and
 ### Core Gameplay
 
 - **Turn-based play**: X starts, then O; only empty squares can be selected
-- **Win detection**: Rows, columns, diagonals; winning squares are highlighted
+- **Win detection**: Rows, columns, and diagonals. Winning squares are highlighted
 - **Draw detection**: Disables the board and shows "Draw!" when no moves remain
 - **Reset functionality**: Start a new game at any time with smooth animations
-- **Settings button**: The settings icon button shows a modal, where the player can select a playing mode: single player(vs CP) and two players
+- **Settings button**: The settings icon button shows a modal, where the player can select a playing mode and levels of difficulty
 
 ### User Experience
 
