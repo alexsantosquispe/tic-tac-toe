@@ -55,8 +55,8 @@ Play a fully functional **3×3 Tic-Tac-Toe** game with a modern, responsive, and
 ## Screenshots
 
 <div align="center">
-  <img src="./screenshots/light.webp" alt="Tic-Tac-Toe game in light theme showing a game in progress" width="46%"/>
-  <img src="./screenshots/dark.webp" alt="Tic-Tac-Toe game in dark theme showing a completed game" width="46%"/>
+  <img src="screenshots/light.webp" alt="Tic-Tac-Toe game in light theme showing a game in progress" width="46%"/>
+  <img src="screenshots/dark.webp" alt="Tic-Tac-Toe game in dark theme showing a completed game" width="46%"/>
 </div>
 
 ## Features
