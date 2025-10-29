@@ -8,7 +8,7 @@ export const Title = ({ className }: TitleProps) => {
   return (
     <span
       className={twMerge(
-        'transform text-4xl font-medium transition-transform duration-300 hover:scale-125 md:text-5xl',
+        'transform text-2xl font-medium transition-transform duration-300 hover:scale-125 md:text-3xl',
         className
       )}
     >

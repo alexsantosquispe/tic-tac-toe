@@ -21,7 +21,14 @@ export const PLAYER_MODE = {
 
 export type PlayerModeTypes = (typeof PLAYER_MODE)[keyof typeof PLAYER_MODE];
 
-export type OptionType = {
-  value: PlayerModeTypes;
+export const LEVELS = {
+  EASY: 'easy',
+  HARD: 'hard'
+} as const;
+
+export type LevelTypes = (typeof LEVELS)[keyof typeof LEVELS];
+
+export type OptionType<T> = {
+  value: T;
   component: ReactNode;
 };

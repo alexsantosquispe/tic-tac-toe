@@ -47,11 +47,11 @@ describe('SettingsModal', () => {
 
     it('should check the player mode singlePlayer and select twoPlayers', () => {
       const singlePlayerButton = screen.getByRole('button', {
-        name: 'Single player button'
+        name: 'singlePlayer'
       });
 
       const twoPlayersButton = screen.getByRole('button', {
-        name: 'Two players button'
+        name: 'twoPlayers'
       });
 
       expect(singlePlayerButton).toBeInTheDocument();
@@ -65,6 +65,30 @@ describe('SettingsModal', () => {
       fireEvent.click(twoPlayersButton);
 
       expect(twoPlayersButton).toHaveClass(
+        'border-rose-600 bg-rose-100 dark:border-rose-600 dark:bg-rose-950/70'
+      );
+    });
+
+    it('should check the easy level and select the hard level', () => {
+      const easyButton = screen.getByRole('button', {
+        name: 'easy'
+      });
+
+      const hardButton = screen.getByRole('button', {
+        name: 'hard'
+      });
+
+      expect(easyButton).toBeInTheDocument();
+
+      expect(hardButton).toBeInTheDocument();
+
+      expect(easyButton).toHaveClass(
+        'border-rose-600 bg-rose-100 dark:border-rose-600 dark:bg-rose-950/70'
+      );
+
+      fireEvent.click(hardButton);
+
+      expect(hardButton).toHaveClass(
         'border-rose-600 bg-rose-100 dark:border-rose-600 dark:bg-rose-950/70'
       );
     });

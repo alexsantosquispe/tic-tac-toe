@@ -2,14 +2,15 @@ import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { PLAYER_MODE } from '../../../../../models/types';
 import { I18NWrapper } from '../../../../../tests/testsUtils';
+import { PLAYER_MODE } from '../../../../../models/types';
 import PlayersCard from '../../../../atoms/PlayersCard/PlayersCard';
-import { PlayerModeOptions } from './PlayerModeOptions';
+import { SettingsOptions } from './SettingsOptions';
 
-describe('PlayerModeOptions', () => {
+describe('SettingsOptions', () => {
   const onSelectOptionMock = jest.fn();
   const props = {
+    title: 'Player Mode',
     options: [
       { value: PLAYER_MODE.SINGLE_PLAYER, component: <PlayersCard /> },
       {
@@ -24,7 +25,7 @@ describe('PlayerModeOptions', () => {
   it('should render the component correctly', () => {
     const component = render(
       <I18NWrapper>
-        <PlayerModeOptions {...props} />
+        <SettingsOptions {...props} />
       </I18NWrapper>
     );
 
@@ -42,7 +43,7 @@ describe('PlayerModeOptions', () => {
   it('should check the onSelectOption function was executed', () => {
     render(
       <I18NWrapper>
-        <PlayerModeOptions {...props} />
+        <SettingsOptions {...props} />
       </I18NWrapper>
     );
 

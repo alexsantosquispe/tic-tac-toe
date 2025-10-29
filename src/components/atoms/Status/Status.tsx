@@ -10,7 +10,7 @@ const Status = ({ winner, isDraw, currentPlayer }: StatusProps) => {
   const { t } = useTranslation();
 
   return (
-    <p className="text-3xl font-medium" aria-live="polite">
+    <p className="text-xl font-medium" aria-live="polite">
       {!winner &&
         !isDraw &&
         currentPlayer &&

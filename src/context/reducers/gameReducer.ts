@@ -1,6 +1,8 @@
 import {
+  LEVELS,
   PLAYER_MODE,
   type CurrentPlayerType,
+  type LevelTypes,
   type PlayerModeTypes,
   type SquareValueTypes
 } from '../../models/types';
@@ -20,12 +22,14 @@ export interface GameStateType {
   winnerCombination: number[];
   movesCount: number;
   playerMode: PlayerModeTypes;
+  levelOfDifficulty: LevelTypes;
 }
 
 export type GameActionType =
   | { type: 'CHECK_SQUARE'; index: number }
   | { type: 'RESET' }
-  | { type: 'SET_PLAYER_MODE'; mode: PlayerModeTypes };
+  | { type: 'SET_PLAYER_MODE'; mode: PlayerModeTypes }
+  | { type: 'SET_LEVEL_OF_DIFFICULTY'; level: LevelTypes };
 
 export const initialState: GameStateType = {
   data: [...DEFAULT_DATA],
@@ -33,7 +37,8 @@ export const initialState: GameStateType = {
   winner: null,
   winnerCombination: [],
   movesCount: 0,
-  playerMode: PLAYER_MODE.SINGLE_PLAYER
+  playerMode: PLAYER_MODE.SINGLE_PLAYER,
+  levelOfDifficulty: LEVELS.EASY
 };
 
 export const gameReducer = (
@@ -75,8 +80,16 @@ export const gameReducer = (
       return { ...state, playerMode: action.mode };
     }
 
+    case 'SET_LEVEL_OF_DIFFICULTY': {
+      return { ...state, levelOfDifficulty: action.level };
+    }
+
     case 'RESET': {
-      return { ...initialState, playerMode: state.playerMode };
+      return {
+        ...initialState,
+        playerMode: state.playerMode,
+        levelOfDifficulty: state.levelOfDifficulty
+      };
     }
 
     default:

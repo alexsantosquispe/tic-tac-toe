@@ -5,12 +5,23 @@
   "win": "{{player}} gana!",
   "settings": {
     "title": "Configuración",
-    "description": "Elige tu modo de juego",
-    "singlePlayerAriaLabel": "Botón para jugar solo",
-    "twoPlayersAriaLabel": "Botón para jugar con dos jugadores",
+    "settingsButtonAriaLabel": "Botón de configuración",
+    "playerMode": {
+      "title": "Modo de juego",
+      "options": {
+        "singlePlayer": "Botón para jugar solo",
+        "twoPlayers": "Botón para jugar con dos jugadores"
+      }
+    },
+    "levels": {
+      "title": "Niveles",
+      "options": {
+        "easy": "Fácil",
+        "hard": "Difícil"
+      }
+    },
     "continueButton": "Continuar",
-    "continueButtonAriaLabel": "Botón para continuar",
-    "settingsButtonAriaLabel": "Botón de configuración"
+    "continueButtonAriaLabel": "Botón para continuar"
   },
   "closeModalButtonAriaLabel": "Botón para cerrar la ventana modal",
   "boardAriaLabel": "Tablero de Tic Tac Toe",
