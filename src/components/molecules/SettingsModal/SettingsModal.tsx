@@ -71,6 +71,7 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
           initialOptionValue={levelOfDifficulty}
           onSelectOption={onSelectLevel}
           className={{ container: 'w-full flex-row', option: 'py-2' }}
+          isDisabled={playerMode === PLAYER_MODE.TWO_PLAYERS}
         />
       </div>
     </Modal>
