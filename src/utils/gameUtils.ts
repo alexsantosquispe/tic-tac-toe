@@ -1,5 +1,10 @@
+import {
+  LEVELS,
+  type CurrentPlayerType,
+  type LevelTypes,
+  type SquareValueTypes
+} from '../models/types';
 import { COMBINATIONS_BY_POSITION, PLAYER_O } from './constants';
-import type { CurrentPlayerType, SquareValueTypes } from '../models/types';
 
 export type WinnerResultType = {
   winner: CurrentPlayerType | null;
@@ -94,14 +99,14 @@ export const getIndexToWin = (
 export const getCPUMove = (
   board: SquareValueTypes[],
   lastMove: number,
-  difficulty?: 'easy' | 'hard'
+  difficulty?: LevelTypes
 ): number | null => {
   const indexesByValue = getIndexesByValue(board);
   const availableIndexes = indexesByValue.empty;
 
   if (availableIndexes.length === 0) return null;
 
-  if (difficulty === 'hard') {
+  if (difficulty === LEVELS.HARD) {
     const winIndex = getIndexToWin(board, indexesByValue[PLAYER_O]);
     if (winIndex !== null) return winIndex;
   }

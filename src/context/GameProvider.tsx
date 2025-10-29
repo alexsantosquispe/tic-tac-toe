@@ -53,7 +53,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
       !winner
     ) {
       const lastIndexMove = moves.current[moves.current.length - 1];
-      const cpuMove = getCPUMove(data, lastIndexMove);
+      const cpuMove = getCPUMove(data, lastIndexMove, levelOfDifficulty);
 
       if (cpuMove !== null) {
         const timeout = setTimeout(() => {
@@ -63,7 +63,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
         return () => clearTimeout(timeout);
       }
     }
-  }, [playerMode, currentPlayer, winner, data]);
+  }, [playerMode, levelOfDifficulty, currentPlayer, winner, data]);
 
   return (
     <GameContext.Provider

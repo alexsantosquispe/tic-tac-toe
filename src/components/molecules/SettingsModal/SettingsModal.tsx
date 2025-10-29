@@ -1,16 +1,23 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import useGame from '../../../hooks/useGame';
-import { PLAYER_MODE, type OptionType } from '../../../models/types';
+import {
+  LEVELS,
+  PLAYER_MODE,
+  type LevelTypes,
+  type OptionType,
+  type PlayerModeTypes
+} from '../../../models/types';
 import { Modal } from '../../atoms/Modal/Modal';
 import PlayersCard from '../../atoms/PlayersCard/PlayersCard';
-import { PlayerModeOptions } from './components/PlayerModeOptions/PlayerModeOptions';
+import { SettingsOptions } from './components/SettingsOptions/SettingsOptions';
 
 interface SettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const options: OptionType[] = [
+const playerModeOptions: OptionType<PlayerModeTypes>[] = [
   {
     value: PLAYER_MODE.SINGLE_PLAYER,
     component: <PlayersCard />
@@ -23,22 +30,47 @@ const options: OptionType[] = [
 
 const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
   const { t } = useTranslation();
-  const { playerMode, setPlayerMode } = useGame();
+  const { playerMode, setPlayerMode, levelOfDifficulty, setLevelOfDifficulty } =
+    useGame();
 
-  const onSelectOption = (value: OptionType['value']) => {
+  const levelOptions: OptionType<LevelTypes>[] = useMemo(
+    () => [
+      {
+        value: LEVELS.EASY,
+        component: <span>{t('settings.levels.options.easy')}</span>
+      },
+      {
+        value: LEVELS.HARD,
+        component: <span>{t('settings.levels.options.hard')}</span>
+      }
+    ],
+    [t]
+  );
+
+  const onSelectPlayerMode = (value: OptionType<PlayerModeTypes>['value']) => {
     setPlayerMode(value);
-    onClose();
+  };
+
+  const onSelectLevel = (value: OptionType<LevelTypes>['value']) => {
+    setLevelOfDifficulty(value);
   };
 
   return (
     <Modal title={t('settings.title')} isOpen={isOpen} onClose={onClose}>
-      <div className="flex w-full flex-col gap-3 px-6 py-6">
-        <span className="text-center">{t('settings.description')}</span>
-
-        <PlayerModeOptions
-          options={options}
+      <div className="flex w-full flex-col gap-5 p-6 pt-2">
+        <SettingsOptions<PlayerModeTypes>
+          title={t('settings.playerMode.title')}
+          options={playerModeOptions}
           initialOptionValue={playerMode}
-          onSelectOption={onSelectOption}
+          onSelectOption={onSelectPlayerMode}
+        />
+
+        <SettingsOptions<LevelTypes>
+          title={t('settings.levels.title')}
+          options={levelOptions}
+          initialOptionValue={levelOfDifficulty}
+          onSelectOption={onSelectLevel}
+          className={{ container: 'w-full flex-row', option: 'py-2' }}
         />
       </div>
     </Modal>

@@ -5,15 +5,23 @@
   "win": "{{player}} wins!",
   "settings": {
     "title": "Settings",
-    "description": "Choose your gaming mode",
-    "singlePlayerAriaLabel": "Single player button",
-    "twoPlayersAriaLabel": "Two players button",
-    "levels": "Levels",
-    "easy": "Easy",
-    "hard": "Hard",
+    "settingsButtonAriaLabel": "Settings button",
+    "playerMode": {
+      "title": "Gaming mode",
+      "options": {
+        "singlePlayer": "Single player",
+        "twoPlayers": "Two players"
+      }
+    },
+    "levels": {
+      "title": "Difficulty level",
+      "options": {
+        "easy": "Easy",
+        "hard": "Hard"
+      }
+    },
     "continueButton": "Continue",
-    "continueButtonAriaLabel": "Continue button",
-    "settingsButtonAriaLabel": "Settings button"
+    "continueButtonAriaLabel": "Continue button"
   },
   "closeModalButtonAriaLabel": "Close modal button",
   "boardAriaLabel": "Tic Tac Toe board",

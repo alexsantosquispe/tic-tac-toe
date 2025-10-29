@@ -1,12 +1,12 @@
 import { Suspense, lazy, useCallback, useMemo, useState } from 'react';
 
-import { useTranslation } from 'react-i18next';
-import Status from './components/atoms/Status/Status';
-import { Title } from './components/atoms/Title/Title';
-import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
 import { SettingsIcon } from './icons/SettingsIcon';
+import Status from './components/atoms/Status/Status';
+import { Title } from './components/atoms/Title/Title';
 import { getIsBoardDirty } from './utils/gameUtils';
+import useGame from './hooks/useGame';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = lazy(() => import('./components/atoms/Navbar/Navbar'));
 const Footer = lazy(() => import('./components/atoms/Footer/Footer'));
@@ -20,7 +20,6 @@ function App() {
   const { t } = useTranslation();
   const { data, winner, currentPlayer, resetGame, isDraw } = useGame();
   const isBoardDirty = useMemo(() => getIsBoardDirty(data), [data]);
-  //TODO: This state will be improved to show the modal the first loading time
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openSettingsModal = useCallback(() => {

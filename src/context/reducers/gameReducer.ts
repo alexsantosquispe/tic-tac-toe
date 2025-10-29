@@ -85,7 +85,11 @@ export const gameReducer = (
     }
 
     case 'RESET': {
-      return { ...initialState, playerMode: state.playerMode };
+      return {
+        ...initialState,
+        playerMode: state.playerMode,
+        levelOfDifficulty: state.levelOfDifficulty
+      };
     }
 
     default:
