@@ -1,4 +1,4 @@
-import { PLAYER_MODE } from '../../models/types';
+import { LEVELS, PLAYER_MODE } from '../../models/types';
 import { PLAYER_O, PLAYER_X } from '../../utils/constants';
 import { getWinnerResultByIndex } from '../../utils/gameUtils';
 import {
@@ -89,6 +89,18 @@ describe('gameReducer', () => {
     });
 
     expect(result.playerMode).toBe(PLAYER_MODE.TWO_PLAYERS);
+    expect(result).not.toBe(state); // ensure immutability
+  });
+
+  it('should set the level of difficulty when SET_LEVEL_OF_DIFFICULTY is dispatched', () => {
+    const state: GameStateType = { ...initialState };
+
+    const result = gameReducer(state, {
+      type: 'SET_LEVEL_OF_DIFFICULTY',
+      level: LEVELS.HARD
+    });
+
+    expect(result.levelOfDifficulty).toBe(LEVELS.HARD);
     expect(result).not.toBe(state); // ensure immutability
   });
 });
