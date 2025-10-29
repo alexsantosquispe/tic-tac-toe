@@ -1,12 +1,12 @@
 import { Suspense, lazy, useCallback, useMemo, useState } from 'react';
 
-import { ResetIcon } from './icons/ResetIcon';
-import { SettingsIcon } from './icons/SettingsIcon';
+import { useTranslation } from 'react-i18next';
 import Status from './components/atoms/Status/Status';
 import { Title } from './components/atoms/Title/Title';
-import { getIsBoardDirty } from './utils/gameUtils';
 import useGame from './hooks/useGame';
-import { useTranslation } from 'react-i18next';
+import { ResetIcon } from './icons/ResetIcon';
+import { SettingsIcon } from './icons/SettingsIcon';
+import { getIsBoardDirty } from './utils/gameUtils';
 
 const Navbar = lazy(() => import('./components/atoms/Navbar/Navbar'));
 const Footer = lazy(() => import('./components/atoms/Footer/Footer'));
@@ -86,7 +86,7 @@ function App() {
           <Footer />
         </Suspense>
 
-        <Suspense>
+        <Suspense fallback={<div className="w-full md:w-80" />}>
           <SettingsModal isOpen={isModalOpen} onClose={closeSettingsModal} />
         </Suspense>
       </div>
