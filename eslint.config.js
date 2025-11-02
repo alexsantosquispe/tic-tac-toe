@@ -1,5 +1,4 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
-
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import js from '@eslint/js';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -11,7 +10,7 @@ export default defineConfig([
     ignores: ['node_modules/**', 'dist/**', 'coverage/**']
   },
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx, js, jsx}'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
