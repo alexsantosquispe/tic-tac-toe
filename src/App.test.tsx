@@ -92,7 +92,7 @@ describe('App', () => {
         fireEvent.click(squareButtons[8]); //O
         fireEvent.click(squareButtons[7]); //X
 
-        expect(screen.getByText('Draw!')).toBeInTheDocument();
+        expect(screen.getByText('Draw! 🤝')).toBeInTheDocument();
       });
 
       it('should reset the game', () => {

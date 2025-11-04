@@ -1,36 +1,22 @@
-import { Suspense, lazy, useCallback, useMemo, useState } from 'react';
+import { Suspense, lazy, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import Status from './components/atoms/Status/Status';
 import { Title } from './components/atoms/Title/Title';
+import { SettingsButton } from './components/molecules/SettingsButton/SettingsButton';
 import useGame from './hooks/useGame';
 import { ResetIcon } from './icons/ResetIcon';
-import { SettingsIcon } from './icons/SettingsIcon';
 import { getIsBoardDirty } from './utils/gameUtils';
 
 const Navbar = lazy(() => import('./components/atoms/Navbar/Navbar'));
 const Footer = lazy(() => import('./components/atoms/Footer/Footer'));
 const Board = lazy(() => import('./components/molecules/Board/Board'));
 const Button = lazy(() => import('./components/atoms/Button/Button'));
-const SettingsModal = lazy(
-  () => import('./components/molecules/SettingsModal/SettingsModal')
-);
 
 function App() {
   const { t } = useTranslation();
   const { data, winner, currentPlayer, resetGame, isDraw } = useGame();
   const isBoardDirty = useMemo(() => getIsBoardDirty(data), [data]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openSettingsModal = useCallback(() => {
-    setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
-  }, []);
-
-  const closeSettingsModal = useCallback(() => {
-    setIsModalOpen(false);
-    document.body.style.overflow = 'auto';
-  }, []);
 
   return (
     <>
@@ -40,13 +26,7 @@ function App() {
         </Suspense>
 
         <main className="relative mt-14 flex flex-1 flex-col items-center justify-center md:mb-0">
-          <button
-            onClick={openSettingsModal}
-            aria-label={t('settings.settingsButtonAriaLabel')}
-            className="absolute top-4 right-4 transform self-end rounded-xl text-rose-600 transition-transform duration-500 hover:rotate-90 hover:cursor-pointer hover:text-rose-500 focus:outline-none dark:text-rose-500 dark:hover:text-rose-400"
-          >
-            <SettingsIcon />
-          </button>
+          <SettingsButton />
 
           <section className="mt-4 mb-4 flex w-full flex-col items-center justify-center gap-6 px-4 md:mb-0 md:gap-8">
             <h1 className="flex flex-col gap-2 text-center">
@@ -84,10 +64,6 @@ function App() {
 
         <Suspense fallback={<div className="h-14" />}>
           <Footer />
-        </Suspense>
-
-        <Suspense fallback={<div className="w-full md:w-80" />}>
-          <SettingsModal isOpen={isModalOpen} onClose={closeSettingsModal} />
         </Suspense>
       </div>
     </>
