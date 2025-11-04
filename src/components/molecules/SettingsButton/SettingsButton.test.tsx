@@ -7,18 +7,6 @@ import { I18NWrapper } from '../../../tests/testsUtils';
 import { SettingsButton } from './SettingsButton';
 
 describe('SettingsButton', () => {
-  it.skip('should render the component correctly', () => {
-    const component = render(
-      <I18NWrapper>
-        <GameProvider>
-          <SettingsButton />
-        </GameProvider>
-      </I18NWrapper>
-    );
-
-    expect(component).toMatchSnapshot();
-  });
-
   it('should open the settings modal', async () => {
     render(
       <I18NWrapper>
