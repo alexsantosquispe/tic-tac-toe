@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 interface StatusProps {
@@ -15,7 +16,19 @@ const Status = ({ winner, isDraw, currentPlayer }: StatusProps) => {
         !isDraw &&
         currentPlayer &&
         t('turn', { player: currentPlayer })}
-      {winner && t('win', { player: winner })}
+
+      {winner && (
+        <motion.span
+          key={`winner-${winner}`}
+          initial={{ scale: 1 }}
+          animate={{ scale: [1.2, 1.5, 1] }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          className="inline-block"
+        >
+          {t('win', { player: winner })} 🎉
+        </motion.span>
+      )}
+
       {isDraw && !winner && t('draw')}
     </p>
   );

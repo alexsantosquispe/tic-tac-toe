@@ -75,7 +75,7 @@ describe('App', () => {
         fireEvent.click(squareButtons[4]); //O
         fireEvent.click(squareButtons[2]); //X
 
-        expect(screen.getByText('X wins!')).toBeInTheDocument();
+        expect(screen.getByText('X wins! 🎉')).toBeInTheDocument();
       });
 
       it('should check draw', () => {
