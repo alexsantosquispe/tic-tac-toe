@@ -32,3 +32,10 @@ export type OptionType<T> = {
   value: T;
   component: ReactNode;
 };
+
+export type MatchType = {
+  id: string;
+  playerMode: PlayerModeTypes;
+  level: LevelTypes | null;
+  winner: CurrentPlayerType | 'draw';
+};

@@ -1,5 +1,7 @@
 import type { SquareValueTypes } from '../models/types';
 
+export const TIC_TAC_TOE_MATCHES = 'matches';
+
 export const PLAYER_X = 'X';
 
 export const PLAYER_O = 'O';
