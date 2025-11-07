@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { twMerge } from 'tailwind-merge';
 import usePressKey from '../../../hooks/usePressKey';
 import { XIcon } from '../../../icons/XIcon';
 
@@ -10,9 +11,19 @@ interface ModalProps {
   title: string;
   children: ReactNode;
   onClose: () => void;
+  className?: {
+    mainContainer?: string;
+    childContainer?: string;
+  };
 }
 
-export const Modal = ({ isOpen, title, children, onClose }: ModalProps) => {
+export const Modal = ({
+  isOpen,
+  title,
+  children,
+  onClose,
+  className
+}: ModalProps) => {
   const { t } = useTranslation();
   usePressKey('Escape', onClose, !isOpen);
 
@@ -34,7 +45,10 @@ export const Modal = ({ isOpen, title, children, onClose }: ModalProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.1, ease: 'easeOut' }}
-            className="flex w-full flex-col rounded-2xl bg-white md:w-80 dark:border dark:border-white/20 dark:bg-neutral-950"
+            className={twMerge(
+              'flex w-full flex-col rounded-2xl bg-white md:w-80 dark:border dark:border-white/20 dark:bg-neutral-950',
+              className?.mainContainer
+            )}
           >
             <button
               onClick={onClose}
@@ -48,7 +62,9 @@ export const Modal = ({ isOpen, title, children, onClose }: ModalProps) => {
               {title}
             </h2>
 
-            <div className="flex w-full">{children}</div>
+            <div className={twMerge('flex w-full', className?.childContainer)}>
+              {children}
+            </div>
           </motion.div>
         </motion.section>
       )}

@@ -23,6 +23,19 @@
     "continueButton": "Continue",
     "continueButtonAriaLabel": "Continue button"
   },
+  "matches": {
+    "title": "Matches",
+    "matchesButtonAriaLabel": "Matches button",
+    "table": {
+      "columns": {
+        "#": "#",
+        "winner": "Winner",
+        "level": "Level",
+        "playerMode": "Player mode",
+        "date": "Date"
+      }
+    }
+  },
   "closeModalButtonAriaLabel": "Close modal button",
   "boardAriaLabel": "Tic Tac Toe board",
   "resetButton": {

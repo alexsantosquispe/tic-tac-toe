@@ -23,6 +23,19 @@
     "continueButton": "Continuar",
     "continueButtonAriaLabel": "Botón para continuar"
   },
+  "matches": {
+    "title": "Partidas",
+    "matchesButtonAriaLabel": "Botón para ver las partidas",
+    "table": {
+      "columns": {
+        "#": "#",
+        "winner": "Ganador",
+        "level": "Nivel",
+        "playerMode": "Modo de juego",
+        "date": "Fecha"
+      }
+    }
+  },
   "closeModalButtonAriaLabel": "Botón para cerrar la ventana modal",
   "boardAriaLabel": "Tablero de Tic Tac Toe",
   "resetButton": {

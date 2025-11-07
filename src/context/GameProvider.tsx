@@ -6,6 +6,7 @@ import {
 } from '../models/types';
 import { CPU_MOVE_DELAY, DEFAULT_DATA, PLAYER_O } from '../utils/constants';
 import { getCPUMove } from '../utils/gameUtils';
+import { saveMatch } from '../utils/localStorageUtils';
 import GameContext from './GameContext';
 import { gameReducer, initialState } from './reducers/gameReducer';
 
@@ -64,6 +65,18 @@ const GameProvider = ({ children }: GameProviderProps) => {
       }
     }
   }, [playerMode, levelOfDifficulty, currentPlayer, winner, data]);
+
+  useEffect(() => {
+    if (winner || isDraw) {
+      saveMatch({
+        id: Date.now().toString(),
+        playerMode,
+        level:
+          playerMode === PLAYER_MODE.SINGLE_PLAYER ? levelOfDifficulty : null,
+        winner: winner ?? 'draw'
+      });
+    }
+  }, [winner, playerMode, levelOfDifficulty, isDraw]);
 
   return (
     <GameContext.Provider
