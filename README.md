@@ -29,7 +29,6 @@
 - [Scripts Reference](#scripts-reference)
 - [Tailwind Configuration](#tailwind-configuration)
 - [Project Structure](#project-structure)
-- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -63,19 +62,24 @@ Play a fully functional **3×3 Tic-Tac-Toe** game with a modern, responsive, and
 
 ### Core Gameplay
 
-- **Turn-based play**: X starts, then O; only empty squares can be selected
-- **Win detection**: Rows, columns, and diagonals. Winning squares are highlighted
-- **Draw detection**: Disables the board and shows "Draw!" when no moves remain
-- **Reset functionality**: Start a new game at any time with smooth animations
-- **Settings button**: The settings icon button shows a modal, where the player can select a playing mode and levels of difficulty
+- **Two Player Modes**: Play against a friend in `Player vs. Player` mode or challenge the computer in `Single Player` mode.
+- **Intelligent CPU Opponent**: The CPU opponent uses the **Minimax algorithm** to play optimally, providing a challenging experience.
+- **Win and Draw Detection**: The game automatically detects wins (rows, columns, diagonals) and draws, highlighting the winning combination.
+- **Reset Functionality**: Start a new game at any time with a smooth reset animation.
 
 ### User Experience
 
 - **🌍 Internationalization**: Support for English and Spanish with easy language switching
 - **🎨 Theme Support**: Light, dark, and system theme modes with persistent preferences
 - **✨ Smooth Animations**: Framer Motion powered transitions and micro-interactions
-- **📱 Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **♿ Accessibility**: Full WCAG compliance with screen reader support and keyboard navigation
+- **📱 Responsive Design**: Optimized for desktop, tablet, and mobile devices.
+- **♿ Advanced Accessibility**: Full WCAG compliance, including smart focus management (skipping disabled cells), `aria-live` regions for announcements, and descriptive `aria-labels` for all controls.
+
+### Scoreboard & Persistence
+
+- **Score Tracking**: The game keeps track of wins for X, wins for O, and draws.
+- **Persistent State**: Your theme preference and match scores are saved to `localStorage`, so they persist across sessions.
+- **Reset Scores**: Functionality to clear the scoreboard is implemented and can be triggered via a dedicated button.
 
 ### Technical Features
 
@@ -266,15 +270,6 @@ src/
 └── main.tsx            # Application entry point
 ```
 
-## 🗺️ Roadmap
-
-- [ ] CPU Difficulty Levels (Easy / Medium / Hard)
-- [ ] Configurable Game Modes (2 Players / vs CPU)
-- [ ] UI Animations for Turn Transitions
-- [ ] Persistent Scores & Ranking
-- [ ] CPU “Thinking” Indicator
-
----
 
 ## Contributing
 
