@@ -28,11 +28,11 @@ export const MatchesModal = ({ isOpen, onClose }: MatchesModalProps) => {
       isOpen={isOpen}
       onClose={onClose}
       className={{
-        mainContainer: 'md:h-[18rem] md:w-[30rem]',
+        mainContainer: 'md:max-h-[20rem] md:w-[30rem]',
         childContainer: 'overflow-y-auto'
       }}
     >
-      <div className="flex w-full flex-col gap-5 px-6 pt-4">
+      <div className="flex w-full flex-col gap-5 px-6 md:pt-4">
         {!data.length && (
           <div className="flex justify-center p-12">No matches found</div>
         )}
@@ -54,7 +54,11 @@ export const MatchesModal = ({ isOpen, onClose }: MatchesModalProps) => {
                   value={t('matches.table.columns.playerMode')}
                   isHeader={true}
                 />
-                <Cell value={t('matches.table.columns.date')} isHeader={true} />
+                <Cell
+                  value={t('matches.table.columns.date')}
+                  isHeader={true}
+                  className="hidden md:block"
+                />
               </tr>
             </thead>
             <tbody>
@@ -75,7 +79,7 @@ export const MatchesModal = ({ isOpen, onClose }: MatchesModalProps) => {
                   />
                   <Cell
                     value={formatMatchDate(item.id)}
-                    className="normal-case"
+                    className="hidden normal-case md:block"
                   />
                 </tr>
               ))}
