@@ -8,8 +8,7 @@ export const getMatches = (): MatchType[] => {
 };
 
 export const saveMatch = (match: MatchType) => {
-  const matches = getMatches();
-  matches.push(match);
+  const matches = [match, ...getMatches()];
 
   localStorage.setItem(TIC_TAC_TOE_MATCHES, JSON.stringify(matches));
 };
