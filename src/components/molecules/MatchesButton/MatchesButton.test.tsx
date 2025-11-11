@@ -6,7 +6,7 @@ import { I18NWrapper } from '../../../tests/testsUtils';
 import { MatchesButton } from './MatchesButton';
 
 describe('MatchesButton', () => {
-  it('should open the matches modal', async () => {
+  it('should open/close the matches modal', async () => {
     render(
       <I18NWrapper>
         <MatchesButton />
@@ -24,5 +24,15 @@ describe('MatchesButton', () => {
     fireEvent.click(matchesButton);
 
     expect(await screen.findByTestId('modal')).toBeInTheDocument();
+
+    const closeModalButton = screen.getByRole('button', {
+      name: 'Close modal button'
+    });
+
+    fireEvent.click(closeModalButton);
+
+    await waitFor(() => {
+      expect(screen.queryByTestId('modal')).not.toBeInTheDocument();
+    });
   });
 });
