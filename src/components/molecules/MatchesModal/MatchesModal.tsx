@@ -32,7 +32,7 @@ export const MatchesModal = ({ isOpen, onClose }: MatchesModalProps) => {
         childContainer: 'overflow-y-auto'
       }}
     >
-      <div className="flex w-full flex-col gap-5 px-6 md:pt-4">
+      <div className="flex w-full flex-col gap-5 px-6 md:px-2 md:pt-4">
         {!data.length && (
           <div className="flex justify-center p-12">No matches found</div>
         )}
