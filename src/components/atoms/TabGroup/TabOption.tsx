@@ -1,6 +1,7 @@
 import cn from 'clsx';
 import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { playClick } from '../../../utils/soundUtils';
 
 interface TabOptionProps<T> {
   id: T;
@@ -19,6 +20,13 @@ const TabOption = <T,>({
   onSelect,
   isDefault = true
 }: TabOptionProps<T>) => {
+  const onSelectTab = () => {
+    if (!isSelected) {
+      onSelect(id);
+      playClick();
+    }
+  };
+
   return (
     <button
       aria-label={`${id} button`}
@@ -29,7 +37,7 @@ const TabOption = <T,>({
           'text-white': isSelected && !isDefault
         })
       )}
-      onClick={() => onSelect(id)}
+      onClick={onSelectTab}
     >
       {icon && icon}
       {label && <pre>{label}</pre>}

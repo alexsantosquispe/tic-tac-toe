@@ -11,7 +11,7 @@ exports[`MatchesModal should render the component correctly 1`] = `
         style="opacity: 0;"
       >
         <div
-          class="flex w-full flex-col rounded-2xl bg-white dark:border dark:border-white/20 dark:bg-neutral-950 md:max-h-[20rem] md:w-[30rem]"
+          class="flex w-full flex-col rounded-2xl bg-white dark:border dark:border-white/20 dark:bg-neutral-950 max-h-[25rem] md:max-h-[20rem] md:w-[30rem]"
           style="opacity: 0; transform: translateY(20px) scale(0.9);"
         >
           <button
@@ -68,7 +68,7 @@ exports[`MatchesModal should render the component correctly 1`] = `
       style="opacity: 0;"
     >
       <div
-        class="flex w-full flex-col rounded-2xl bg-white dark:border dark:border-white/20 dark:bg-neutral-950 md:max-h-[20rem] md:w-[30rem]"
+        class="flex w-full flex-col rounded-2xl bg-white dark:border dark:border-white/20 dark:bg-neutral-950 max-h-[25rem] md:max-h-[20rem] md:w-[30rem]"
         style="opacity: 0; transform: translateY(20px) scale(0.9);"
       >
         <button

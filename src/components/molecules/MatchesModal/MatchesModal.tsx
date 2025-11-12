@@ -28,7 +28,7 @@ export const MatchesModal = ({ isOpen, onClose }: MatchesModalProps) => {
       isOpen={isOpen}
       onClose={onClose}
       className={{
-        mainContainer: 'md:max-h-[20rem] md:w-[30rem]',
+        mainContainer: 'max-h-[25rem] md:max-h-[20rem] md:w-[30rem]',
         childContainer: 'overflow-y-auto'
       }}
     >
@@ -39,7 +39,7 @@ export const MatchesModal = ({ isOpen, onClose }: MatchesModalProps) => {
 
         {!!data.length && (
           <table className="rounded-md">
-            <thead className="sticky top-0 bg-white dark:bg-black">
+            <thead className="sticky -top-2 bg-white md:top-0 dark:bg-black">
               <tr>
                 <Cell value={t('matches.table.columns.#')} isHeader={true} />
                 <Cell

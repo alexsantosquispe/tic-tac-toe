@@ -8,7 +8,7 @@ export const PLAYER_O = 'O';
 
 export const MIN_MOVES_TO_WIN = 4;
 
-export const CPU_MOVE_DELAY = 750;
+export const CPU_MOVE_DELAY = 800;
 
 export const DEFAULT_DATA: SquareValueTypes[] = Array(9).fill('');
 

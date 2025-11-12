@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import usePressKey from '../../../hooks/usePressKey';
 import { XIcon } from '../../../icons/XIcon';
+import { playClick } from '../../../utils/soundUtils';
 
 interface ModalProps {
   isOpen: boolean;
@@ -26,6 +27,11 @@ export const Modal = ({
 }: ModalProps) => {
   const { t } = useTranslation();
   usePressKey('Escape', onClose, !isOpen);
+
+  const onCloseHandler = () => {
+    playClick();
+    onClose();
+  };
 
   return (
     <AnimatePresence>
@@ -51,7 +57,7 @@ export const Modal = ({
             )}
           >
             <button
-              onClick={onClose}
+              onClick={onCloseHandler}
               aria-label={t('closeModalButtonAriaLabel')}
               className="mt-5 mr-5 self-end rounded-xl text-neutral-500 hover:cursor-pointer hover:text-black dark:text-neutral-600 dark:hover:text-white"
             >
