@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { playCelebration } from '../../../utils/soundUtils';
 
 interface StatusProps {
   winner: string | null;
@@ -9,6 +11,12 @@ interface StatusProps {
 
 const Status = ({ winner, isDraw, currentPlayer }: StatusProps) => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (winner) {
+      playCelebration();
+    }
+  }, [winner]);
 
   return (
     <p className="text-xl font-medium" aria-live="polite">

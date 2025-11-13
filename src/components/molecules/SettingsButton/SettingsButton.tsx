@@ -2,6 +2,7 @@ import { Suspense, lazy, useCallback, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { SettingsIcon } from '../../../icons/SettingsIcon';
+import { playClick } from '../../../utils/soundUtils';
 
 const SettingsModal = lazy(() => import('../SettingsModal/SettingsModal'));
 
@@ -11,6 +12,7 @@ export const SettingsButton = () => {
 
   const openSettingsModal = useCallback(() => {
     setIsModalOpen(true);
+    playClick();
     document.body.style.overflow = 'hidden';
   }, []);
 

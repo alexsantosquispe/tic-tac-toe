@@ -28,18 +28,18 @@ export const MatchesModal = ({ isOpen, onClose }: MatchesModalProps) => {
       isOpen={isOpen}
       onClose={onClose}
       className={{
-        mainContainer: 'md:max-h-[20rem] md:w-[30rem]',
+        mainContainer: 'max-h-[25rem] md:max-h-[20rem] md:w-[30rem]',
         childContainer: 'overflow-y-auto'
       }}
     >
-      <div className="flex w-full flex-col gap-5 px-6 md:pt-4">
+      <div className="flex w-full flex-col gap-5 px-6 md:px-2 md:pt-4">
         {!data.length && (
           <div className="flex justify-center p-12">No matches found</div>
         )}
 
         {!!data.length && (
           <table className="rounded-md">
-            <thead className="sticky top-0 bg-white dark:bg-black">
+            <thead className="sticky -top-2 bg-white md:top-0 dark:bg-black">
               <tr>
                 <Cell value={t('matches.table.columns.#')} isHeader={true} />
                 <Cell

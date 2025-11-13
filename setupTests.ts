@@ -11,3 +11,8 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: jest.fn()
   }))
 });
+
+Object.defineProperty(window.HTMLMediaElement.prototype, 'play', {
+  configurable: true,
+  value: jest.fn().mockImplementation(() => Promise.resolve())
+});
