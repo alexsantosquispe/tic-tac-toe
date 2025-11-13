@@ -1,4 +1,4 @@
-export const playSound = (path: string, volume = 0.75) => {
+export const playSound = (path: string, volume = 0.5) => {
   try {
     const audio = new Audio(path);
     audio.volume = volume;
@@ -11,10 +11,6 @@ export const playSound = (path: string, volume = 0.75) => {
   }
 };
 
-export const playXSound = () => playSound('/sounds/x-sound.wav');
+export const playClick = () => playSound('/sounds/click.wav');
 
-export const playOSound = () => playSound('/sounds/o-sound.wav', 0.5);
-
-export const playClick = () => playSound('/sounds/click.wav', 0.5);
-
-export const playCelebration = () => playSound('/sounds/tada.wav', 0.2);
+export const playCelebration = () => playSound('/sounds/tada.wav', 0.3);

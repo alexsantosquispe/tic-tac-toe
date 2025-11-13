@@ -7,7 +7,7 @@ import {
 import { CPU_MOVE_DELAY, DEFAULT_DATA, PLAYER_O } from '../utils/constants';
 import { getCPUMove } from '../utils/gameUtils';
 import { saveMatch } from '../utils/localStorageUtils';
-import { playClick, playOSound, playXSound } from '../utils/soundUtils';
+import { playClick } from '../utils/soundUtils';
 import GameContext from './GameContext';
 import { gameReducer, initialState } from './reducers/gameReducer';
 
@@ -24,7 +24,8 @@ const GameProvider = ({ children }: GameProviderProps) => {
     winnerCombination,
     movesCount,
     playerMode,
-    levelOfDifficulty
+    levelOfDifficulty,
+    soundEffects
   } = state;
   const moves = useRef<number[]>([]);
 
@@ -34,24 +35,29 @@ const GameProvider = ({ children }: GameProviderProps) => {
   );
 
   const checkSquare = (index: number) => {
-    playXSound();
+    playClick();
     dispatch({ type: 'CHECK_SQUARE', index });
     moves.current.push(index);
   };
 
   const resetGame = () => {
-    dispatch({ type: 'RESET' });
     playClick();
+    dispatch({ type: 'RESET' });
   };
 
   const setPlayerMode = (mode: PlayerModeTypes) => {
-    dispatch({ type: 'SET_PLAYER_MODE', mode });
     playClick();
+    dispatch({ type: 'SET_PLAYER_MODE', mode });
   };
 
   const setLevelOfDifficulty = (level: LevelTypes) => {
-    dispatch({ type: 'SET_LEVEL_OF_DIFFICULTY', level });
     playClick();
+    dispatch({ type: 'SET_LEVEL_OF_DIFFICULTY', level });
+  };
+
+  const setSoundEffects = (value: boolean) => {
+    playClick();
+    dispatch({ type: 'SET_SOUND_EFFECTS', value });
   };
 
   useEffect(() => {
@@ -65,7 +71,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
 
       if (cpuMove !== null) {
         const timeout = setTimeout(() => {
-          playOSound();
+          playClick();
           dispatch({ type: 'CHECK_SQUARE', index: cpuMove });
         }, CPU_MOVE_DELAY);
 
@@ -99,7 +105,9 @@ const GameProvider = ({ children }: GameProviderProps) => {
         playerMode,
         setPlayerMode,
         levelOfDifficulty,
-        setLevelOfDifficulty
+        setLevelOfDifficulty,
+        soundEffects,
+        setSoundEffects
       }}
     >
       {children}

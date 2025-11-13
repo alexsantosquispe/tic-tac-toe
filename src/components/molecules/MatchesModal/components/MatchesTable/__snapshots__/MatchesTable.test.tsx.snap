@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`MatchesTable should render the empty table 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex w-full flex-col gap-5 px-1 md:px-4 md:pt-4"
+      >
+        <div
+          class="flex justify-center p-12"
+        >
+          No matches found
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex w-full flex-col gap-5 px-1 md:px-4 md:pt-4"
+    >
+      <div
+        class="flex justify-center p-12"
+      >
+        No matches found
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`MatchesTable should render the table with data 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex w-full flex-col gap-5 px-1 md:px-4 md:pt-4"
+      >
+        <table
+          class="rounded-md"
+        >
+          <thead
+            class="sticky -top-2 bg-white md:top-0 dark:bg-black"
+          >
+            <tr>
+              <th
+                class="px-2 py-1"
+              >
+                #
+              </th>
+              <th
+                class="px-2 py-1"
+              >
+                Winner
+              </th>
+              <th
+                class="px-2 py-1"
+              >
+                Level
+              </th>
+              <th
+                class="px-2 py-1"
+              >
+                Player mode
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                class="px-2 py-1 text-center"
+              >
+                1
+              </td>
+              <td
+                class="px-2 py-1 text-center text-lg text-rose-600"
+              >
+                X
+              </td>
+              <td
+                class="px-2 py-1 text-center"
+              >
+                Easy
+              </td>
+              <td
+                class="px-2 py-1 text-center normal-case"
+              >
+                P v CPU
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="px-2 py-1 text-center"
+              >
+                2
+              </td>
+              <td
+                class="px-2 py-1 text-center text-lg"
+              >
+                O
+              </td>
+              <td
+                class="px-2 py-1 text-center"
+              >
+                Hard
+              </td>
+              <td
+                class="px-2 py-1 text-center normal-case"
+              >
+                P v CPU
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="px-2 py-1 text-center"
+              >
+                3
+              </td>
+              <td
+                class="px-2 py-1 text-center text-lg"
+              >
+                draw
+              </td>
+              <td
+                class="px-2 py-1 text-center"
+              >
+                settings.levels.options.null
+              </td>
+              <td
+                class="px-2 py-1 text-center normal-case"
+              >
+                P v P
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex w-full flex-col gap-5 px-1 md:px-4 md:pt-4"
+    >
+      <table
+        class="rounded-md"
+      >
+        <thead
+          class="sticky -top-2 bg-white md:top-0 dark:bg-black"
+        >
+          <tr>
+            <th
+              class="px-2 py-1"
+            >
+              #
+            </th>
+            <th
+              class="px-2 py-1"
+            >
+              Winner
+            </th>
+            <th
+              class="px-2 py-1"
+            >
+              Level
+            </th>
+            <th
+              class="px-2 py-1"
+            >
+              Player mode
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td
+              class="px-2 py-1 text-center"
+            >
+              1
+            </td>
+            <td
+              class="px-2 py-1 text-center text-lg text-rose-600"
+            >
+              X
+            </td>
+            <td
+              class="px-2 py-1 text-center"
+            >
+              Easy
+            </td>
+            <td
+              class="px-2 py-1 text-center normal-case"
+            >
+              P v CPU
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="px-2 py-1 text-center"
+            >
+              2
+            </td>
+            <td
+              class="px-2 py-1 text-center text-lg"
+            >
+              O
+            </td>
+            <td
+              class="px-2 py-1 text-center"
+            >
+              Hard
+            </td>
+            <td
+              class="px-2 py-1 text-center normal-case"
+            >
+              P v CPU
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="px-2 py-1 text-center"
+            >
+              3
+            </td>
+            <td
+              class="px-2 py-1 text-center text-lg"
+            >
+              draw
+            </td>
+            <td
+              class="px-2 py-1 text-center"
+            >
+              settings.levels.options.null
+            </td>
+            <td
+              class="px-2 py-1 text-center normal-case"
+            >
+              P v P
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

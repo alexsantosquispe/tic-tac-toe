@@ -25,7 +25,9 @@ describe('useGame', () => {
       playerMode: PLAYER_MODE.SINGLE_PLAYER,
       setPlayerMode: jest.fn(),
       levelOfDifficulty: LEVELS.EASY,
-      setLevelOfDifficulty: jest.fn()
+      setLevelOfDifficulty: jest.fn(),
+      soundEffects: true,
+      setSoundEffects: jest.fn()
     };
 
     const { result } = renderHook(() => useGame(), { wrapper: GameProvider });
@@ -43,5 +45,11 @@ describe('useGame', () => {
     expect(result.current.isDraw).toEqual(mockContextValue.isDraw);
     expect(result.current.playerMode).toEqual(mockContextValue.playerMode);
     expect(typeof result.current.setPlayerMode).toBe('function');
+    expect(result.current.levelOfDifficulty).toEqual(
+      mockContextValue.levelOfDifficulty
+    );
+    expect(typeof result.current.setLevelOfDifficulty).toBe('function');
+    expect(result.current.soundEffects).toEqual(mockContextValue.soundEffects);
+    expect(typeof result.current.setSoundEffects).toBe('function');
   });
 });
