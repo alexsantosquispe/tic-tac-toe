@@ -177,7 +177,7 @@ exports[`MatchesTable should render the table with data 1`] = `
               <td
                 class="px-2 py-1 text-center"
               >
-                settings.levels.options.null
+                -
               </td>
               <td
                 class="px-2 py-1 text-center normal-case"
@@ -282,7 +282,7 @@ exports[`MatchesTable should render the table with data 1`] = `
             <td
               class="px-2 py-1 text-center"
             >
-              settings.levels.options.null
+              -
             </td>
             <td
               class="px-2 py-1 text-center normal-case"

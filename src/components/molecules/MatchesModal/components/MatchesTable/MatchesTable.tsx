@@ -48,7 +48,13 @@ export const MatchesTable = ({ data, className }: MatchesTableProps) => {
                     cn({ 'text-rose-600': item.winner === PLAYER_X })
                   )}
                 />
-                <Cell value={t(`settings.levels.options.${item.level}`)} />
+                <Cell
+                  value={
+                    item.level
+                      ? t(`settings.levels.options.${item.level}`)
+                      : null
+                  }
+                />
                 <Cell
                   value={PLAYER_MODE_MAP[item.playerMode]}
                   className="normal-case"
