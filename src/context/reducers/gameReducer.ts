@@ -23,13 +23,15 @@ export interface GameStateType {
   movesCount: number;
   playerMode: PlayerModeTypes;
   levelOfDifficulty: LevelTypes;
+  soundEffects: boolean;
 }
 
 export type GameActionType =
   | { type: 'CHECK_SQUARE'; index: number }
   | { type: 'RESET' }
   | { type: 'SET_PLAYER_MODE'; mode: PlayerModeTypes }
-  | { type: 'SET_LEVEL_OF_DIFFICULTY'; level: LevelTypes };
+  | { type: 'SET_LEVEL_OF_DIFFICULTY'; level: LevelTypes }
+  | { type: 'SET_SOUND_EFFECTS'; value: boolean };
 
 export const initialState: GameStateType = {
   data: [...DEFAULT_DATA],
@@ -38,7 +40,8 @@ export const initialState: GameStateType = {
   winnerCombination: [],
   movesCount: 0,
   playerMode: PLAYER_MODE.SINGLE_PLAYER,
-  levelOfDifficulty: LEVELS.EASY
+  levelOfDifficulty: LEVELS.EASY,
+  soundEffects: true
 };
 
 export const gameReducer = (
@@ -82,6 +85,9 @@ export const gameReducer = (
 
     case 'SET_LEVEL_OF_DIFFICULTY': {
       return { ...state, levelOfDifficulty: action.level };
+    }
+    case 'SET_SOUND_EFFECTS': {
+      return { ...state, soundEffects: action.value };
     }
 
     case 'RESET': {

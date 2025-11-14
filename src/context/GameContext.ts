@@ -19,6 +19,8 @@ export interface GameContextTypes {
   setPlayerMode: (mode: PlayerModeTypes) => void;
   levelOfDifficulty: LevelTypes;
   setLevelOfDifficulty: (level: LevelTypes) => void;
+  soundEffects: boolean;
+  setSoundEffects: (value: boolean) => void;
 }
 
 const GameContext = createContext<GameContextTypes | null>(null);

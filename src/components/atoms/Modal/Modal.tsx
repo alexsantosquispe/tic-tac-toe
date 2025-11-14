@@ -64,7 +64,7 @@ export const Modal = ({
               <XIcon />
             </button>
 
-            <h2 className="text-center text-xl font-medium md:text-2xl">
+            <h2 className="text-center text-xl font-medium md:py-2 md:text-2xl">
               {title}
             </h2>
 
