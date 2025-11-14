@@ -34,7 +34,8 @@
         "playerMode": "Player mode",
         "date": "Date"
       }
-    }
+    },
+    "clearHistoryButton": "Clear history"
   },
   "closeModalButtonAriaLabel": "Close modal button",
   "boardAriaLabel": "Tic Tac Toe board",

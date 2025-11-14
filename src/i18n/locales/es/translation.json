@@ -34,7 +34,8 @@
         "playerMode": "Modo",
         "date": "Fecha"
       }
-    }
+    },
+    "clearHistoryButton": "Borrar historial"
   },
   "closeModalButtonAriaLabel": "Botón para cerrar la ventana modal",
   "boardAriaLabel": "Tablero de Tic Tac Toe",

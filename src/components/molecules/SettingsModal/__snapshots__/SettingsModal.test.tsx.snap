@@ -40,7 +40,7 @@ exports[`SettingsModal should render the component correctly 1`] = `
             </svg>
           </button>
           <h2
-            class="text-center text-xl font-medium md:text-2xl"
+            class="text-center text-xl font-medium md:py-2 md:text-2xl"
           >
             Settings
           </h2>
@@ -260,7 +260,7 @@ exports[`SettingsModal should render the component correctly 1`] = `
           </svg>
         </button>
         <h2
-          class="text-center text-xl font-medium md:text-2xl"
+          class="text-center text-xl font-medium md:py-2 md:text-2xl"
         >
           Settings
         </h2>

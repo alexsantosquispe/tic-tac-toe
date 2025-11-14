@@ -7,6 +7,7 @@ import { Cell } from '../Cell/Cell';
 
 interface MatchesTableProps {
   data: MatchType[];
+  className?: string;
 }
 
 const PLAYER_MODE_MAP = {
@@ -14,11 +15,11 @@ const PLAYER_MODE_MAP = {
   [PLAYER_MODE.TWO_PLAYERS]: 'P v P'
 };
 
-export const MatchesTable = ({ data }: MatchesTableProps) => {
+export const MatchesTable = ({ data, className }: MatchesTableProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex w-full flex-col gap-5 px-1 md:px-4 md:pt-4">
+    <div className={twMerge('flex w-full flex-col gap-5 px-1', className)}>
       {!data.length && (
         <div className="flex justify-center p-12">No matches found</div>
       )}

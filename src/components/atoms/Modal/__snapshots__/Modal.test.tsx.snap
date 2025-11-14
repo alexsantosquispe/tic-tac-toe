@@ -40,7 +40,7 @@ exports[`Modal styles should render the component correctly 1`] = `
             </svg>
           </button>
           <h2
-            class="text-center text-xl font-medium md:text-2xl"
+            class="text-center text-xl font-medium md:py-2 md:text-2xl"
           >
             Modal Title
           </h2>
@@ -93,7 +93,7 @@ exports[`Modal styles should render the component correctly 1`] = `
           </svg>
         </button>
         <h2
-          class="text-center text-xl font-medium md:text-2xl"
+          class="text-center text-xl font-medium md:py-2 md:text-2xl"
         >
           Modal Title
         </h2>
