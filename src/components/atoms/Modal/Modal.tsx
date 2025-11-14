@@ -43,7 +43,7 @@ export const Modal = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.1 }}
-          className="fixed z-50 flex h-full w-full items-center justify-center bg-black/50 p-8 backdrop-blur-xs dark:bg-black/20"
+          className="fixed z-50 flex h-[100dvh] w-full flex-1 items-center justify-center bg-black/50 p-8 backdrop-blur-xs dark:bg-black/20"
         >
           <motion.div
             key="modal"
