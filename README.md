@@ -81,6 +81,11 @@ Play a fully functional **3×3 Tic-Tac-Toe** game with a modern, responsive, and
 - **Persistent State**: Your theme preference and match scores are saved to `localStorage`, so they persist across sessions.
 - **Reset Scores**: Functionality to clear the scoreboard is implemented and can be triggered via a dedicated button.
 
+### Game History
+
+- **Match History**: A detailed log of recent matches is available in a modal, showing the outcome of each game.
+- **Clear History**: The match history can be cleared at any time, allowing you to start fresh.
+
 ### Technical Features
 
 - **⚡ Performance**: Code splitting, lazy loading, and optimized bundle size
@@ -257,8 +262,8 @@ The following scripts are available in `package.json`:
 ```
 src/
 ├── components/
-│   ├── atoms/          # Basic UI components (Button, Footer, etc.)
-│   └── molecules/      # Composite components (Board, Square)
+│   ├── atoms/          # Basic UI components (Button, Modal, etc.)
+│   └── molecules/      # Composite components (Board, MatchesModal, Square)
 ├── context/            # React Context providers (Game, Theme)
 ├── hooks/              # Custom React hooks
 ├── i18n/               # Internationalization configuration
