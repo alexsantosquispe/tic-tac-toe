@@ -1,7 +1,6 @@
 import { clearMatches, getMatches } from '../../../utils/localStorageUtils';
 
 import { useTranslation } from 'react-i18next';
-import { playClick } from '../../../utils/soundUtils';
 import Button from '../../atoms/Button/Button';
 import { Modal } from '../../atoms/Modal/Modal';
 import { MatchesTable } from './components/MatchesTable/MatchesTable';
@@ -16,7 +15,6 @@ export const MatchesModal = ({ isOpen, onClose }: MatchesModalProps) => {
   const data = getMatches();
 
   const handleClearHistory = () => {
-    playClick();
     clearMatches();
     onClose();
   };

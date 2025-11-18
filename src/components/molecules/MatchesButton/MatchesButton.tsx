@@ -2,7 +2,6 @@ import { Suspense, useCallback, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { TrophyIcon } from '../../../icons/TrophyIcon';
-import { playClick } from '../../../utils/soundUtils';
 import { MatchesModal } from '../MatchesModal/MatchesModal';
 
 export const MatchesButton = () => {
@@ -11,7 +10,6 @@ export const MatchesButton = () => {
 
   const openMatchesModal = useCallback(() => {
     setIsModalOpen(true);
-    playClick();
     document.body.style.overflow = 'hidden';
   }, []);
 

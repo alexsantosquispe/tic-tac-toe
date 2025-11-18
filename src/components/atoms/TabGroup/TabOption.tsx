@@ -1,7 +1,6 @@
 import cn from 'clsx';
 import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { playClick } from '../../../utils/soundUtils';
 
 interface TabOptionProps<T> {
   id: T;
@@ -23,7 +22,6 @@ const TabOption = <T,>({
   const onSelectTab = () => {
     if (!isSelected) {
       onSelect(id);
-      playClick();
     }
   };
 

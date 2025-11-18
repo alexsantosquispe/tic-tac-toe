@@ -16,3 +16,8 @@ Object.defineProperty(window.HTMLMediaElement.prototype, 'play', {
   configurable: true,
   value: jest.fn().mockImplementation(() => Promise.resolve())
 });
+
+Object.defineProperty(window.HTMLMediaElement.prototype, 'load', {
+  configurable: true,
+  value: jest.fn()
+});
