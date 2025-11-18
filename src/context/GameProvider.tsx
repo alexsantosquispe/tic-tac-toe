@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useReducer, useRef, type ReactNode } from 'react';
+import { useSounds } from '../hooks/useSounds';
 import {
   PLAYER_MODE,
   type LevelTypes,
@@ -7,7 +8,6 @@ import {
 import { CPU_MOVE_DELAY, DEFAULT_DATA, PLAYER_O } from '../utils/constants';
 import { getCPUMove } from '../utils/gameUtils';
 import { saveMatch } from '../utils/localStorageUtils';
-import { playClick } from '../utils/soundUtils';
 import GameContext from './GameContext';
 import { gameReducer, initialState } from './reducers/gameReducer';
 
@@ -28,6 +28,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
     soundEffects
   } = state;
   const moves = useRef<number[]>([]);
+  const { playClick } = useSounds();
 
   const isDraw = useMemo(
     () => !winner && movesCount >= DEFAULT_DATA.length,
@@ -35,28 +36,24 @@ const GameProvider = ({ children }: GameProviderProps) => {
   );
 
   const checkSquare = (index: number) => {
-    playClick();
+    if (soundEffects) playClick();
     dispatch({ type: 'CHECK_SQUARE', index });
     moves.current.push(index);
   };
 
   const resetGame = () => {
-    playClick();
     dispatch({ type: 'RESET' });
   };
 
   const setPlayerMode = (mode: PlayerModeTypes) => {
-    playClick();
     dispatch({ type: 'SET_PLAYER_MODE', mode });
   };
 
   const setLevelOfDifficulty = (level: LevelTypes) => {
-    playClick();
     dispatch({ type: 'SET_LEVEL_OF_DIFFICULTY', level });
   };
 
   const setSoundEffects = (value: boolean) => {
-    playClick();
     dispatch({ type: 'SET_SOUND_EFFECTS', value });
   };
 
@@ -71,14 +68,22 @@ const GameProvider = ({ children }: GameProviderProps) => {
 
       if (cpuMove !== null) {
         const timeout = setTimeout(() => {
-          playClick();
+          if (soundEffects) playClick();
           dispatch({ type: 'CHECK_SQUARE', index: cpuMove });
         }, CPU_MOVE_DELAY);
 
         return () => clearTimeout(timeout);
       }
     }
-  }, [playerMode, levelOfDifficulty, currentPlayer, winner, data]);
+  }, [
+    playerMode,
+    levelOfDifficulty,
+    currentPlayer,
+    winner,
+    data,
+    soundEffects,
+    playClick
+  ]);
 
   useEffect(() => {
     if (winner || isDraw) {

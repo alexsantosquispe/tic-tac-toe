@@ -103,4 +103,28 @@ describe('gameReducer', () => {
     expect(result.levelOfDifficulty).toBe(LEVELS.HARD);
     expect(result).not.toBe(state); // ensure immutability
   });
+
+  it('should set the level of difficulty when SET_LEVEL_OF_DIFFICULTY is dispatched', () => {
+    const state: GameStateType = { ...initialState };
+
+    const result = gameReducer(state, {
+      type: 'SET_LEVEL_OF_DIFFICULTY',
+      level: LEVELS.HARD
+    });
+
+    expect(result.levelOfDifficulty).toBe(LEVELS.HARD);
+    expect(result).not.toBe(state); // ensure immutability
+  });
+
+  it('should set the sound effects when SET_SOUND_EFFECTS is dispatched', () => {
+    const state: GameStateType = { ...initialState };
+
+    const result = gameReducer(state, {
+      type: 'SET_SOUND_EFFECTS',
+      value: false
+    });
+
+    expect(result.soundEffects).toBe(false);
+    expect(result).not.toBe(state); // ensure immutability
+  });
 });
