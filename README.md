@@ -45,6 +45,7 @@ Play a fully functional **3×3 Tic-Tac-Toe** game with a modern, responsive, and
 - 🌍 **Internationalization**: Multi-language support (English/Spanish)
 - 🎨 **Theme Support**: Light, dark, and system theme modes
 - ✨ **Smooth Animations**: Powered by Framer Motion
+- 🔊 **Sound Effects**: Engaging audio feedback on game events
 - 🧪 **Comprehensive Testing**: 100% test coverage with Jest and Testing Library
 - 📱 **Responsive Design**: Works perfectly on all device sizes
 - ⚡ **Performance Optimized**: Code splitting and lazy loading
@@ -72,6 +73,7 @@ Play a fully functional **3×3 Tic-Tac-Toe** game with a modern, responsive, and
 - **🌍 Internationalization**: Support for English and Spanish with easy language switching
 - **🎨 Theme Support**: Light, dark, and system theme modes with persistent preferences
 - **✨ Smooth Animations**: Framer Motion powered transitions and micro-interactions
+- **🔊 Sound Effects**: Audio feedback for moves, wins, and draws.
 - **📱 Responsive Design**: Optimized for desktop, tablet, and mobile devices.
 - **♿ Advanced Accessibility**: Full WCAG compliance, including smart focus management (skipping disabled cells), `aria-live` regions for announcements, and descriptive `aria-labels` for all controls.
 
@@ -267,6 +269,7 @@ src/
 ├── context/            # React Context providers (Game, Theme)
 ├── hooks/              # Custom React hooks
 ├── i18n/               # Internationalization configuration
+├── sounds/             # Sound effect assets
 │   └── locales/        # Translation files (en, es)
 ├── icons/              # SVG icon components
 ├── tests/              # Test utilities and helpers
