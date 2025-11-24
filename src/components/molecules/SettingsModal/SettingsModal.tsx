@@ -11,6 +11,7 @@ import {
 import { Modal } from '../../atoms/Modal/Modal';
 import PlayersCard from '../../atoms/PlayersCard/PlayersCard';
 import { SettingsOptions } from './components/SettingsOptions/SettingsOptions';
+import { SoundSwitcher } from './components/SoundSwitcher/SoundSwitcher';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -30,8 +31,14 @@ const playerModeOptions: OptionType<PlayerModeTypes>[] = [
 
 const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
   const { t } = useTranslation();
-  const { playerMode, setPlayerMode, levelOfDifficulty, setLevelOfDifficulty } =
-    useGame();
+  const {
+    playerMode,
+    levelOfDifficulty,
+    soundEffects,
+    setPlayerMode,
+    setLevelOfDifficulty,
+    setSoundEffects
+  } = useGame();
 
   const levelOptions: OptionType<LevelTypes>[] = useMemo(
     () => [
@@ -72,6 +79,11 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
           onSelectOption={onSelectLevel}
           className={{ container: 'w-full flex-row', option: 'py-2' }}
           isDisabled={playerMode === PLAYER_MODE.TWO_PLAYERS}
+        />
+
+        <SoundSwitcher
+          soundEffects={soundEffects}
+          setSoundEffects={setSoundEffects}
         />
       </div>
     </Modal>

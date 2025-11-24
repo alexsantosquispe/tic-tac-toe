@@ -14,13 +14,15 @@ interface TabGroupProps<T> {
   optionIdSelected: T;
   onSelectOption: (optionId: T) => void;
   isDefault?: boolean;
+  className?: string;
 }
 
 export const TabGroup = <T extends string | number | symbol>({
   options,
   optionIdSelected,
   onSelectOption,
-  isDefault = true
+  isDefault = true,
+  className
 }: TabGroupProps<T>) => {
   const transformMap: Record<T, string> = options.reduce(
     (acc, option, index) => {
@@ -37,12 +39,13 @@ export const TabGroup = <T extends string | number | symbol>({
         data-testid="selected-indicator"
         className={twMerge(
           'absolute top-1 left-1 h-7 w-7 rounded-md shadow',
-          'transform transition-transform duration-300 ease-in-out',
+          'transform transition-transform duration-200 ease-in-out',
           currentTransform,
           cn({
             'bg-rose-600': !isDefault,
             'bg-black dark:bg-white': isDefault
-          })
+          }),
+          className
         )}
       />
 

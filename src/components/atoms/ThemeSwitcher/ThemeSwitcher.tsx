@@ -19,6 +19,7 @@ export const ThemeSwitcher = () => {
       options={THEME_OPTIONS}
       optionIdSelected={theme}
       onSelectOption={setTheme}
+      className="duration-300"
     />
   );
 };

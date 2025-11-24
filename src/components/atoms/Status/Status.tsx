@@ -7,17 +7,23 @@ interface StatusProps {
   winner: string | null;
   isDraw: boolean;
   currentPlayer: string;
+  soundEffects: boolean;
 }
 
-const Status = ({ winner, isDraw, currentPlayer }: StatusProps) => {
+const Status = ({
+  winner,
+  isDraw,
+  currentPlayer,
+  soundEffects
+}: StatusProps) => {
   const { t } = useTranslation();
   const { playWin } = useSounds();
 
   useEffect(() => {
-    if (winner) {
+    if (winner && soundEffects) {
       playWin();
     }
-  }, [winner, playWin]);
+  }, [winner, playWin, soundEffects]);
 
   return (
     <p className="text-xl font-medium" aria-live="polite">
