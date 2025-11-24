@@ -28,6 +28,13 @@ export const LEVELS = {
 
 export type LevelTypes = (typeof LEVELS)[keyof typeof LEVELS];
 
+export const SOUND_EFFECTS = [
+  { id: 'on', label: 'ON' },
+  { id: 'off', label: 'OFF' }
+] as const;
+
+export type SoundEffectsType = (typeof SOUND_EFFECTS)[number]['id'];
+
 export type OptionType<T> = {
   value: T;
   component: ReactNode;

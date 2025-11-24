@@ -16,7 +16,8 @@ const Button = lazy(() => import('./components/atoms/Button/Button'));
 
 function App() {
   const { t } = useTranslation();
-  const { data, winner, currentPlayer, resetGame, isDraw } = useGame();
+  const { data, winner, currentPlayer, resetGame, isDraw, soundEffects } =
+    useGame();
   const isBoardDirty = useMemo(() => getIsBoardDirty(data), [data]);
 
   return (
@@ -41,6 +42,7 @@ function App() {
                 winner={winner}
                 isDraw={isDraw}
                 currentPlayer={currentPlayer}
+                soundEffects={soundEffects}
               />
 
               <Suspense

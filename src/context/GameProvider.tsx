@@ -27,7 +27,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
     levelOfDifficulty,
     soundEffects
   } = state;
-  const moves = useRef<number[]>([]);
+  const xMoves = useRef<number[]>([]);
   const { playClick } = useSounds();
 
   const isDraw = useMemo(
@@ -38,11 +38,12 @@ const GameProvider = ({ children }: GameProviderProps) => {
   const checkSquare = (index: number) => {
     if (soundEffects) playClick();
     dispatch({ type: 'CHECK_SQUARE', index });
-    moves.current.push(index);
+    xMoves.current.push(index);
   };
 
   const resetGame = () => {
     dispatch({ type: 'RESET' });
+    xMoves.current = [];
   };
 
   const setPlayerMode = (mode: PlayerModeTypes) => {
@@ -63,7 +64,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
       currentPlayer === PLAYER_O &&
       !winner
     ) {
-      const lastIndexMove = moves.current[moves.current.length - 1];
+      const lastIndexMove = xMoves.current[xMoves.current.length - 1];
       const cpuMove = getCPUMove(data, lastIndexMove, levelOfDifficulty);
 
       if (cpuMove !== null) {

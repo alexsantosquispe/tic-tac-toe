@@ -20,8 +20,13 @@
         "hard": "Difícil"
       }
     },
-    "continueButton": "Continuar",
-    "continueButtonAriaLabel": "Botón para continuar"
+    "soundEffects": {
+      "title": "Efectos de sonido",
+      "options": {
+        "on": "ON",
+        "off": "OFF"
+      }
+    }
   },
   "matches": {
     "title": "Partidas",

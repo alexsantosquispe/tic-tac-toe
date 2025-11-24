@@ -94,7 +94,8 @@ export const gameReducer = (
       return {
         ...initialState,
         playerMode: state.playerMode,
-        levelOfDifficulty: state.levelOfDifficulty
+        levelOfDifficulty: state.levelOfDifficulty,
+        soundEffects: state.soundEffects
       };
     }
 

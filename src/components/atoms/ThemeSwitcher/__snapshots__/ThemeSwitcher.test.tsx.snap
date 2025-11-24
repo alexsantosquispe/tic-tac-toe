@@ -9,7 +9,7 @@ exports[`ThemeSwitcher styles should render the component correctly 1`] = `
         class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
       >
         <div
-          class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-300 ease-in-out translate-x-[0rem] bg-black dark:bg-white"
+          class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform ease-in-out translate-x-[0rem] bg-black dark:bg-white duration-300"
           data-testid="selected-indicator"
         />
         <button
@@ -112,7 +112,7 @@ exports[`ThemeSwitcher styles should render the component correctly 1`] = `
       class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
     >
       <div
-        class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-300 ease-in-out translate-x-[0rem] bg-black dark:bg-white"
+        class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform ease-in-out translate-x-[0rem] bg-black dark:bg-white duration-300"
         data-testid="selected-indicator"
       />
       <button

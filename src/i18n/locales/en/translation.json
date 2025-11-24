@@ -20,8 +20,13 @@
         "hard": "Hard"
       }
     },
-    "continueButton": "Continue",
-    "continueButtonAriaLabel": "Continue button"
+    "soundEffects": {
+      "title": "Sound effects",
+      "options": {
+        "on": "ON",
+        "off": "OFF"
+      }
+    }
   },
   "matches": {
     "title": "Matches",
