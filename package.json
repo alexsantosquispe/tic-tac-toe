@@ -37,7 +37,7 @@
     "react-i18next": "16.0.0",
     "tailwind-merge": "3.3.1",
     "tailwindcss": "4.1.13",
-    "use-theme-hook": "link:../packages/use-theme-hook"
+    "use-theme-hook": "file:use-theme-hook-1.0.0-beta.1.tgz"
   },
   "devDependencies": {
     "@eslint/js": "9.36.0",

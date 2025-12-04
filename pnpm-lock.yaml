@@ -42,8 +42,8 @@ importers:
         specifier: 4.1.13
         version: 4.1.13
       use-theme-hook:
-        specifier: link:../packages/use-theme-hook
-        version: link:../packages/use-theme-hook
+        specifier: file:use-theme-hook-1.0.0-beta.1.tgz
+        version: file:use-theme-hook-1.0.0-beta.1.tgz(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     devDependencies:
       '@eslint/js':
         specifier: 9.36.0
@@ -3467,6 +3467,13 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
+
+  use-theme-hook@file:use-theme-hook-1.0.0-beta.1.tgz:
+    resolution: {integrity: sha512-yVBtsVq+1+guHXGjJVIAG1t5dAQcvT2vKMrVN5u7Wc++8ioOIPenhQlR2x8ZyejA79t9LKErpKy5xL7q8iACpg==, tarball: file:use-theme-hook-1.0.0-beta.1.tgz}
+    version: 1.0.0-beta.1
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
 
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
@@ -7228,6 +7235,11 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
+
+  use-theme-hook@file:use-theme-hook-1.0.0-beta.1.tgz(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+    dependencies:
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
   v8-compile-cache-lib@3.0.1: {}
 
