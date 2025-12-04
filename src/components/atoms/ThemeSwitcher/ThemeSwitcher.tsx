@@ -1,5 +1,5 @@
+import { useTheme } from 'use-theme-hook';
 import { THEME_TYPES } from '../../../context/ThemeContext';
-import { useTheme } from '../../../hooks/useTheme';
 import { MoonIcon } from '../../../icons/MoonIcon';
 import { SunIcon } from '../../../icons/SunIcon';
 import { SystemIcon } from '../../../icons/SystemIcon';

@@ -8,9 +8,9 @@ import {
   within
 } from '@testing-library/react';
 
+import { ThemeProvider } from 'use-theme-hook';
 import App from './App';
 import GameProvider from './context/GameProvider';
-import ThemeProvider from './context/ThemeProvider';
 import { I18NWrapper } from './tests/testsUtils';
 
 jest.mock('./context/reducers/gameReducer', () => {
@@ -23,6 +23,22 @@ jest.mock('./context/reducers/gameReducer', () => {
     }
   };
 });
+
+jest.mock('use-theme-hook', () => ({
+  __esModule: true,
+  THEME_TYPES: {
+    SYSTEM: 'system',
+    LIGHT: 'light',
+    DARK: 'dark'
+  },
+  useTheme: () => ({
+    theme: 'light',
+    setTheme: jest.fn()
+  }),
+  ThemeProvider: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="mock-theme-provider">{children}</div>
+  )
+}));
 
 describe('App', () => {
   describe('twoPlayers mode', () => {
