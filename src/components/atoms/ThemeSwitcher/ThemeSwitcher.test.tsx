@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
+import { THEME_TYPES, ThemeProvider } from 'use-theme-hook';
 
-import { ThemeProvider } from 'use-theme-hook';
-import { THEME_TYPES } from '../../../context/ThemeContext';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 //TODO: This is just a workaround to make the test pass

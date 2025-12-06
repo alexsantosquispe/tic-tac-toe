@@ -42,8 +42,8 @@ importers:
         specifier: 4.1.13
         version: 4.1.13
       use-theme-hook:
-        specifier: file:use-theme-hook-1.0.0-beta.1.tgz
-        version: file:use-theme-hook-1.0.0-beta.1.tgz(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: file:use-theme-hook-1.0.0-beta.2.tgz
+        version: file:use-theme-hook-1.0.0-beta.2.tgz(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     devDependencies:
       '@eslint/js':
         specifier: 9.36.0
@@ -3468,9 +3468,9 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  use-theme-hook@file:use-theme-hook-1.0.0-beta.1.tgz:
-    resolution: {integrity: sha512-yVBtsVq+1+guHXGjJVIAG1t5dAQcvT2vKMrVN5u7Wc++8ioOIPenhQlR2x8ZyejA79t9LKErpKy5xL7q8iACpg==, tarball: file:use-theme-hook-1.0.0-beta.1.tgz}
-    version: 1.0.0-beta.1
+  use-theme-hook@file:use-theme-hook-1.0.0-beta.2.tgz:
+    resolution: {integrity: sha512-g9xXh2Vds3mjjTepx9IVhNh8MepWY51TjFO3frOfDYOBH5AK9WZwm1LYFD1ewfJe0ecId4qPklbBm6luwVmTbw==, tarball: file:use-theme-hook-1.0.0-beta.2.tgz}
+    version: 1.0.0-beta.2
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -7236,7 +7236,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  use-theme-hook@file:use-theme-hook-1.0.0-beta.1.tgz(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  use-theme-hook@file:use-theme-hook-1.0.0-beta.2.tgz(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
