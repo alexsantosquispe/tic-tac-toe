@@ -15,7 +15,9 @@
     "lint:fix": "eslint . --fix",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -72,7 +74,10 @@
     "ts-node": "10.9.2",
     "typescript": "5.8.3",
     "typescript-eslint": "8.44.0",
-    "vite": "npm:rolldown-vite@7.1.12"
+    "vite": "npm:rolldown-vite@7.1.12",
+    "storybook": "^10.1.4",
+    "@storybook/react-vite": "^10.1.4",
+    "eslint-plugin-storybook": "^10.1.4"
   },
   "pnpm": {
     "overrides": {
