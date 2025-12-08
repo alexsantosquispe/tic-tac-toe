@@ -6,7 +6,26 @@ const meta = {
   title: 'Atoms/Button',
   component: Button,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
+    docs: {
+      source: {
+        type: 'code', // ensures the code panel is shown
+        code: `
+<>
+  <Button
+    title="Button"
+    ariaLabel="button component"
+    onClick={() => {}}
+  />
+  <Button
+    title="Button"
+    ariaLabel="button component"
+    onClick={() => {}}
+    isDisabled={true}
+  />
+</>`.trim()
+      }
+    }
   }
 } satisfies Meta<typeof Button>;
 
