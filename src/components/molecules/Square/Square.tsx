@@ -43,6 +43,7 @@ interface SquareProps {
   playerMode: PlayerModeTypes;
   isHighLight?: boolean;
   isDisabled?: boolean;
+  className?: string;
 }
 
 const Square = ({
@@ -52,7 +53,8 @@ const Square = ({
   currentPlayer,
   playerMode,
   isHighLight = false,
-  isDisabled = false
+  isDisabled = false,
+  className
 }: SquareProps) => {
   const disabled =
     !!value ||
@@ -80,7 +82,8 @@ const Square = ({
           'bg-rose-50 dark:bg-rose-800/40': isHighLight,
           'opacity-25 brightness-30 dark:opacity-80 dark:brightness-50':
             !isHighLight && isDisabled
-        })
+        }),
+        className
       )}
       aria-label={value || 'Empty'}
       type="button"
