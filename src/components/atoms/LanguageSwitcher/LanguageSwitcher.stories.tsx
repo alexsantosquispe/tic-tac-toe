@@ -1,5 +1,5 @@
+import { ThemeProvider } from '@aes/use-theme-hook';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ThemeProvider } from 'use-theme-hook';
 import { I18NWrapper } from '../../../tests/testsUtils';
 import { LanguageSwitcher } from './LanguageSwitcher';
 

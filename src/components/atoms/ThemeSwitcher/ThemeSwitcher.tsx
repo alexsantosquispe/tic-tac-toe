@@ -1,4 +1,4 @@
-import { THEME_TYPES, useTheme } from 'use-theme-hook';
+import { THEME_TYPES, useTheme } from '@aes/use-theme-hook';
 
 import { MoonIcon } from '../../../icons/MoonIcon';
 import { SunIcon } from '../../../icons/SunIcon';

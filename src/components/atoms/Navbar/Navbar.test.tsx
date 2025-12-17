@@ -1,5 +1,5 @@
+import { ThemeProvider } from '@aes/use-theme-hook';
 import { render } from '@testing-library/react';
-import { ThemeProvider } from 'use-theme-hook';
 import Navbar from './Navbar';
 
 jest.mock('react-i18next', () => ({
@@ -13,7 +13,7 @@ jest.mock('react-i18next', () => ({
 }));
 
 //TODO: This is just a workaround in order to pass the tests, it will be fixed when the ThemeProvider is refactored
-jest.mock('use-theme-hook', () => ({
+jest.mock('@aes/use-theme-hook', () => ({
   __esModule: true,
   THEME_TYPES: {
     SYSTEM: 'system',
