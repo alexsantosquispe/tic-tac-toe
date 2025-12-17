@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { ThemeProvider } from 'use-theme-hook';
+import { ThemeProvider } from '@aes/use-theme-hook';
 import { I18NWrapper } from '../../../tests/testsUtils';
 import Navbar from './Navbar';
 
