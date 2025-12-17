@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom';
 
+import { THEME_TYPES, ThemeProvider } from '@aes/use-theme-hook';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { THEME_TYPES, ThemeProvider } from 'use-theme-hook';
 
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 //TODO: This is just a workaround to make the test pass
-jest.mock('use-theme-hook', () => ({
+jest.mock('@aes/use-theme-hook', () => ({
   __esModule: true,
   THEME_TYPES: {
     SYSTEM: 'system',
