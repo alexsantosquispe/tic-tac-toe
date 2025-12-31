@@ -29,7 +29,7 @@
     ]
   },
   "dependencies": {
-    "@alexsantosquispe/use-theme-hook": "1.0.1-beta.1",
+    "@alexsantosquispe/use-theme-hook": "1.0.1-beta.2",
     "@tailwindcss/vite": "4.1.13",
     "clsx": "2.1.1",
     "framer-motion": "12.23.22",
