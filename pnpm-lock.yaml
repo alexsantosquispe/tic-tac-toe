@@ -11,9 +11,9 @@ importers:
 
   .:
     dependencies:
-      '@aes/use-theme-hook':
-        specifier: file:aes-use-theme-hook-1.0.1-beta.1.tgz
-        version: file:aes-use-theme-hook-1.0.1-beta.1.tgz(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@alexsantosquispe/use-theme-hook':
+        specifier: 1.0.1-beta.1
+        version: 1.0.1-beta.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@tailwindcss/vite':
         specifier: 4.1.13
         version: 4.1.13(rolldown-vite@7.1.12(@types/node@24.10.1)(jiti@2.6.1)(yaml@2.8.1))
@@ -162,9 +162,8 @@ packages:
   '@adobe/css-tools@4.4.4':
     resolution: {integrity: sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==}
 
-  '@aes/use-theme-hook@file:aes-use-theme-hook-1.0.1-beta.1.tgz':
-    resolution: {integrity: sha512-FSkbJToCPpPQCTT0XyBlwpM1nU/A1a/2k22cS7Gs1XOmN5dVyjw9aKTLucioeNctzEV+p1uVSFPUXo43Zh9x0g==, tarball: file:aes-use-theme-hook-1.0.1-beta.1.tgz}
-    version: 1.0.1-beta.1
+  '@alexsantosquispe/use-theme-hook@1.0.1-beta.1':
+    resolution: {integrity: sha512-WWRW79ch1XXM7TblSLGp0kTKJSMdkCzLM4EFRkpFcqOoYcNf5IkqfKpnU1pPtun4EGvsT0w8gu9hhcOWzLptGA==}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
@@ -4023,7 +4022,7 @@ snapshots:
 
   '@adobe/css-tools@4.4.4': {}
 
-  '@aes/use-theme-hook@file:aes-use-theme-hook-1.0.1-beta.1.tgz(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@alexsantosquispe/use-theme-hook@1.0.1-beta.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
