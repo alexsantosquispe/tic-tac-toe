@@ -8,7 +8,7 @@ import {
   within
 } from '@testing-library/react';
 
-import { ThemeProvider } from '@aes/use-theme-hook';
+import { ThemeProvider } from '@alexsantosquispe/use-theme-hook';
 import App from './App';
 import GameProvider from './context/GameProvider';
 import { I18NWrapper } from './tests/testsUtils';
@@ -24,7 +24,7 @@ jest.mock('./context/reducers/gameReducer', () => {
   };
 });
 
-jest.mock('@aes/use-theme-hook', () => ({
+jest.mock('@alexsantosquispe/use-theme-hook', () => ({
   __esModule: true,
   THEME_TYPES: {
     SYSTEM: 'system',
