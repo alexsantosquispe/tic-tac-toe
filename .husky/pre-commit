@@ -1,25 +1,36 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
 set -e
 
-# Error handler to display a helpful message on failure
+# Error handler
 on_error() {
+  echo ""
   echo "❌ Pre-commit failed${CURRENT_STEP:+ at step: $CURRENT_STEP}"
+  echo ""
   exit 1
 }
 trap 'on_error' ERR
 
 echo "🔍 Running pre-commit checks..."
-echo "⏳ Checking ESLint and Prettier rules..."
 
+# 1. Type check
+echo "⏳ Checking TypeScript types..."
+CURRENT_STEP="typecheck"
+pnpm run typecheck
+CURRENT_STEP=""
+
+# 2. Linter and formatter
+echo "🎨 Running ESLint and Prettier (lint-staged)..."
 CURRENT_STEP="lint-staged"
 pnpm exec lint-staged
 CURRENT_STEP=""
 
-echo "🧪 Running all tests..."
+# 3. Tests
+echo "🧪 Running tests..."
 CURRENT_STEP="tests"
-pnpm exec jest
+pnpm exec jest --findRelatedTests --passWithNoTests
 CURRENT_STEP=""
 
-echo "✅ Pre-commit checks passed successfully."
+echo ""
+echo "✅ Pre-commit checks passed successfully!"
+echo ""

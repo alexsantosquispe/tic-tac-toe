@@ -21,7 +21,7 @@ export const SoundSwitcher = ({
   };
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="inline-flex items-center justify-between rounded-xl border border-neutral-200 p-3 dark:border-white/20">
       <span>{t('settings.soundEffects.title')}</span>
       <TabGroup
         options={[...SOUND_EFFECTS]}
