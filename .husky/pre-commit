@@ -1,5 +1,3 @@
-#!/usr/bin/env sh
-
 set -e
 
 # Error handler
@@ -28,7 +26,7 @@ CURRENT_STEP=""
 # 3. Tests
 echo "🧪 Running tests..."
 CURRENT_STEP="tests"
-pnpm exec jest --findRelatedTests --passWithNoTests
+pnpm exec jest
 CURRENT_STEP=""
 
 echo ""
