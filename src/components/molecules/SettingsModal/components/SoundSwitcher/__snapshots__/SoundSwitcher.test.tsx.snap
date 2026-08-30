@@ -6,7 +6,7 @@ exports[`SoundSwitcher styles should render the component correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex items-center justify-between"
+        class="inline-flex items-center justify-between rounded-xl border border-neutral-200 p-3 dark:border-white/20"
       >
         <span>
           Sound effects
@@ -15,7 +15,7 @@ exports[`SoundSwitcher styles should render the component correctly 1`] = `
           class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
         >
           <div
-            class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-200 ease-in-out translate-x-[0rem] bg-rose-600"
+            class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-300 ease-in-out translate-x-[0rem] bg-rose-600"
             data-testid="selected-indicator"
           />
           <button
@@ -40,7 +40,7 @@ exports[`SoundSwitcher styles should render the component correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="flex items-center justify-between"
+      class="inline-flex items-center justify-between rounded-xl border border-neutral-200 p-3 dark:border-white/20"
     >
       <span>
         Sound effects
@@ -49,7 +49,7 @@ exports[`SoundSwitcher styles should render the component correctly 1`] = `
         class="relative flex items-center gap-1 rounded-lg border border-neutral-200 p-1 dark:border-white/20"
       >
         <div
-          class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-200 ease-in-out translate-x-[0rem] bg-rose-600"
+          class="absolute top-1 left-1 h-7 w-7 rounded-md shadow transform transition-transform duration-300 ease-in-out translate-x-[0rem] bg-rose-600"
           data-testid="selected-indicator"
         />
         <button

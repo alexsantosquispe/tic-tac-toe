@@ -64,7 +64,12 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
 
   return (
     <Modal title={t('settings.title')} isOpen={isOpen} onClose={onClose}>
-      <div className="flex w-full flex-col gap-5 p-6 pt-2">
+      <div className="flex w-full flex-col gap-5 p-4 pt-2">
+        <SoundSwitcher
+          soundEffects={soundEffects}
+          setSoundEffects={setSoundEffects}
+        />
+
         <SettingsOptions<PlayerModeTypes>
           title={t('settings.playerMode.title')}
           options={playerModeOptions}
@@ -79,11 +84,6 @@ const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
           onSelectOption={onSelectLevel}
           className={{ container: 'w-full flex-row', option: 'py-2' }}
           isDisabled={playerMode === PLAYER_MODE.TWO_PLAYERS}
-        />
-
-        <SoundSwitcher
-          soundEffects={soundEffects}
-          setSoundEffects={setSoundEffects}
         />
       </div>
     </Modal>

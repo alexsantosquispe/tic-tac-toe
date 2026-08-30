@@ -16,14 +16,14 @@ export const useSounds = () => {
   const playClick = useCallback(() => {
     const sound = sounds.current.click;
     sound.currentTime = 0;
-    sound.volume = 0.5;
+    sound.volume = 0.4;
     sound.play().catch(() => {});
   }, []);
 
   const playWin = useCallback(() => {
     const sound = sounds.current.win;
     sound.currentTime = 0;
-    sound.volume = 0.3;
+    sound.volume = 0.05;
     sound.play().catch(() => {});
   }, []);
 
