@@ -32,11 +32,7 @@ function App() {
           <MatchesButton />
 
           <section className="mt-4 mb-4 flex w-full flex-col items-center justify-center gap-6 px-4 md:mb-0 md:gap-8">
-            <h1 className="flex flex-col gap-2 text-center">
-              <Title />
-              <p className="text-base md:text-lg">{t('gameMessage')}</p>
-            </h1>
-
+            <Title className="text-center" />
             <div className="flex flex-col items-center justify-between gap-4 md:gap-8">
               <Status
                 winner={winner}
