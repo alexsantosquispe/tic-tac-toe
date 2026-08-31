@@ -1,5 +1,4 @@
 {
-  "gameMessage": "Let's play a classic game!",
   "turn": "{{player}} turn",
   "draw": "Draw! 🤝",
   "win": "{{player}} wins! 🎉",

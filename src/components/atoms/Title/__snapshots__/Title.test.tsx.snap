@@ -5,7 +5,7 @@ exports[`Title should render the title 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <span
+      <h1
         class="transform text-2xl font-medium transition-transform duration-300 hover:scale-125 md:text-3xl"
       >
         TIC-
@@ -15,11 +15,11 @@ exports[`Title should render the title 1`] = `
           TAC
         </span>
         -TOE
-      </span>
+      </h1>
     </div>
   </body>,
   "container": <div>
-    <span
+    <h1
       class="transform text-2xl font-medium transition-transform duration-300 hover:scale-125 md:text-3xl"
     >
       TIC-
@@ -29,7 +29,7 @@ exports[`Title should render the title 1`] = `
         TAC
       </span>
       -TOE
-    </span>
+    </h1>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
